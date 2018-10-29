@@ -1,0 +1,118 @@
+.cards__row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.cards__item {
+    padding: 0 rem(12);
+    margin-bottom: rem(24);
+    min-width: rem(320);
+    -webkit-flex: 0 0 auto;
+}
+
+//.cards__item:first-child {
+//    margin: 0 auto rem(24);
+//}
+
+.cards__panel {
+    width: rem(320);
+    border-radius: 4px;
+    border: 1px solid #D0D5DF;
+    text-align: center;
+    padding: rem(24);
+}
+
+.cards__item-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: rem(22);
+}
+
+.cards__item .cards__refund {
+    width: auto;
+    text-align: left;
+    font-weight: 600;
+    font-size: rem(14);
+    line-height: 1.57;
+    color: #FF6611;
+}
+
+.cards__item .cards__logo {
+    width: auto;
+    margin-right: rem(16);
+}
+
+.cards__item .cards__logo > i {
+    width: rem(62);
+    height: rem(40);
+    background-size: auto 100%;
+}
+
+.cards__item .cards__logo > i.visa {
+    border: 1px solid #D0D5DF;
+    border-radius: 4px;
+}
+
+.cards__logo {
+    position: relative;
+    width: rem(100);
+    padding: 0;
+}
+.cards__logo > i {
+    display: block;
+    width: rem(100);
+    height: rem(56);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+.cards__logo > i.visa {
+    background-image: url("/images/withdrawal/visa.svg");
+}
+.cards__logo > i.mastercard {
+    background-image: url("/images/withdrawal/mastercard.svg");
+    background-size: 65% auto;
+}
+.cards__logo > i.maestro {
+    background-image: url("/images/withdrawal/maestro.svg");
+    background-size: 62% auto;
+}
+.cards__number {
+    font-size: rem(14);
+    color: #6a6d7c;
+    font-weight: 500;
+    color: #142649;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.cards__number .stars {
+    font-size: rem(20);
+    padding-left: 2px;
+}
+.cards__refund {
+    font-size: rem(24);
+    font-weight: 900;
+    color: #35aa47;
+    width: rem(140);
+    text-align: right;
+    i {
+        font-style: normal;
+    }
+}
+.cards__refund i.cards__refund-amount {
+    vertical-align: middle;
+}
+
+.cards__status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+        display: block;
+        width: rem(18);
+        margin-right: rem(10);
+    }
+}

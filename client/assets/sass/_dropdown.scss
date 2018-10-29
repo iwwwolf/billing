@@ -1,0 +1,129 @@
+.dropdown {
+    &.open {
+        .dropdown-toggle {
+            z-index: 1001;
+            border-bottom: 1px solid $light-gray;
+            border-radius: rem(4 4 0 0);
+
+            &:focus,
+            &:active {
+                box-shadow: none;
+            }
+
+            &:after {
+                border-top: none;
+                border-bottom: rem(5) solid $link-color;
+            }
+        }
+    }
+
+    &.disabled,
+    &[disabled] {
+        &:after {
+            border-top-color: $light-gray;
+        }
+    }
+
+    &--short {
+        width: rem(100);
+        .dropdown-menu {
+            min-width: 0;
+            width: 100%;
+        }
+    }
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: rem(36);
+
+    span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+    }
+
+    &:after {
+        display: block;
+        width: 0;
+        height: 0;
+        border: rem(5) solid transparent;
+        border-top-color: $link-color;
+        border-bottom: none;
+        position: absolute;
+        top: 50%;
+        right: rem(16);
+        opacity: 1;
+        content: '';
+        transform: translateY(-50%);
+    }
+
+    &.--without-arrow {
+        &:after {
+            display: none;
+        }
+    }
+}
+
+.dropdown-menu {
+    width: 100%;
+    min-width: rem(200);
+    border: none;
+    border-top: 1px solid $light-gray;
+    border-radius: rem(0 0 4 4);
+    box-shadow: $shadow-default;
+    top: 0;
+    padding-top: rem(50);
+    max-height: rem(320);
+    overflow: auto;
+
+    & > li {
+        display: block;
+        padding: 0;
+        margin: 0;
+        &.disabled {
+            opacity: 0.7;
+        }
+        & > a {
+            display: block;
+            background: transparent;
+            color: $font-color;
+            cursor: pointer;
+            padding: rem(9) rem(16);
+            &:hover {
+                background: $purple-lighten;
+                color: $font-color;
+                .currency-icon {
+                    background: darken($purple-light, 2%);
+                }
+            }
+        }
+        &.active {
+            opacity: 1;
+            & > a {
+                color: $font-color;
+                background: #FFF8EB;
+                &:hover {
+                    cursor: default;
+                    color: $font-color;
+                    background: #FFF8EB;
+                    .currency-icon {
+                        color: #fff;
+                        background: $link-color;
+                    }
+                }
+            }
+            .currency-icon {
+                color: #fff;
+                background: $link-color;
+            }
+        }
+    }
+}

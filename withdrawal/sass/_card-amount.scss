@@ -1,0 +1,140 @@
+.card-amount {
+    font-size: rem(12);
+    font-weight: 500;
+    text-align: center;
+    max-width: rem(264);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-amount__parent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .card-amount {
+        width: 100%;
+    }
+
+    & ~ .control-label {
+        display: none;
+    }
+}
+
+.card-amount__change {
+    text-transform: uppercase;
+    font-size: rem(12);
+    font-weight: 500;
+    color: $link-color;
+    margin: rem(7 0 0 40);
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.card-amount__cover {
+    display: block;
+    font-weight: 500;
+    position: relative;
+    border-bottom: 1px solid #F0F2F5;
+    margin-bottom: rem(6);
+    transition: border-color 250ms;
+    &.amount-focus {
+        border-bottom-color: rgb(107, 117, 142);
+    }
+}
+
+.card-amount__text {
+    margin-bottom: rem(24);
+    line-height: 1.6666;
+    font-weight: 500;
+    color: #6B758E;
+}
+
+.card-amount__label {
+    display: block;
+    height: rem(36);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.card-amount__input-width {
+  font-size: rem(26);
+  font-weight: 600;
+  padding: 0;
+}
+
+.card-amount__input {
+    height: rem(36);
+    min-width: rem(20);
+    width: rem(20);
+    max-width: 100%;
+    text-align: center;
+    font-size: rem(26);
+    font-weight: 600;
+    color: $black;
+    /* transition: width 150ms; */
+    border: none;
+    padding: 0;
+    background: transparent;
+
+    &::-webkit-input-placeholder {
+        color: #142649;
+    }
+    &:-moz-placeholder {
+        color: #142649;
+    }
+    &::-moz-placeholder {
+        color: #142649;
+    }
+    &:-ms-input-placeholder {
+        color: #142649;
+    }
+    &:focus {
+        outline: none;
+
+        &::-webkit-input-placeholder {
+            opacity: 0;
+        }
+        &:-moz-placeholder {
+            opacity: 0;
+        }
+        &::-moz-placeholder {
+            opacity: 0;
+        }
+        &:-ms-input-placeholder {
+            opacity: 0;
+        }
+
+        & + .card-amount__currency {
+            color: rgb(173, 179, 193);
+        }
+    }
+}
+
+.card-amount__input-block {
+    max-width: 100%;
+    display: inline-block;
+    position: relative;
+}
+
+.card-amount__currency {
+    font-size: rem(12);
+    font-weight: 500;
+    margin-left: rem(3);
+    position: absolute;
+    left: 100%;
+    top: rem(4);
+    transition: color 250ms;
+}
+
+.card-amount .help-text {
+    padding: 0;
+    text-align: center;
+    margin-bottom: 2px;
+}

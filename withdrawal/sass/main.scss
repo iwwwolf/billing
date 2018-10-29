@@ -1,0 +1,224 @@
+@import 'variables';
+@import 'util';
+
+@import 'bootstrap';
+
+* {
+    box-sizing: border-box;
+    &:focus {
+        outline: none;
+    }
+}
+
+html {
+	font: normal ($main-fz) + px/1.571 $main-font;
+}
+body,
+html {
+	background: #FAFAFE;
+    margin: 0;
+}
+
+body {
+	min-height: 100%;
+	font: inherit;
+	font-size: 100%;
+	color: $font-color;
+    min-width: 320px;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 250ms;
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+        color: $link-color-hover;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #696D7E;
+    margin: 0 0 rem(22);
+    font-weight: 600;
+    &.--fw-normal {
+        font-weight: 400;
+    }
+    &.--fw-medium {
+        font-weight: 500;
+    }
+    &.--uppercase {
+        text-transform: uppercase;
+    }
+}
+
+h1 {
+    font-size: rem(26);
+    line-height: 1.1;
+    margin: 0 0 rem(20);
+}
+
+h2 {
+    font-size: rem(30);
+    margin: 0 0 rem(26);
+    line-height: 1.3333;
+}
+
+h3 {
+    font-size: rem(24);
+    line-height: 1.3333;
+}
+
+h4 {
+    font-size: rem(20);
+    line-height: 1.4;
+}
+
+h5 {
+    font-size: rem(16);
+    line-height: 1.5;
+    margin-bottom: rem(8);
+}
+
+h6 {
+    font-size: rem(16);
+    line-height: 1.5;
+}
+
+p {
+    margin: 0 0 rem(16);
+}
+
+.container {
+    width: 100% !important;
+    padding: rem(32 16);
+}
+
+.mb-32 {
+    margin-bottom: rem(32);
+}
+
+.panel {
+    background-color: #fff;
+    padding: rem(30);
+    margin: rem(50) auto 0;
+    border-radius: 2px;
+    box-shadow: 0 0 rem(16) rgba(0, 0, 0, 0.05);
+    position: relative;
+    .header {
+        text-align: center;
+    }
+}
+
+// .help-text {
+//     background: none;
+//     font-size: rem(12);
+//     color: $dark-gray;
+//     &.error {
+//         position: static !important;
+//     }
+// }
+
+
+
+
+// components
+
+@import 'buttons';
+
+@import 'errors';
+
+@import 'tooltip';
+
+@import 'withdrawal';
+
+@import 'submit-loader';
+
+@import 'columns';
+
+@import 'card-amount';
+
+@import 'tabs';
+
+@import 'form';
+
+@import 'method-form';
+
+@import 'cards';
+
+@import 'modal-withdrawal';
+
+@import 'verification';
+
+@import 'requests';
+
+@import 'pagination';
+
+@import 'faq';
+
+@import 'ways';
+
+
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    height: 100%;
+}
+
+
+@media (min-width: 480px) {
+    h5 {
+        font-size: rem(18);
+        line-height: 1.4444;
+    }
+}
+
+@media (min-width: 840px) {
+    .container {
+        max-width: rem(702);
+    }
+
+    h5 {
+        font-size: rem(22);
+        line-height: 1.571;
+    }
+}
+
+@media (min-width: 960px) {
+    .container {
+        max-width: rem(802);
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: rem(1054);
+    }
+}
+
+@media (min-width: 1366px) {
+    .container {
+        max-width: rem(1108);
+    }
+}
+
+
+
+.--flex {
+    display: flex;
+}
+
+.--fz12 {
+    font-size: rem(12);
+}

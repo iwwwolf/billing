@@ -1,0 +1,32 @@
+<div ng-if="experiment === 'wizard'" class="footer-card-details montserrat-font">
+    <div class="card-details-title" translate>billing.enter-card-details</div>
+    <div class="card-details-text" translate>billing.cryptos-added-to-crypto-balance</div>
+</div>
+
+<div class="badges-list-row montserrat-font"
+     ng-class="{'with-orange-buttons': footer.color === 'orange',
+                'green-landing': footer.color === 'green'}">
+    <ul class="badges-list">
+        <li class="badges-list-item badge-eu">
+            <img src="/images/crypto/footer/{{footer.iconsColor}}/safe-store.svg">
+            <span translate>iq4.deposit.safely_stored</span>
+        </li>
+
+        <li class="badges-list-item  badge-ssl">
+            <img src="/images/crypto/footer/{{footer.iconsColor}}/bank-level.svg">
+            <span translate>iq4.deposit.ssl</span>
+        </li>
+
+        <li class="badges-list-item  badge-securecode">
+            <img src="/images/crypto/footer/{{footer.iconsColor}}/pci-dss.svg">
+        </li>
+
+        <li class="badges-list-item  badge-visaverified">
+            <img src="/images/crypto/footer/{{footer.iconsColor}}/mastercard.svg">
+        </li>
+
+        <li class="badges-list-item  badge-dss">
+            <img src="/images/crypto/footer/{{footer.iconsColor}}/visacard.svg">
+        </li>
+    </ul>
+</div>

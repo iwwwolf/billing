@@ -1,0 +1,32 @@
+<div class="transactions-section" ng-if="transactions.cryptoTransactions.length">
+    <h1 translate>crypto_deposit.transactions</h1>
+    <div class="transactions-table">
+        <div class="transactions-table-header flex-row-justify" style="margin-bottom: 13px;">
+            <div class="cryptocurrency-col" translate>crypto_deposit.cryptocurrency</div>
+            <div class="pending-amount-col" translate>crypto_deposit.pending amount</div>
+            <div class="block-approvals-col">{{'crypto_deposit.block approvals' | translate}} - {{'crypto_deposit.progress' | translate}}</div>
+        </div>
+        <div class="transactions-table-container">
+            <div class="transactions-table-body flex-row-justify"
+                 ng-repeat="transaction in transactions.cryptoTransactions">
+                <div class="blockchain-name">
+                    <span>
+                        <img src="/images/cashbox/xs/{{transaction.css_class}}.png" width="22" alt="">
+                        <span class="blockchain-name-text">{{transaction.blockchain}}</span>
+                    </span>
+                </div>
+                <div class="pending-amount">
+                    <span>{{transaction.amount}}
+                        <span class="small-text">{{transaction.iso_code}}</span>
+                    </span>
+                </div>
+                <div class="transaction-confirmations">
+                    <span>
+                        {{transaction.actual_confirmations}}/{{transaction.needful_confirmations}}
+                        <span class="small-text">{{transaction.progress}}%</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

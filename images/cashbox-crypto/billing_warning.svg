@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="21px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>billing_warning</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="DepositPageReg-Copy-3" transform="translate(-632.000000, -457.000000)" fill="#FF5621">
+            <g id="Group-10" transform="translate(208.000000, 291.000000)">
+                <g id="Group-3" transform="translate(114.000000, 40.000000)">
+                    <g id="Group-16" transform="translate(110.000000, 122.000000)">
+                        <g id="Group-30">
+                            <path d="M200,14.5 C200,8.70101013 204.699735,4 210.5,4 C216.29899,4 221,8.69973509 221,14.5 C221,20.2989899 216.300265,25 210.5,25 C204.70101,25 200,20.3002649 200,14.5 Z M209,7 L209,16 L212,16 L212,7 L209,7 Z M209,18 L209,21 L212,21 L212,18 L209,18 Z" id="billing_warning"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

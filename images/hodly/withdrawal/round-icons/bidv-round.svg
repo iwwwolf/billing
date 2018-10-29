@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 8 Copy 22</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.161909091 0.200121212 51.7092727 0.200121212 51.7092727 51.5824242 0.161909091 51.5824242"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="m7-withdraw-balance-0-1366-copy" transform="translate(-303.000000, -637.000000)">
+            <g id="Group-8-Copy-22" transform="translate(303.000000, 637.000000)">
+                <rect id="Mask" fill="#F0F2F5" x="0" y="0" width="80" height="80" rx="40"></rect>
+                <g id="Group-30" transform="translate(14.000000, 14.000000)">
+                    <polyline id="Fill-5" fill="#FFFFFE" points="25.9326364 1.84245455 1.80109091 25.902303 25.9204242 49.9570303 25.9306667 49.9519091 50.0677273 25.9105758 25.935 1.85033333"></polyline>
+                    <polyline id="Fill-6" fill="#D8262C" points="21.9014545 9.75433333 21.8971212 29.8515455 26.1083333 29.8535152 29.971303 29.854697 29.9744545 9.75590909 26.1099091 9.75433333"></polyline>
+                    <g id="Group-10">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Clip-8"></g>
+                        <path d="M32.5476667,25.9184545 L30.3687879,25.9231818 L30.3707576,13.7559697 L32.552,13.7559697 C34.7663333,13.7559697 36.4523939,16.4851818 36.4657879,19.8364242 C36.491,23.1120303 34.7694848,25.9184545 32.5476667,25.9184545 M17.4755455,13.7516364 L21.5110606,13.7516364 L21.5110606,25.922 L17.4755455,25.9208182 L17.4755455,13.7516364" id="Fill-7" fill="#243B80" mask="url(#mask-2)"></path>
+                        <path d="M0.161909091,25.902303 L0.373060606,26.1185758 L25.9322424,51.6060606 L51.7092727,25.9105758 L25.9409091,0.200121212 M25.9306667,49.9519091 L25.9200303,49.9570303 L1.80069697,25.902303 L25.9322424,1.84245455 L25.9346061,1.85033333 L50.0673333,25.9105758 L25.9306667,49.9519091" id="Fill-9" fill="#D8262C" mask="url(#mask-2)"></path>
+                        <polyline id="Fill-11" fill="#D8262C" mask="url(#mask-2)" points="25.9294848 37.5026364 14.3003939 25.902303 2.88521212 25.902303 22.9828182 45.9498788 25.9275152 48.8882727 48.9871515 25.902303 37.5680303 25.902303"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

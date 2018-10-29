@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>bank_transfer copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0,48.0059907 C0,50.2118211 1.7899577,52 3.99400932,52 L48.0059907,52 C50.2118211,52 52,50.2100423 52,48.0059907 L52,3.99400932 C52,1.78817888 50.2100423,0 48.0059907,0 L3.99400932,0 C1.78817888,0 0,1.7899577 0,3.99400932 L0,48.0059907 Z" id="path-1"></path>
+    </defs>
+    <g id="bank_transfer-copy-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" fill="#FFFFFF" fill-rule="nonzero">
+            <rect id="Rectangle" x="0" y="0" width="52" height="52" rx="4"></rect>
+        </g>
+        <g id="Group">
+            <g id="neosurf-copy-2">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Fill-1" fill="#009D5B" xlink:href="#path-1"></use>
+            </g>
+        </g>
+        <g id="Group-12" transform="translate(5.000000, 7.000000)" fill-rule="nonzero">
+            <polygon id="Combined-Shape" fill="#FFFFFF" points="4.53654757 37.6630435 21.1543897 0.0825714593 25.6057486 12.7318691 22.3116333 12.7318691 21.1543897 13.2358324 10.6794641 37.6630435"></polygon>
+            <polygon id="Combined-Shape" fill="#10364A" points="41.8936539 13.0108696 38.3655795 18.2297637 3.59755136 18.2297637 0 13.0108696"></polygon>
+            <polygon id="Combined-Shape-Copy" fill="#10364A" points="36.6436539 21.6847826 33.9998371 26.9036767 7.94588045 26.9036767 5.25 21.6847826"></polygon>
+            <polygon id="Combined-Shape" fill="#FFFFFF" points="38.3786678 37.6630435 32.2035471 37.6630435 21.1543897 13.2358324 20.201309 10.6541396 19.0607767 6.238695 21.1543897 0.0825714593"></polygon>
+        </g>
+    </g>
+</svg>

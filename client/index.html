@@ -1,0 +1,218 @@
+<!doctype html>
+<html ng-controller="MainCtrl" ng-class="htmlClasses" lang="{{ $root.loacale.substring(0, 2) }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title ng-bind="title"></title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,900&amp;subset=cyrillic" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+</head>
+
+<body ng-class="{'loaded': !loading}" class="montserrat-font" resize>
+<div class="mainloader"></div>
+<div class="" ng-class="containerClasses">
+  <div class="billing-block">
+    <!-- <header class="header" ui-view="header"></header> -->
+    <div class="flex-basis-100" style="min-height: 430px;">
+        <div class="columns">
+            <div class="columns__left">
+                <!-- methods tabs -->
+                <!-- ng-class="{'small-tabs-icons': methods.length < 6}" -->
+                <ul class="tabs">
+                    <!-- <li ng-class="{ 'disabled' : !method.isAvalible(), 'active' : method.active }"
+                        class="tabs__item tabs__item--{{ ::method.css_name }}"
+                        ng-repeat="method in cashbox.methods"
+                        ng-click="selectMethod(method);"
+                        ng-if="!method.disabled">
+
+                        <a ng-if="!method.disabled"
+                           ng-click="cashbox.setPaymentMethod(method, $index)">
+
+                            <i class="paymethod-icon">
+                                <img ng-src="{{method.icon_url_xs}}">
+                            </i>
+                            <span>
+                                {{method.name}}
+                            </span>
+                        </a>
+                    </li> -->
+                    <li class="tabs__item tabs__item--visa-mastercard active">
+                        <span class="tabs__radio"></span>
+                        <div class="tabs__text">
+                            Visa or Mastercart
+                            <span>Instant</span>
+                        </div>
+                    </li>
+                    <li class="tabs__item tabs__item--skrill">
+                        <span class="tabs__radio"></span>
+                        <div class="tabs__text">
+                            Skrill
+                            <span>Instant</span>
+                        </div>
+                    </li>
+                    <li class="tabs__item tabs__item--neteller">
+                        <span class="tabs__radio"></span>
+                        <div class="tabs__text">
+                            Neteller
+                            <span>15-20 min</span>
+                        </div>
+                    </li>
+                    <li class="tabs__item tabs__item--giropay">
+                        <span class="tabs__radio"></span>
+                        <div class="tabs__text">
+                            Giropay
+                            <span>Instant</span>
+                        </div>
+                    </li>
+                    <li class="tabs__item tabs__item--qiwi">
+                        <span class="tabs__radio"></span>
+                        <div class="tabs__text">
+                            Qiwi
+                            <span>Instant</span>
+                        </div>
+                    </li>
+                    <li class="tabs__item tabs__item--webmoney-wme">
+                        <span class="tabs__radio"></span>
+                        <div class="tabs__text">
+                            WebMoney WME
+                            <span>Instant</span>
+                        </div>
+                    </li>
+                    <li class="tabs__item tabs__item--webmoney-wmr">
+                        <span class="tabs__radio"></span>
+                        <div class="tabs__text">
+                            WebMoney WMR
+                            <span>Instant</span>
+                        </div>
+                    </li>
+                    <li class="tabs__item tabs__item--webmoney-wmz">
+                        <span class="tabs__radio"></span>
+                        <div class="tabs__text">
+                            WebMoney WMZ
+                            <span>Instant</span>
+                        </div>
+                    </li>
+                    <li class="tabs__item tabs__item--bank-transfer">
+                        <span class="tabs__radio"></span>
+                        <div class="tabs__text">
+                            Bank Transfer
+                            <span>15-20 min</span>
+                        </div>
+                    </li>
+                    <li class="tabs__item tabs__item--astropay">
+                        <span class="tabs__radio"></span>
+                        <div class="tabs__text">
+                            AstroPay
+                            <span>Instant</span>
+                        </div>
+                    </li>
+                </ul>
+                <!-- /.methods tabs -->
+            </div>
+            <div ng-class="{'opened-tab': tabclicked}" class="columns__right">
+                <div ui-view class="view"></div>
+                <footer class="footer" ui-view="footer"></footer>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div ui-view="transactions"></div>
+
+<!-- build:js assets/js/vendor.js -->
+<script type="text/javascript" src="src/vendor/lodash.js"></script>
+<script type="text/javascript" src="src/vendor/polyfill.js"></script>
+<script type="text/javascript" src="src/vendor/clipboard.min.js"></script>
+<script type="text/javascript" src="src/vendor/qrcode.js"></script>
+<script type="text/javascript" src="src/vendor/qrcode_UTF8.js"></script>
+<script type="text/javascript" src="src/vendor/angular.js"></script>
+<script type="text/javascript" src="src/vendor/angular-animate.js"></script>
+<script type="text/javascript" src="src/vendor/angular-ui-router.js"></script>
+<script type="text/javascript" src="src/vendor/angular-sanitize.js"></script>
+<script src="src/vendor/angular-translate.js"></script>
+<script src="src/vendor/angular-translate-storage-cookie.js"></script>
+<script src="src/vendor/angular-translate-storage-local.js"></script>
+<script src="src/vendor/angular-translate-loader-static-files.js"></script>
+
+<script src="src/vendor/angular-cookies.js"></script>
+
+<script type="text/javascript" src="src/vendor/angular-messages.js"></script>
+<script type="text/javascript" src="src/vendor/ui-bootstrap-tpls.js"></script>
+<!-- endbuild -->
+
+<!-- build:js assets/js/main.js -->
+<script type="text/javascript" src="src/app/app.js"></script>
+<script type="text/javascript" src="src/app/cashbox/cashbox.controller.js"></script>
+<script type="text/javascript" src="src/app/crypto-cashbox/cashbox.controller.js"></script>
+<script type="text/javascript" src="src/app/crypto-cashbox/transactions.controller.js"></script>
+<script type="text/javascript" src="src/app/advanced-form/advanced.form.controller.js"></script>
+<script type="text/javascript" src="src/app/astropay-form/astropay.form.controller.js"></script>
+<script type="text/javascript" src="src/app/visa-form/visa.form.controller.js"></script>
+<script type="text/javascript" src="src/app/crypto-visa-form/visa.form.controller.js"></script>
+<script type="text/javascript" src="src/app/crypto-visa-form/payment-status/crypto.purchase.status.controller.js"></script>
+<script type="text/javascript" src="src/app/crypto-visa-form/visa.form.3ds.controller.js"></script>
+<script type="text/javascript" src="src/app/crypto-visa-form/footer.js"></script>
+<script type="text/javascript" src="src/app/visa-form-3ds/visa.form.3ds.controller.js"></script>
+
+<script type="text/javascript" src="src/common/interceptors/httpInterceptor.js"></script>
+
+<script src="src/common/directives/range.directive.js"></script>
+<script src="src/common/directives/only-numbers.directive.js"></script>
+<script src="src/common/directives/only-integers.directive.js"></script>
+<script src="src/common/directives/bonus-trim.directive.js"></script>
+<script src="src/common/directives/autofocus.directive.js"></script>
+<script src="src/common/directives/extend.input.js"></script>
+<script src="src/common/directives/credit_cards/cvc.directive.js"></script>
+<script src="src/common/directives/credit_cards/cc.number.format.directive.js"></script>
+<script src="src/common/directives/credit_cards/luhn.check.directive.js"></script>
+<script src="src/common/directives/credit_cards/card.holder.parser.directive.js"></script>
+<script src="src/common/directives/credit_cards/form.check.directive.js"></script>
+<script src="src/common/directives/resize.directive.js"></script>
+<script src="src/common/directives/clipboard.directive.js"></script>
+<script src="src/common/directives/qrcode.directive.js"></script>
+<script src="src/common/directives/select.text.directive.js"></script>
+<script src="src/common/directives/dateFocus.js"></script>
+<script src="src/common/directives/element.resize.directive.js"></script>
+
+
+<script src="src/common/filters/money.filter.js"></script>
+<script src="src/common/filters/money2.filter.js"></script>
+<script src="src/common/filters/number.filter.js"></script>
+<script src="src/common/filters/lowercase.filter.js"></script>
+
+<script type="text/javascript" src="src/common/services/common-services.module.js"></script>
+<script type="text/javascript" src="src/common/services/payment-methods.factory.js"></script>
+<script type="text/javascript" src="src/common/services/crypto-payment-methods.factory.js"></script>
+<script type="text/javascript" src="src/common/services/currencies.factory.js"></script>
+<script type="text/javascript" src="src/common/services/user-cards.factory.js"></script>
+<script type="text/javascript" src="src/common/services/last-payments.factory.js"></script>
+<script type="text/javascript" src="src/common/services/bonus-info.service.js"></script>
+<script type="text/javascript" src="src/common/services/default-bonuses.factory.js"></script>
+<script type="text/javascript" src="src/common/services/deposits.factory.js"></script>
+<script type="text/javascript" src="src/common/services/user-profile.factory.js"></script>
+<script type="text/javascript" src="src/common/services/card.service.js"></script>
+<script type="text/javascript" src="src/common/services/bonus-terms.factory.js"></script>
+<script type="text/javascript" src="src/common/services/payment-params.factory.js"></script>
+<script type="text/javascript" src="src/common/services/pay-processing.service.js"></script>
+<script type="text/javascript" src="src/common/services/frame-message.service.js"></script>
+<script type="text/javascript" src="src/common/services/get-data-from-session.js"></script>
+<script type="text/javascript" src="src/common/services/last-payments.factory.js"></script>
+<script type="text/javascript" src="src/common/services/events.service.js"></script>
+<script type="text/javascript" src="src/common/services/get-features.factory.js"></script>
+<script type="text/javascript" src="src/common/services/user-finance.factory.js"></script>
+<script type="text/javascript" src="src/common/services/location.service.js"></script>
+<script type="text/javascript" src="src/common/services/configurationService.js"></script>
+<script type="text/javascript" src="src/common/services/get.crypto.transactions.factory.js"></script>
+
+<script type="text/javascript" src="src/common/header.js"></script>
+<script type="text/javascript" src="src/common/footer.js"></script>
+
+<script type="text/javascript" src="tmp/templates.js"></script>
+
+<!-- endbuild -->
+</body>
+
+</html>

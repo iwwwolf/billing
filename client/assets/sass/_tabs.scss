@@ -1,0 +1,299 @@
+//
+// // ==================
+// // tabs
+// // ==================
+//
+//
+// .tabs {
+//     display: flex;
+//     justify-content: flex-start;
+//     align-items: stretch;
+//     width: 100%;
+//     height: 100%;
+//     background: #fff;
+//     overflow: hidden;
+//     margin: 0;
+//     padding: 0;
+// }
+//
+// .tabs__item {
+//     display: block;
+//
+//     &:first-child {
+//         .tabs__link {
+//             border-left: 2px solid $purple-light;
+//         }
+//     }
+// }
+//
+// .tabs__link {
+//     display: block;
+//     height: 100%;
+//     width: 100%;
+//     border-right: 2px solid $purple-light;
+//     //border-top: 2px solid $purple-light;
+//     border-radius: rem(4 4 0 0);
+//     padding: rem(10 8 12);
+//     background: transparent;
+//     box-shadow: none;
+//     color: $dark-gray;
+//     text-transform: uppercase;
+//     font-weight: 500;
+//     font-size: rem(9);
+//     text-align: center;
+//     transition: all 250ms;
+//
+//     span {
+//         display: block;
+//     }
+//
+//     .path-with-fill {
+//         fill: $gray;
+//         transition: fill 250ms;
+//     }
+//
+//     &:hover {
+//         color: $dark-gray;
+//         .path-with-fill {
+//             fill: $link-color;
+//         }
+//     }
+//
+//     .tabs__item.selected & {
+//         color: $dark-gray;
+//         background: $purple-light;
+//         box-shadow: none;
+//         border-color: transparent;
+//
+//         .path-with-fill {
+//             fill: $link-color;
+//         }
+//
+//         &:hover {
+//             cursor: default;
+//         }
+//     }
+//
+//     svg {
+//         min-width: rem(20);
+//         margin-bottom: rem(5);
+//     }
+// }
+//
+// @media (min-width: 768px) {
+//     .tabs {
+//         width: rem(74);
+//         display: block;
+//
+//         &__link {
+//             border-bottom: 2px solid $purple-light;
+//             border-top: none;
+//             border-right: none;
+//             border-left: none !important;
+//             border-radius: 0;
+//         }
+//     }
+// }
+
+
+.tabs {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: #F2F2F7;
+    border: none;
+}
+
+.tabs__item {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    height: 70px;
+    background-color: transparent;
+    border-top: 1px solid #E8E9EB;
+    box-shadow: 0 0 0 transparent;
+    transition: all 250ms;
+
+    &:first-child {
+        border-top: none;
+    }
+
+    &:before {
+        display: block;
+        width: auto;
+        height: 100%;
+        visibility: visible;
+        opacity: 1;
+        background-position: 0 50%;
+        background-repeat: no-repeat;
+        background-size: auto;
+        overflow: hidden;
+        border-radius: 0;
+        position: absolute;
+        top: 0;
+        left: rem(42);
+        right: 0;
+        transition: all 250ms;
+        content: '';
+    }
+
+    &:not(.active) {
+        &:hover {
+            background-color: #fff;
+            border-radius: 4px 0 0 4px;
+            z-index: 3;
+        }
+    }
+
+    &.active {
+        background-color: #fff;
+        box-shadow: 0 4px 16px rgba(33, 102, 212, 0.15);
+        border-radius: 4px 0 0 4px;
+        z-index: 3;
+
+        &.disabled {
+            opacity: 1;
+        }
+    }
+
+    &.disabled {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        filter: #808080;
+        backface-visibility: hidden;
+
+        -webkit-filter: none;
+        filter: none;
+        opacity: 0.5;
+    }
+}
+
+/* Логотипы в табах */
+
+$methods:
+    visa-mastercard,
+    boleto,
+    euteller,
+    fasapay,
+    giropay,
+    ideal,
+    lobanet,
+    multibanco,
+    neosurf,
+    neteller,
+    qiwi,
+    skrill,
+    sofort,
+    advcash,
+    advcash-usd,
+    advcash-brl,
+    astropay,
+    unionpay,
+    webmoney-wme,
+    webmoney-wmr,
+    webmoney-wmz,
+    yandex-money,
+    yandex-money-ru,
+    bank-transfer,
+    teleingreso,
+    mistercash,
+    acb,
+    ambank,
+    bangkok,
+    bank_islam,
+    bca,
+    bidv,
+    bni,
+    bsn,
+    cimb_bank,
+    cimb_niaga,
+    cimb_thai,
+    donga,
+    eximbank,
+    gsb,
+    hong_leong_bank,
+    internet_banking_bri,
+    kasikornbank,
+    kiatnakin_bank,
+    krungsri,
+    ktb_netbank,
+    mandiri,
+    maybank,
+    public_bank,
+    rhb,
+    sacombank,
+    scb,
+    techcombank,
+    tmb,
+    vietcombank,
+    vietinbank,
+    bri,
+    permata,
+    krungthai;
+
+.tabs__item {
+    @each $method in $methods {
+        &--#{$method} {
+            &:before {
+                background-image: url('/images/hodly/withdrawal/tabs/#{$method}.svg');
+            }
+        }
+    }
+}
+
+
+
+
+.tabs__radio {
+    display: block;
+    width: rem(16);
+    height: rem(16);
+    border-radius: 50%;
+    border: 1px solid $light-gray;
+    background: #fff;
+    box-shadow: inset 0 0 0 0 #fff;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: rem(-8);
+    transition: all 250ms;
+    content: '';
+
+    .tabs__item.active & {                     // создаёт правило "tabs__item.active .tabs__radio"
+        background: $link-color;
+        border-color: $link-color;
+        box-shadow: inset 0 0 0 rem(3) #fff;
+    }
+}
+
+.tabs__text {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: rem(14);
+    line-height: 1.2857;
+    padding-left: rem(88);
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    span {
+        display: block;
+        color: $gray;
+        font-size: rem(12);
+        font-weight: normal;
+        padding-top: 2px;
+    }
+}
+
+/* ======== */
+
+@media (min-width: 600px) {
+    .tabs {
+        max-height: rem(510);
+        overflow: auto;
+    }
+}

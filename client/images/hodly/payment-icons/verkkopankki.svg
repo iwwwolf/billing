@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>verkkopankki</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="deposit" transform="translate(-102.000000, -1653.000000)">
+            <g id="verkkopankki" transform="translate(103.000000, 1654.000000)">
+                <rect id="Rectangle-6-Copy-26" stroke="#D0D5DF" fill="#F6F6F6" x="0" y="0" width="32" height="32" rx="2"></rect>
+                <rect id="Rectangle-9" fill="#2B498F" x="5.91972656" y="0.466015625" width="9" height="31"></rect>
+                <rect id="Rectangle-9" fill="#2B498F" transform="translate(16.000000, 16.000000) rotate(90.000000) translate(-16.000000, -16.000000) " x="11.5" y="0.5" width="9" height="31"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

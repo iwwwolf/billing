@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>yandex_money_r</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.00849056604 0.126308244 29.932217 0.126308244 29.932217 40 0.00849056604 40"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="m7-withdraw-balance-0-1366" transform="translate(-743.000000, -867.000000)">
+            <g id="yandex_money_r" transform="translate(743.000000, 867.000000)">
+                <g id="Group-8-Copy-9" fill="#F0F2F5">
+                    <rect id="Mask" x="0" y="0" width="80" height="80" rx="40"></rect>
+                </g>
+                <g id="yandex_dengi_product_icon_cmyk" transform="translate(24.000000, 17.000000)">
+                    <g id="Group-3">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Clip-2"></g>
+                        <path d="M0.000424528302,19.9053763 C0.000424528302,17.6663799 0.185660377,16.2455914 4.76235849,12.7842294 C8.55141509,9.91870968 20.6963208,0.126308244 20.6963208,0.126308244 L20.6963208,16.4729749 L29.932217,16.4729749 L29.932217,40 L2.88523585,40 C1.29863208,40 0,38.6843011 0,37.0767025 L0.000424528302,19.9053763" id="Fill-1" fill="#FFCC01" mask="url(#mask-2)"></path>
+                    </g>
+                    <polyline id="Fill-4" fill="#D6AB05" points="20.6963208 16.4729749 20.6963208 25.9446595 3.72466981 37.658638 25.1823113 30.585233 25.1823113 16.4729749 20.6963208 16.4729749"></polyline>
+                    <path d="M12.9407547,15.9830824 C13.9331604,14.7849462 15.3826415,14.3618638 16.1784906,15.0385663 C16.9743396,15.7152688 16.815283,17.2352688 15.8227358,18.433405 C14.8308962,19.6313978 13.3809906,20.0539068 12.5851415,19.3772043 C11.7891509,18.7006452 11.9486321,17.1810753 12.9407547,15.9830824" id="Fill-5" fill="#030303"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

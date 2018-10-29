@@ -1,0 +1,158 @@
+<div class="advanced-inner montserrat-font"
+     ng-class="{'with-orange-buttons': detail.color === 'orange'}">
+
+    <div class="crypto-header">
+        <h1 translate>advanced form card title</h1>
+        <h2 translate>crypto_purchase.advanced form card subtitle</h2>
+    </div>
+    <div class="crypto-purchase-header">
+        <div class="purchase-column">
+            <div class="payment-amount">
+                <span class="text"><span translate>deposit amount</span>:</span>
+                <span class="amount">{{detail.payParams.amount | money2:detail.currency}}</span>
+            </div>
+            <div class="crypto-amount">
+                <span class="text"><span translate>total with bonus</span>:</span>
+                <span class="amount">{{detail.crypto_amount}} {{detail.payParams.ticker}}</span>
+            </div>
+        </div>
+        <div class="back-column">
+            <a href="" ng-click="detail.eventBack()" translate>change</a>
+        </div>
+    </div>
+    <form class="advanced-form visamastercard-from blue-visamastercard-form"
+          ng-submit="detail.pay()"
+          name="aform"
+          autocomplete="off"
+          novalidate="true">
+
+        <!-- ¯\_(ツ)_/¯ try prevent default browser form auto fill -->
+        <input type="text" tabindex="-1" class="fake-autofill-input">
+        <input type="password" tabindex="-1" class="fake-autofill-input">
+        <input type="text" name="login" tabindex="-1" class="fake-autofill-input">
+        <input type="password" name="password" tabindex="-1" class="fake-autofill-input">
+        <input type="email" name="email" tabindex="-1" class="fake-autofill-input">
+        <input type="password" name="repeatpassword" tabindex="-1" class="fake-autofill-input">
+        <!-- ¯\_(ツ)_/¯ -->
+
+        <div class="advanced-errors" ng-if="detail.formHasErrors"
+             style="margin: 0 auto 18px auto;text-align: left;border-radius: 3px;font-size: 14px;color: #d74a37;">
+            <p ng-repeat="error in detail.cardProcessingErrors" class="advanced-errors-item" style="margin: 0;"
+               translate>{{error}}</p>
+        </div>
+
+        <div class="card-wrapper">
+            <div class="card-side card-front">
+                <div class="card-front-icons">
+                    <img src="/images/advanced/icon-card-visa.svg" alt="card visa" width="34" height="22"
+                         class="icon-card-visa">
+                    <img src="/images/advanced/icon-card-mastercard.svg" alt="card mastercard" width="34" height="22"
+                         class="icon-card-mastercard">
+                    <img src="/images/advanced/icon-card-maestro.svg" alt="card maestro" width="34" height="22"
+                         class="icon-card-maestro">
+                </div>
+                <div class="advanced-form-row">
+                    <div class="advanced-form-input-wrapper">
+                        <input type="text" class="advanced-form-input"
+                               autofocus
+                               id="card-number"
+                               name="card_number"
+                               ng-model="card_recurrent.card_number"
+                               ng-model-options="{allowInvalid:true}"
+                               disabled>
+                        <i></i>
+                    </div>
+                </div>
+                <div class="advanced-form-row advanced-form-group card-expiration">
+                    <label for="card-exp-month" class="advanced-form-label" translate>card expiration</label>
+                    <div class="advanced-form-input-wrapper">
+                        <input type="text"
+                               id="card-exp-month"
+                               name="card_exp_month"
+                               ng-model="card_recurrent.card_exp_month"
+                               class="advanced-form-input"
+                               tabindex="2"
+                               disabled>
+                    </div>
+                    <span class="card-expiration-separator">/</span>
+                    <div class="advanced-form-input-wrapper">
+                        <input type="text"
+                               id="card-exp-year"
+                               name="card_exp_year"
+                               ng-model="card_recurrent.card_exp_year"
+                               class="advanced-form-input"
+                               ng-focus="detail.fieldFocus('card_exp_year')"
+                               disabled>
+                    </div>
+                </div>
+                <div class="advanced-form-row">
+                    <div class="advanced-form-input-wrapper">
+                        <input type="text"
+                               id="card-holder"
+                               name="card_holder"
+                               ng-model="card_recurrent.card_holder"
+                               class="advanced-form-input"
+                               disabled>
+                        <i></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-side card-back">
+                <div class="advanced-form-input-wrapper">
+                    <input type="password" id="card-cvv" class="advanced-form-input"
+                           name="card_cvv"
+                           cvc
+                           only-integers
+                           minlength="3"
+                           maxlength="4"
+                           ng-model="card.card_cvv"
+                           placeholder="{{ 'card cvc' | translate }}"
+                           ng-model-options="{allowInvalid:true}"
+                           ng-focus="detail.fieldFocus('card_cvv')"
+                           ng-blur="detail.fieldBlur('card_cvv','deposit-by-card_cvv')"
+                           ng-class="{'valid': aform.card_cvv.$valid && aform.card_cvv.$dirty,
+                                          'invalid': aform.card_cvv.$invalid && aform.$submitted && detail.showErrors.card_cvv}"
+                           ng-change="detail.removeError('card_cvv')"
+                           tabindex="5"
+                           required>
+                    <div ng-messages="aform.card_cvv.$error" role="alert"
+                         style=""
+                         class="cvv_tooltip error tooltip bottom fade in"
+                         ng-if="aform.$submitted && detail.showErrors.card_cvv && detail.card_cvv_focused">
+                        <div ng-message="required">
+                            <div style="">
+                                <div class="tooltip-arrow"></div>
+                                <div class="tooltip-inner">
+                                    <span translate>required field</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-message="minlength">
+                            <div style="">
+                                <div class="tooltip-arrow"></div>
+                                <div class="tooltip-inner">
+                                    <span translate>card cvc wrong</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <label for="card-cvv" class="card-cvv-descr" translate>card cvv descr</label>
+            </div>
+        </div>
+        <div class="row visamastercard-footer">
+            <button type="submit" class="advanced-form-submit btn" tabindex="6" ng-disabled="detail.payIsProcessing"
+                    style="">
+                <img src="/images/advanced/icon-lock.svg" alt="icon lock" class="icon-lock" width="16" height="18">
+                <span translate>pay</span> <span>{{detail.payParams.amount | money2:detail.currency}}</span>
+                <i class="loader" ng-if="detail.payIsProcessing">
+                    <svg class="circular" viewBox="25 25 50 50">
+                        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4"
+                                stroke-miterlimit="10"></circle>
+                    </svg>
+                </i>
+            </button>
+            <p translate>you agree to the terms</p>
+        </div>
+    </form>
+</div>

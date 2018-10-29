@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>billing_copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="DepositPageReg-Copy-3" transform="translate(-1051.000000, -608.000000)" fill-rule="nonzero" fill="#000000">
+            <g id="Group-10" transform="translate(208.000000, 291.000000)">
+                <g id="Group-3" transform="translate(114.000000, 40.000000)">
+                    <g id="Group-11" transform="translate(310.000000, 264.000000)">
+                        <g id="billing_copy" transform="translate(419.000000, 13.000000)">
+                            <path d="M13,4 L13,2 C13,0.8954305 12.1045695,-2.02906125e-16 11,0 L2,0 C0.8954305,2.02906125e-16 -1.3527075e-16,0.8954305 0,2 L0,12 C1.3527075e-16,13.1045695 0.8954305,14 2,14 L4,14 L4,12 L2,12 L2,2 L11,2 L11,4 L13,4 Z" id="Rectangle-2"></path>
+                            <path d="M6,6 L6,16 L15,16 L15,6 L6,6 Z M6,4 L15,4 C16.1045695,4 17,4.8954305 17,6 L17,16 C17,17.1045695 16.1045695,18 15,18 L6,18 C4.8954305,18 4,17.1045695 4,16 L4,6 C4,4.8954305 4.8954305,4 6,4 Z" id="Rectangle-2-Copy"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

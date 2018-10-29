@@ -1,0 +1,33 @@
+ <div class="modal-content" ng-if="state == 'default'">
+        <div class="modal-header">
+            <button aria-hidden="true" class="close" type="button" ng-click="$close()">
+                ×
+            </button>
+            <div class="modal-logo"></div>
+            <h4 class="modal-title" translate>unlink card title</h4>
+        </div>
+        <div class="modal-body">
+            <p><span translate>unlink card text1</span>{{card_name}}<span translate>unlink card text2</span></p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-lg btn-default" ng-click="$close()" translate>
+                cancel
+            </button>
+            <button class="btn btn-lg btn-danger" style="width:56%" ng-click="unlinkCard()" translate>
+                unlink card
+            </button>
+        </div>
+ </div>
+ <div class="modal-content" ng-if="state == 'unlinkIsOk'">
+     <div class="modal-header">
+         <h4 class="modal-title" translate>card is unlinked</h4>
+         <button type="button" class="close" data-dismiss="modal"  ng-click="$close()" aria-hidden="true">×</button>
+     </div>
+     <div class="modal-body">
+         <div style="text-align:center">
+             <img src="/images/cashbox/icon-success-circle.svg">
+             <h4 style="margin-top:12xp;font-size:24px;color:#32ab51;font-weight:400;line-height:1.33;letter-spacing:-0.2px" translate>card is unlinked header</h4>
+             <p style="margin-top:7xp" translate>card is unlinked text</p>
+         </div>
+     </div>
+ </div>

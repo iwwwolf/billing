@@ -1,0 +1,99 @@
+.modal-withdrawal {
+    .modal-dialog {
+        max-width: rem(430);
+        box-shadow: 0 0 rem(16) 1px rgba(0, 0, 0, 0.07);
+    }
+}
+
+.modal-withdrawal__header {
+    background: $purple-lighten;
+    line-height: 1.571;
+    font-size: rem(14);
+    position: relative;
+    padding: rem(14 48 14 16);
+    margin: 0;
+}
+
+.modal-withdrawal__close {
+    width: rem(16);
+    height: rem(16);
+    display: block;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    position: absolute;
+    top: rem(16);
+    right: rem(16);
+
+    svg {
+        display: block;
+        width: 100%;
+    }
+
+    .path-with-fill {
+        transition: all 250ms;
+    }
+
+    &:hover {
+        .path-with-fill {
+            fill: darken(#9B9B9B, 10%);
+        }
+    }
+}
+
+.modal-withdrawal__body {
+    padding: rem(30 35);
+}
+
+.modal-withdrawal__amount {
+    text-align: center;
+    color: #696D7F;
+    font-size: rem(14);
+    line-height: 1.571;
+    margin-bottom: rem(24);
+
+    &-num {
+        display: block;
+        font-weight: 500;
+        font-size: rem(22);
+        line-height: 1;
+    }
+}
+
+.modal-withdrawal__withdraw {
+    display: flex;
+    justify-content: space-between;
+    color: #696D7F;
+    font-size: rem(14);
+    line-height: 1.571;
+    margin: 0 0 rem(34);
+
+}
+
+.modal-withdrawal__withdraw-amount {
+    font-weight: bold;
+    color: #35A947;
+}
+
+.modal-withdrawal__buttons {
+    display: flex;
+    justify-content:
+    space-between;
+    align-items: center;
+
+    .btn {
+        width: 49%;
+    }
+
+    .--center {
+        margin: 0 auto;
+    }
+}
+
+.modal-backdrop {
+    background-color: #FAFAFE;
+    &.in {
+        opacity: 0.6;
+    }
+}

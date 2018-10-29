@@ -1,0 +1,24 @@
+<ul class="footer__list">
+    <li ng-repeat="badge in footer.badges" class="footer__list-item" ng-class="badge.className">
+        <img alt="{{badge.name}}" ng-src="/images/web/badges/{{badge.name}}.{{badge.format}}"  ng-srcset="/images/web/badges/{{badge.name}}@2x.{{badge.format}} 2x">
+        <span ng-if="badge.text">{{badge.text | translate}}</span>
+    </li>
+
+    <!-- <li class="footer__list-item badge-eu">
+        <img alt=""  src="/images/footer-icons/EU.svg">
+        <span>Funds safely stored in a European bank</span>
+    </li>
+    <li class="footer__list-item badge-ssl">
+        <img alt=""  src="/images/footer-icons/SSL.svg">
+        <span>Bank-level secure encryption</span>
+    </li>
+    <li class="footer__list-item badge-securecode">
+        <img alt=""  src="/images/footer-icons/SecureCode.svg">
+    </li>
+    <li class="footer__list-item badge-visaverified">
+        <img alt=""  src="/images/footer-icons/VisaVerified.svg">
+    </li>
+    <li class="footer__list-item badge-dss">
+        <img alt=""  src="/images/footer-icons/DSS.svg">
+    </li> -->
+</ul>

@@ -1,0 +1,115 @@
+.btn {
+    width: 100%;
+    display: block;
+    border: none;
+    box-shadow: none;
+    background: $btn-color;
+    color: #fff;
+    font-size: rem(14);
+    line-height: 1.5714;
+    font-weight: 600;
+    padding: rem(18) rem(24) rem(17);
+    text-align: center;
+    border-radius: rem(4);
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 0 transparent;
+    transition: all 300ms;
+
+    &--big {
+        font-size: rem(16);
+    }
+
+    &--small {
+        display: inline-block;
+        font-size: rem(12);
+        width: auto;
+        padding-top: rem(11);
+        padding-bottom: rem(11);
+    }
+
+    &--with-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &--micro {
+        font-weight: 300;
+        font-size: rem(12);
+        line-height: 1.5;
+        padding: rem(5 10);
+        text-transform: none;
+    }
+
+    &-success {
+        background: $btn-color;
+        color: #fff;
+        &:active,
+        &:active:focus,
+        &:active:hover,
+        &:hover,
+        &:focus {
+            background: $btn-color-hover;
+            color: #fff;
+        }
+        &:disabled,
+        .disabled {
+            background: $disabled;
+            color: #fff;
+            pointer-events: none;
+            &:hover,
+            &:focus {
+                background: $disabled;
+            }
+        }
+        .submit-loader__path {
+            stroke: #fff;
+        }
+    }
+
+    &-default {
+        background: transparent;
+        color: $btn-color;
+        border: 1px solid $btn-color;
+        &:active,
+        &:active:focus,
+        &:active:hover,
+        &:hover,
+        &:focus {
+            background: $btn-color-hover;
+            color: #fff;
+            border-color: $btn-color-hover;
+        }
+        &:disabled,
+        .disabled {
+            background: transparent;
+            color: $disabled;
+            border-color: $disabled;
+            pointer-events: none;
+            &:hover,
+            &:focus {
+                background: $disabled;
+            }
+        }
+    }
+
+    i {
+        font-style: normal;
+    }
+
+    &.ng-leave {
+        display: none;
+    }
+}
+
+.btn__icon {
+    margin-right: rem(14);
+}
+
+.btn__icon-lock {
+    width: rem(16);
+    height: auto;
+    margin-right: rem(14);
+}

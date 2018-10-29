@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>boleto</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="boleto" transform="translate(1.000000, 1.000000)">
+            <rect id="Rectangle-6-Copy-14" stroke="#D0D5DF" fill="#FFFFFF" x="0" y="0" width="32" height="32" rx="2"></rect>
+            <g id="Group-8" transform="translate(4.000000, 7.000000)" fill="#000105">
+                <polygon id="Fill-17" points="0.0257896965 17.445307 1.57046154 17.445307 1.57046154 0 0.0257896965 0"></polygon>
+                <polygon id="Fill-21" points="10.9360508 17.445307 12.4807227 17.445307 12.4807227 0 10.9360508 0"></polygon>
+                <polygon id="Fill-23" points="17.4464361 17.445307 18.4324246 17.445307 18.4324246 0 17.4464361 0"></polygon>
+                <polygon id="Fill-25" points="5.96009372 17.445307 8.91610783 17.445307 8.91610783 0 5.96009372 0"></polygon>
+                <polygon id="Fill-27" points="20.8048779 17.445307 23.760892 17.445307 23.760892 0 20.8048779 0"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

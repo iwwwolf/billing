@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Danamon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="96.6808165%" id="linearGradient-1">
+            <stop stop-color="#EB712D" offset="0%"></stop>
+            <stop stop-color="#EF9826" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Danamon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="url(#linearGradient-1)" fill-rule="nonzero" x="0" y="0" width="52" height="52" rx="4"></rect>
+        <g id="Group-2" transform="translate(12.500000, 25.000000) scale(-1, 1) translate(-12.500000, -25.000000) translate(-37.000000, 15.000000)" fill-rule="nonzero">
+            <polygon id="path5581" fill="#EF9826" points="16.2112455 13 35 13 18.3359767 18 16.2112455 16.8833474 9 15.062991"></polygon>
+            <polygon id="path5577" fill="#EB712D" points="0 20 0 13 17 13 17 16.8106937 0 20"></polygon>
+            <polygon id="path5579" fill="#FEC02B" points="34.9998714 13 17 20 17.0027949 16.8106809 35 13"></polygon>
+            <polygon id="path5587" fill="#FEC02B" points="73 5.08135122 66.3759289 10.7047738 35 13 73 0"></polygon>
+            <polygon id="path5583" fill="#EB712D" points="35 13 35 12.9945256 73 6 73 12.9986167 35 12.9986167"></polygon>
+        </g>
+        <g id="Group-30" transform="translate(26.000000, 25.870000) scale(1, -1) translate(-26.000000, -25.870000) translate(14.500000, 10.870000)" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M6.54922678,25.4576316 L9.56981834,25.4576316 C11.2939198,25.4576316 12.6865289,25.3191913 14.2223317,23.5324845 C15.3089719,22.2972233 16.5034833,19.5675678 16.5034833,15.1520171 C16.5034833,13.566884 16.5149729,11.9975467 16.2171124,10.3846594 C15.7385856,7.84094722 14.5734384,3.76337613 7.9104692,3.76337613 C6.12752444,3.76337613 6.54922678,3.8098537 6.54922678,3.8098537 L6.54922678,25.454704 L6.54922678,25.4576316 Z M9.97584554,0 C18.9435037,0 22.958523,4.03215209 22.958523,15.0453007 C22.958523,17.9567149 22.1092094,22.8367435 19.4181733,25.8134413 C16.6348919,28.8691014 13.0356824,29.250631 9.99544358,29.250631 L0,29.250631 L0,0 L9.97584554,4.70096747e-14 Z" id="path5563"></path>
+        </g>
+    </g>
+</svg>

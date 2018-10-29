@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>rub</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M48.0010499,24 C48.0010499,37.2562229 37.2572728,48 24.0010499,48 C10.7458769,48 0,37.2562229 0,24 C0,10.744827 10.7458769,0 24.0010499,0 C37.2572728,0 48.0010499,10.744827 48.0010499,24 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="rub">
+            <g>
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Clip-6025" stroke="#D0D5DF" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <g id="Group-3" mask="url(#mask-2)">
+                    <g transform="translate(-6.000000, -3.000000)">
+                        <polygon id="Fill-6024" fill="#FFFFFF" points="0 18 60 18 60 0 0 0"></polygon>
+                        <polygon id="Fill-6026" fill="#0456BD" points="0 36 60 36 60 18 0 18"></polygon>
+                        <polygon id="Fill-6027" fill="#FF1612" points="0 54 60 54 60 36 0 36"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

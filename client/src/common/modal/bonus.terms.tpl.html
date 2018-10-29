@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <div class="modal-logo"></div>
+    <h3 class="modal-title" ng-bind-html="header"></h3>
+    <button class="close" type="button" ng-click="$close()">×</button>
+</div>
+<div class="circular-loader" ng-if="!modalText">
+    <div class="circular-loader-center">
+        <svg viewBox="25 25 50 50">
+            <circle cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"></circle>
+        </svg>
+        <p>{{ 'front.withdrawal loading' | translate }}</p>
+    </div>
+</div>
+<div class="modal-body" ng-if="modalText" ng-bind-html="modalText"></div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default pull-right" ng-click="$close()">
+        {{ 'front.close' | translate }}
+    </button>
+</div>

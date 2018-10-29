@@ -1,0 +1,17 @@
+.alert {
+    padding: rem(11) rem(16) rem(13);
+    font-size: 100%;
+    text-align: left;
+    border-radius: rem(4);
+    margin-bottom: rem(14);
+
+    .form-group & {
+        margin-bottom: 0;
+    }
+
+    &-warning {
+        background-color: #FFF8EB;
+        color: $gray;
+        border-color: darken(#FFF8EB, 10%);
+    }
+}

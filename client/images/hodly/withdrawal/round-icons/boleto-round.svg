@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>boleto_r</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="m7-withdraw-balance-0-1366" transform="translate(-743.000000, -977.000000)">
+            <g id="boleto_r" transform="translate(743.000000, 977.000000)">
+                <g id="Group-8-Copy-18" fill="#F0F2F5">
+                    <rect id="Mask" x="0" y="0" width="80" height="80" rx="40"></rect>
+                </g>
+                <g id="Group-8" transform="translate(21.000000, 25.000000)" fill="#000105">
+                    <polygon id="Fill-17" points="0.0419082569 28.3486239 2.552 28.3486239 2.552 0 0.0419082569 0"></polygon>
+                    <polygon id="Fill-21" points="17.7710826 28.3486239 20.2811743 28.3486239 20.2811743 0 17.7710826 0"></polygon>
+                    <polygon id="Fill-23" points="28.3504587 28.3486239 29.9526899 28.3486239 29.9526899 0 28.3504587 0"></polygon>
+                    <polygon id="Fill-25" points="9.68515229 28.3486239 14.4886752 28.3486239 14.4886752 0 9.68515229 0"></polygon>
+                    <polygon id="Fill-27" points="33.8079266 28.3486239 38.6114495 28.3486239 38.6114495 0 33.8079266 0"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>astropay</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="astropay" transform="translate(1.000000, 1.000000)">
+            <rect id="Rectangle-6-Copy-26" stroke="#D0D5DF" fill="#FFFFFF" x="0" y="0" width="32" height="32" rx="2"></rect>
+            <g id="Group-11" transform="translate(8.000000, 6.000000)" fill-rule="nonzero">
+                <path d="M0.00113372258,2.4930901 C0.00113372258,2.4930901 2.13213085,1.07242534 5.22207669,0.6107093 C12.1478174,-0.454789265 16.0546454,1.35655829 16.0546454,1.35655829 L14.9536302,1.64069125 C14.9536302,1.64069125 12.3076923,1.02564103 9.05787152,1.1789752 C3.48990082,1.44168513 0.746982718,4.69512046 0.746982718,4.69512046 L0.00113372258,2.4930901 Z" id="Shape" fill="#F02E24"></path>
+                <path d="M5.09837515,14.5765842 L3.42157783,19.6069762 L1.27090301,19.6069762 L6.70226823,3.64094954 L9.18101209,3.64094954 L14.6488294,19.6069762 L12.4617025,19.6069762 L10.7484531,14.5765842 L5.09837515,14.5765842 Z M10.3474798,12.936239 L8.78003882,8.34327246 C8.41551767,7.2861611 8.19680497,6.3384061 7.94164016,5.42710321 L7.90518805,5.42710321 C7.68647535,6.37485821 7.39485843,7.35906533 7.1032415,8.30682034 L5.53580053,12.936239 L10.3474798,12.936239 Z" id="Shape" fill="#000000"></path>
+            </g>
+        </g>
+    </g>
+</svg>

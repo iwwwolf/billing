@@ -1,0 +1,310 @@
+<div class="advanced">
+    <div class="sidebar">
+        <div class="advanced__inner">
+
+            <div class="error-message" ng-if="detail.formHasErrors">
+                <div ng-repeat="error in detail.cardProcessingErrors" class="error-message__item" translate>
+                    {{error}}
+                </div>
+            </div>
+
+            <div class="advanced__header">
+                <a class="advanced__back-link" ui-sref="root.cashbox" ng-click="detail.backToCashboxEvent()" ng-if="!detail.payIsProcessing">
+                    <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g class="path-with-fill" transform="translate(-453.000000, -313.000000)" fill="#000000">
+                                <g transform="translate(452.000000, 312.000000)">
+                                    <rect x="3.91304348" y="9.33333333" width="16.9565217" height="4" rx="1.25"></rect>
+                                    <g transform="translate(0.000000, 0.053324)">
+                                        <rect transform="translate(7.173913, 14.946343) rotate(-315.000000) translate(-7.173913, -14.946343) " x="-4.39069071e-13" y="12.946343" width="14.3478261" height="4" rx="1.25"></rect>
+                                        <rect transform="translate(7.173913, 7.412997) scale(1, -1) rotate(-315.000000) translate(-7.173913, -7.412997) " x="-4.37910577e-13" y="5.41299744" width="14.3478261" height="4" rx="1.25"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+                <div class="advanced__header-content">
+                    <h3 translate>advanced form card title</h3>
+                </div>
+            </div>
+            <form class="advanced__form"
+                  ng-submit="detail.pay()"
+                  name="aform"
+                  autocomplete="off"
+                  novalidate="true">
+
+                <!-- ¯\_(ツ)_/¯ try prevent default browser form auto fill -->
+                <input type="text" tabindex="-1" class="fake-autofill-input">
+                <input type="password" tabindex="-1" class="fake-autofill-input">
+                <input type="text" name="login" tabindex="-1" class="fake-autofill-input">
+                <input type="password" name="password" tabindex="-1" class="fake-autofill-input">
+                <input type="email" name="email" tabindex="-1" class="fake-autofill-input">
+                <input type="password" name="repeatpassword" tabindex="-1" class="fake-autofill-input">
+                <!-- ¯\_(ツ)_/¯ -->
+
+                <div class="pay-card pay-card--{{detail.cardType}}">
+                    <div class="pay-card__side pay-card__side--front">
+                        <div class="pay-card__icons-parent">
+                            <div class="pay-card__icons">
+                                <div class="pay-card__icon pay-card__icon-unionpay">
+                                    <img src="/images/advanced/icon-card-unionpay.svg" alt="" width="62" height="40">
+                                </div>
+                                <div class="pay-card__icon pay-card__icon-amex">
+                                    <img src="/images/advanced/icon-card-amex.svg" alt="" width="120" height="30">
+                                </div>
+                                <div class="pay-card__icon pay-card__icon-maestro">
+                                    <img src="/images/advanced/icon-card-maestro.svg" alt="" width="40" height="32">
+                                    <img src="/images/advanced/icon-card-maestro-default.svg" alt="" width="40" height="32">
+                                </div>
+                                <div class="pay-card__icon pay-card__icon-mastercard">
+                                    <img src="/images/advanced/icon-card-mastercard.svg" alt="" width="40" height="32">
+                                    <img src="/images/advanced/icon-card-mastercard-default.svg" alt="" width="40" height="32">
+                                </div>
+                                <div class="pay-card__icon pay-card__icon-visa">
+                                    <img src="/images/advanced/icon-card-visa.svg" alt="" width="74" height="24">
+                                    <img src="/images/advanced/icon-card-visa-default.svg" alt="" width="74" height="24">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form__input-wrapper">
+                                <input type="text" class="form-control"
+                                       autofocus
+                                       id="card-number"
+                                       placeholder="{{ 'card number' | translate }}"
+                                       name="card_number"
+                                       format-card=""
+                                       maxlength="24"
+                                       tabindex="1"
+                                       luhn-check
+                                       ng-model="card.card_number"
+                                       ng-model-options="{allowInvalid:true}"
+                                       ng-focus="detail.fieldFocus('card_number')"
+                                       ng-blur="detail.fieldBlur('card_number', 'deposit-by-card_card-number')"
+                                       ng-class="{'valid': aform.card_number.$valid && aform.card_number.$dirty,
+                                                  'invalid': aform.card_number.$invalid && aform.$submitted && detail.showErrors.card_number}"
+                                       ng-change="detail.removeError('card_number'); detail.setCardType(card.card_number)"
+                                       required>
+                                <div ng-messages="aform.card_number.$error" role="alert"
+                                     class="--error tooltip right fade in"
+                                     ng-if="aform.$submitted && detail.showErrors.card_number && detail.card_number_focus">
+                                    <div ng-message="required">
+                                        <div class="tooltip-arrow"></div>
+                                        <div class="tooltip-inner">
+                                            <span translate>required field</span>
+                                        </div>
+                                    </div>
+                                    <div ng-message="luhnCheck">
+                                        <div class="tooltip-arrow"></div>
+                                        <div class="tooltip-inner">
+                                            <span translate>card number wrong</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-group--expiration">
+
+                            <label for="card-exp-month" class="control-label" translate>card expiration</label>
+
+                            <div class="pay-card__expiration" date-focus>
+
+                                <div class="form__input-wrapper">
+                                    <input type="text"
+                                           id="card-exp-month"
+                                           name="card_exp_month"
+                                           ng-model="card.card_exp_month"
+                                           class="form-control"
+                                           tabindex="2"
+                                           range range-allow-less="true" range-allow-more="true"
+                                           min="detail.rangeLimits.monthMin"
+                                           max="detail.rangeLimits.monthMax"
+                                           ng-model-options="{allowInvalid:true}"
+                                           ng-focus="detail.fieldFocus('card_exp_month')"
+                                           ng-blur="detail.fieldBlur('card_exp_month','deposit-by-card_expiry-month')"
+                                           placeholder="{{ 'card expiry month' | translate }}"
+                                           ng-class="{'valid': aform.card_exp_month.$valid && aform.card_exp_month.$dirty,
+                                                      'invalid': aform.card_exp_month.$invalid && aform.$submitted && detail.showErrors.card_exp_month}"
+                                           minlength="1"
+                                           ng-change="detail.removeError('card_exp_month')"
+                                           only-integers
+                                           maxlength="2"
+                                           required>
+                                    <div ng-messages="aform.card_exp_month.$error" role="alert"
+                                         class="--error tooltip bottom fade in"
+                                         ng-if="aform.$submitted && detail.showErrors.card_exp_month && detail.card_exp_month_focused">
+                                        <div ng-message="required">
+                                            <div class="tooltip-arrow"></div>
+                                            <div class="tooltip-inner">
+                                                <span translate>card expiry month wrong</span>
+                                            </div>
+                                        </div>
+                                        <div ng-message="rangeMax">
+                                            <div class="tooltip-arrow"></div>
+                                            <div class="tooltip-inner">
+                                                <span translate>card expiry month wrong</span>
+                                            </div>
+                                        </div>
+                                        <div ng-message="rangeMin">
+                                            <div class="tooltip-arrow"></div>
+                                            <div class="tooltip-inner">
+                                                <span translate>card expiry month wrong</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="pay-card__expiration-separator">/</span>
+
+                                <div class="form__input-wrapper">
+                                    <input type="text"
+                                           id="card-exp-year"
+                                           name="card_exp_year"
+                                           ng-model="card.card_exp_year"
+                                           class="form-control"
+                                           range range-allow-less="true" range-allow-more="true"
+                                           min="detail.rangeLimits.yearsMin"
+                                           max="detail.rangeLimits.yearsMax"
+                                           ng-model-options="{allowInvalid:true}"
+                                           ng-focus="detail.fieldFocus('card_exp_year')"
+                                           ng-blur="detail.fieldBlur('card_exp_year','deposit-by-card_expiry-year')"
+                                           placeholder="{{ 'card expiry year' | translate }}"
+                                           only-integers
+                                           ng-class="{'valid': aform.card_exp_year.$valid && aform.card_exp_year.$dirty,
+                                                      'invalid': aform.card_exp_year.$invalid && aform.$submitted && detail.showErrors.card_exp_year}"
+                                           ng-change="detail.removeError('card_exp_year')"
+                                           minlength="2"
+                                           tabindex="3"
+                                           maxlength="2"
+                                           required>
+
+                                    <div ng-messages="aform.card_exp_year.$error" role="alert"
+                                         class="--error tooltip bottom fade in"
+                                         ng-if="aform.$submitted && detail.showErrors.card_exp_year && detail.card_exp_year_focused">
+                                        <div ng-message="required">
+                                            <div class="tooltip-arrow"></div>
+                                            <div class="tooltip-inner">
+                                                <span translate>card expiry year empty</span>
+                                            </div>
+                                        </div>
+                                        <div ng-message="rangeMax">
+                                            <div class="tooltip-arrow"></div>
+                                            <div class="tooltip-inner">
+                                                <span translate>card expiry year wrong</span>
+                                            </div>
+                                        </div>
+                                        <div ng-message="rangeMin">
+                                            <div class="tooltip-arrow"></div>
+                                            <div class="tooltip-inner">
+                                                <span translate>card expiry year wrong</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div role="alert"
+                                 class="--error tooltip right fade in"
+                                 ng-if="detail.errorDate">
+                                <div class="tooltip-arrow"></div>
+                                <div class="tooltip-inner">
+                                    <span>{{detail.errorDate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form__input-wrapper">
+                                <input type="text"
+                                       id="card-holder"
+                                       name="card_holder"
+                                       ng-model="card.card_holder"
+                                       class="form-control"
+                                       placeholder="{{ 'cardholder name' | translate }}"
+                                       minlength="2"
+                                       ng-model-options="{allowInvalid:true}"
+                                       card-holder
+                                       tabindex="4"
+                                       ng-focus="detail.fieldFocus('card_holder')"
+                                       ng-blur="detail.fieldBlur('card_holder','deposit-by-card_cardholder')"
+                                       ng-class="{'valid': aform.card_holder.$valid && aform.card_holder.$dirty,
+                                                  'invalid': aform.card_holder.$invalid && aform.$submitted && detail.showErrors.card_holder}"
+                                       ng-change="detail.removeError('card_holder')"
+                                       required>
+                                <div ng-messages="aform.card_holder.$error" role="alert"
+                                     class="--error tooltip bottom fade in"
+                                     ng-if="aform.$submitted && detail.showErrors.card_holder && detail.card_holder_focused">
+                                    <div ng-message="required">
+                                        <div class="tooltip-arrow"></div>
+                                        <div class="tooltip-inner">
+                                            <span translate>required field</span>
+                                        </div>
+                                    </div>
+                                    <div ng-message="minlength">
+                                        <div class="tooltip-arrow"></div>
+                                        <div class="tooltip-inner">
+                                            <span translate>cardholder name wrong</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pay-card__side pay-card__side--back">
+                        <div class="form-group form-group--cvv">
+                            <div class="form__input-wrapper">
+                                <input type="password" id="card-cvv" class="form-control"
+                                       name="card_cvv"
+                                       cvc
+                                       only-integers
+                                       minlength="3"
+                                       maxlength="4"
+                                       ng-model="card.card_cvv"
+                                       placeholder="{{ 'card cvv' | translate }}"
+                                       ng-model-options="{allowInvalid:true}"
+                                       ng-focus="detail.fieldFocus('card_cvv')"
+                                       ng-blur="detail.fieldBlur('card_cvv','deposit-by-card_cvv')"
+                                       ng-class="{'valid': aform.card_cvv.$valid && aform.card_cvv.$dirty,
+                                                  'invalid': aform.card_cvv.$invalid && aform.$submitted && detail.showErrors.card_cvv}"
+                                       ng-change="detail.removeError('card_cvv')"
+                                       tabindex="5"
+                                       required>
+
+                                <div ng-messages="aform.card_cvv.$error" role="alert"
+                                     class="tooltip bottom fade in --error"
+                                     ng-if="aform.$submitted && detail.showErrors.card_cvv && detail.card_cvv_focused">
+                                    <div ng-message="required">
+                                        <div class="tooltip-arrow"></div>
+                                        <div class="tooltip-inner">
+                                            <span translate>required field</span>
+                                        </div>
+                                    </div>
+                                    <div ng-message="minlength">
+                                        <div class="tooltip-arrow"></div>
+                                        <div class="tooltip-inner">
+                                            <span translate>card cvc wrong</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <label for="card-cvv" class="control-label" translate>card cvv descr</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="advanced__footer">
+                    <button type="submit" class="btn btn-success btn--with-icon" tabindex="6"  ng-disabled="detail.payIsProcessing">
+                        <img src="/images/advanced/icon-lock.svg" alt="icon lock" class="btn__icon-lock" width="16" height="18">
+                        <span translate>pay</span>&nbsp;<span>{{detail.payParams.amount | money2:detail.currency}}</span>
+                        <i class="submit-loader" ng-if="detail.payIsProcessing">
+                            <svg class="submit-loader__circular" viewBox="25 25 50 50">
+                                <circle class="submit-loader__path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"></circle>
+                            </svg>
+                        </i>
+                    </button>
+                    <span class="advanced__footer-agree" translate>you agree to the terms</span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

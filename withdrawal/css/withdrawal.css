@@ -1,0 +1,1468 @@
+.withdrawal {
+  padding-top: 10px;
+  padding-bottom: 60px;
+}
+.withdrawal .panel {
+  background-color: #f1f4f6;
+  padding: 30px;
+  margin: 50px auto 0;
+  border-radius: 2px;
+}
+.withdrawal .header {
+  margin: 0 auto 20px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #696d7e;
+  text-align: center;
+}
+.withdrawal .text {
+  font-size: 14px;
+  text-align: center;
+  color: #696d7e;
+}
+.withdrawal-inner {
+  position: relative;
+  min-height: 140px;
+}
+.withdrawal-bonus {
+  text-align: center;
+}
+.withdrawal-bonus .text {
+  max-width: 570px;
+  margin: 16px auto 21px;
+}
+.withdrawal-bonus .bonus-wager {
+  max-width: 750px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 0;
+  border-radius: 4px;
+  background-color: #fff;
+}
+.withdrawal-bonus .bonus-wager-header {
+  font-size: 20px;
+  font-weight: 800;
+  color: #696d7e;
+  line-height: 1;
+}
+.withdrawal-bonus .bonus-wager-text {
+  font-size: 14px;
+  color: #56596b;
+  line-height: 1.4;
+}
+.withdrawal-bonus .bonus-wager-turnover,
+.withdrawal-bonus .bonus-wager-account {
+  padding: 0 40px;
+}
+.withdrawal-bonus .bonus-wager-total {
+  background: transparent url("/images/preloaders/video_loader.gif") no-repeat 50% 50%;
+  background-size: 22px;
+}
+.withdrawal-bonus .bonus-wager-total-box {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 21px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.withdrawal-bonus .bonus-wager-total-box:first-child .bonus-wager-total-amount {
+  color: #2ea547;
+}
+.withdrawal-bonus .bonus-wager-total-amount {
+  margin: 2px auto 0;
+  font-size: 20px;
+  color: #56596b;
+}
+.withdrawal-bonus .bonus-wager-progress,
+.withdrawal-bonus .bonus-wager-progress-bar {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  margin: 19px 0 22px;
+  border-radius: 20px;
+  background-color: #e1e2e6;
+  overflow: hidden;
+}
+.withdrawal-bonus .bonus-wager-progress:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(-45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
+  z-index: 1;
+  background-size: 50px 50px;
+  background-color: #ffa75a;
+  animation: move 2s linear infinite;
+}
+.withdrawal-bonus .bonus-wager-progress-bar {
+  width: 0;
+  margin: 0;
+  float: none;
+  background-color: #35aa47;
+  transition: width 0.25s ease;
+}
+.withdrawal-bonus .bonus-wager-turnover {
+  margin: 0 40px 32px;
+  padding: 0 40px 33px;
+  border-bottom: 1px solid #e1e2e6;
+}
+.withdrawal-bonus .bonus-wager-turnover .bonus-wager-header {
+  margin: 0 auto 12px;
+}
+.withdrawal-bonus .bonus-wager-turnover.loaded .bonus-wager-progress:before {
+  display: none;
+}
+.withdrawal-bonus .bonus-wager-turnover.loaded .bonus-wager-turnover-total {
+  opacity: 1;
+}
+.withdrawal-bonus .bonus-wager-turnover-total {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
+  color: #696d7e;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.withdrawal-bonus .bonus-wager-turnover-total span {
+  white-space: nowrap;
+}
+.withdrawal-bonus .bonus-wager-turnover-total span:first-child {
+  color: #35aa47;
+}
+.withdrawal-bonus .bonus-wager-account .bonus-wager-header {
+  margin: 0 auto 16px;
+}
+.withdrawal-bonus .bonus-wager-account .btn-orange {
+  margin: 18px auto 0;
+  padding: 6px 26px;
+}
+.withdrawal-bonus .bonus-wager-account .btn-orange i {
+  margin-left: 10px;
+}
+.withdrawal-bonus .bonus-wager-account.loaded .bonus-wager-total {
+  background-image: initial;
+}
+.withdrawal-bonus .bonus-wager-account.loaded .bonus-wager-total-box {
+  opacity: 1;
+}
+.withdrawal-bonus .bonus-policy {
+  text-align: center;
+  margin-top: 31px;
+}
+.withdrawal-bonus .bonus-policy a {
+  color: #f70;
+}
+.withdrawal-bonus .remain-amount {
+  display: inline-block;
+  padding: 3px 20px;
+  background-color: #fff;
+  margin-top: 20px;
+  font-size: 20px;
+  color: #515460;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.withdrawal-bonus .remain-amount .fa-question-circle {
+  position: absolute;
+  right: -26px;
+  top: 11px;
+  color: #b2babf;
+}
+.withdrawal-bonus .remain-amount .amount {
+  padding-left: 10px;
+  font-size: 25px;
+  font-weight: 900;
+  vertical-align: -2px;
+}
+
+html[lang="en"] .tt-state-complete .tooltip-inner {
+  max-width: 310px;
+}
+html[lang="en"] .tt-state-canceled .tooltip-inner {
+  max-width: 208px;
+}
+html[lang="ru"] .tt-state-canceled .tooltip-inner {
+  max-width: 222px;
+}
+html[lang="ru"] .tt-state-request .tooltip-inner {
+  max-width: 250px;
+}
+html[lang="ru"] .tt-state-hold .tooltip-inner {
+  max-width: 262px;
+}
+html[lang="ru"] .tt-state-complete .tooltip-inner {
+  max-width: 365px;
+}
+html[lang="ru"] .tt-state-failed .tooltip-inner {
+  max-width: 222px;
+}
+.withdrawal-methods {
+  position: relative;
+  margin: 50px auto 0;
+}
+.withdrawal-methods .withdrawal-inner {
+  margin-top: 30px;
+}
+.withdrawal-methods .withdrawal-inner.loading .withdrawal-methods-panel {
+  min-height: 180px;
+}
+.withdrawal-methods .withdrawal-inner .circular-loader {
+  height: auto;
+  bottom: 0;
+  top: 71px;
+  background-color: #f1f4f6;
+}
+.withdrawal-methods .text {
+  margin: 0;
+}
+.withdrawal-method-header {
+  margin: 20px auto 10px;
+  text-align: center;
+  color: #575b65;
+  font-size: 18px;
+  font-weight: 700;
+}
+.withdrawal-method-warning {
+  margin: 0;
+  padding: 50px 50px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+  color: #545760;
+}
+.withdrawal-methods-tabs {
+  display: table;
+  width: 100%;
+  border: 1px solid #f1f4f6;
+  height: 72px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.withdrawal-methods-tab {
+  display: table-cell;
+  position: relative;
+  height: 100%;
+  font-size: 0;
+  cursor: pointer;
+  border: 0;
+  background-color: #fff;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 85% auto;
+}
+.small-tabs-icons .withdrawal-methods-tab {
+  background-size: auto !important;
+}
+.withdrawal-methods-tab:before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background: #f1f4f6;
+  left: 0;
+  z-index: 10;
+}
+.withdrawal-methods-tab.active {
+  background-color: #f1f4f6;
+}
+.withdrawal-methods-tab.disabled {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: #808080;
+  backface-visibility: hidden;
+}
+.withdrawal-methods-tab:first-child:before {
+  display: none;
+}
+.cards {
+  position: relative;
+  padding: 0;
+}
+.cards > li {
+  list-style: none;
+}
+.cards > li:first-child {
+  margin-top: 20px;
+}
+.cards > li.text {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.cards > li.text + li {
+  border-top: 0;
+}
+.card-row {
+  list-style: none;
+  border-top: 2px solid #fff;
+}
+.card-row:first-child {
+  border-top: none;
+}
+.card-row .form-inner {
+  display: table;
+  width: 100%;
+}
+.card-row .form-inner > div {
+  display: table-cell;
+  vertical-align: middle;
+  white-space: nowrap;
+  padding: 10px;
+}
+.card-logo {
+  position: relative;
+  width: 100px;
+  padding: 0 !important;
+}
+.card-logo > i {
+  display: block;
+  width: 100px;
+  height: 56px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.card-logo > i.visa {
+  background-image: url("/images/withdrawal/visa.svg");
+}
+.card-logo > i.mastercard {
+  background-image: url("/images/withdrawal/mastercard.svg");
+  background-size: 65% auto;
+}
+.card-logo > i.maestro {
+  background-image: url("/images/withdrawal/maestro.svg");
+  background-size: 62% auto;
+}
+.card-number {
+  width: 222px;
+  font-size: 16px;
+  color: #6a6d7c;
+  letter-spacing: 1px;
+}
+.card-number .exp {
+  margin-left: 10px;
+  color: #bb5757;
+}
+.card-number .stars {
+  vertical-align: middle;
+}
+.card-refund {
+  font-size: 24px;
+  font-weight: 900;
+  color: #35aa47;
+  width: 140px;
+  text-align: right;
+}
+.card-refund i.card-refund-amount {
+  vertical-align: middle;
+}
+.card-amount {
+  font-size: 0;
+}
+.card-amount .form-control {
+  display: inline-block;
+  vertical-align: middle;
+  width: 85%;
+  font-weight: 900;
+  font-size: 20px;
+  color: #7b7f81;
+}
+.card-amount-currency {
+  display: inline-block;
+  vertical-align: middle;
+  width: 15%;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 900;
+  color: #8b989e;
+  text-align: center;
+}
+.card-button {
+  max-width: 230px;
+  min-width: 180px;
+}
+.card-button .btn {
+  width: 100%;
+  padding: 4px 12px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.card-button .form-status {
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: lowercase;
+}
+.card-button .success {
+  color: #555;
+}
+.card-button .success .icon-check {
+  margin-right: 10px;
+}
+.card-button .process {
+  color: #696d7e;
+}
+.card-button .process .circular-loader-center {
+  margin-left: 10px;
+}
+.withdrawal-form {
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+.withdrawal-success {
+  font-size: 16px;
+  text-align: center;
+  padding: 60px 30px 75px;
+}
+.withdrawal-success .text {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.row-item {
+  width: 100%;
+  margin: 0px;
+  margin-bottom: 10px;
+  display: table;
+  table-layout: fixed;
+}
+.row-item:last-child {
+  margin-bottom: 0px;
+}
+.row-item .item {
+  display: table-cell;
+  vertical-align: middle;
+}
+.row-item .item.left {
+  text-align: right;
+  padding-right: 20px;
+  color: #525660;
+  font-size: 16px;
+  font-weight: 300;
+}
+.row-item .item.left label {
+  position: relative;
+  font-weight: 300;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+.row-item .item.left.required label:before {
+  content: '*';
+  display: block;
+  position: absolute;
+  color: #bc4b3b !important;
+  font-size: 16px;
+  font-weight: 900;
+  right: -12px;
+  top: -4px;
+}
+.row-item .item.middle .form-control {
+  border-radius: 4px;
+  resize: none;
+}
+.row-item .item.middle .form-control.currency-input {
+  padding-right: 45px;
+}
+.row-item .item.middle .relative {
+  position: relative;
+}
+.row-item .item.middle .relative .field-select {
+  position: absolute;
+  border: 0;
+  opacity: 0;
+  color: transparent;
+  background: transparent;
+}
+.row-item .item.middle .relative .currency {
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  pointer-events: none;
+}
+.row-item .btn-withdrawal {
+  text-transform: uppercase;
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 20px;
+  font-weight: 700;
+  padding: 7px 16px;
+}
+.row-item .btn-withdrawal i {
+  font-style: normal;
+}
+i.ng-binding {
+  font-style: normal;
+}
+.modal-withdrawal .modal-body {
+  padding: 30px 20px 30px;
+  font-size: 18px;
+  text-align: center;
+  color: #6a6d7c;
+}
+.modal-withdrawal .modal-footer {
+  padding: 0 20px 30px;
+  text-align: center;
+}
+.modal-withdrawal .modal-footer .btn {
+  min-width: 186px;
+  padding: 10px;
+  margin-left: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.modal-withdrawal .modal-footer .btn:first-child {
+  margin-left: 0;
+}
+.modal-withdrawal .cards-amount {
+  color: #f70;
+  margin-bottom: 20px;
+}
+.modal-withdrawal .method-amount {
+  margin-bottom: 20px;
+  text-transform: lowercase;
+}
+.modal-withdrawal .method-amount:first-letter {
+  text-transform: uppercase;
+}
+.modal-withdrawal .withdraw-amount {
+  font-weight: 900;
+  color: #35aa47;
+  margin: 0;
+}
+.modal-withdrawal .items {
+  white-space: nowrap;
+  list-style: none;
+  margin: 0 0 40px 0;
+  padding: 0;
+}
+.modal-withdrawal .items .item {
+  display: table;
+  width: 100%;
+  margin-top: 5px;
+  position: relative;
+  font-size: 16px;
+  color: #6a6d7c;
+}
+.modal-withdrawal .items .item:first-child {
+  margin-top: 0;
+}
+.modal-withdrawal .items .item.item-card {
+  background-color: #fff6ef;
+}
+.modal-withdrawal .items .item.item-method {
+  background-color: #f0f4f7;
+}
+.modal-withdrawal .items .item > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+.modal-withdrawal .items .item .item-name {
+  width: 100%;
+}
+.modal-withdrawal .items .item .item-amount {
+  font-size: 16px;
+  padding-right: 24px;
+}
+.modal-withdrawal .items .item .item-amount > i {
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.modal-withdrawal .items .item .item-amount .success {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  background: transparent url("/images/withdrawal/icons/check.svg") no-repeat 50% 50%;
+}
+.modal-withdrawal .items .item .item-amount .failed {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  background: transparent url("/images/withdrawal/icons/cansel.svg") no-repeat 50% 50%;
+  background-size: 74%;
+}
+.modal-withdrawal .items .item .item-logo {
+  position: relative;
+  width: 100px;
+}
+.modal-withdrawal .items .item .item-logo > i {
+  display: block;
+  width: 100px;
+  height: 56px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.modal-withdrawal .items .item .item-logo > i.visa {
+  background-image: url("/images/withdrawal/visa.svg");
+}
+.modal-withdrawal .items .item .item-logo > i.mastercard {
+  background-image: url("/images/withdrawal/mastercard.svg");
+  background-size: 65% auto;
+}
+.modal-withdrawal .items .item .item-logo > i.maestro {
+  background-image: url("/images/withdrawal/maestro.svg");
+  background-size: 62% auto;
+}
+.icon-visa-mastercard {
+  background-image: url("/images/withdrawal/visa-mastercard.svg");
+}
+.icon-boleto {
+  background-image: url("/images/cashbox/x1/boleto.png");
+}
+.icon-euteller {
+  background-image: url("/images/cashbox/x1/euteller.png");
+}
+.icon-fasapay {
+  background-image: url("/images/withdrawal/fasapay.svg");
+}
+.icon-giropay {
+  background-image: url("/images/cashbox/x1/giropay.png");
+}
+.icon-ideal {
+  background-image: url("/images/cashbox/x1/ideal.png");
+}
+.icon-lobanet {
+  background-image: url("/images/cashbox/x1/lobanet.png");
+}
+.icon-mistercash {
+  background-image: url("/images/cashbox/x1/mistercash.png");
+}
+.icon-multibanco {
+  background-image: url("/images/cashbox/x1/multibanco.png");
+}
+.icon-neosurf {
+  background-image: url("/images/cashbox/x1/neosurf.png");
+}
+.icon-neteller {
+  background-image: url("/images/withdrawal/neteller.svg");
+  background-size: 75%;
+}
+.icon-qiwi {
+  background-image: url("/images/withdrawal/qiwi.svg");
+}
+.icon-skrill {
+  background-image: url("/images/withdrawal/skrill.svg");
+  background-size: 60%;
+}
+.icon-sofort {
+  background-image: url("/images/cashbox/x1/sofort.png");
+}
+.icon-cubits {
+  background-image: url("/images/cashbox/x1/cubits.png");
+}
+.icon-unionpay {
+  background-image: url("/images/withdrawal/unionpay.svg");
+  background-size: 58%;
+}
+.icon-wechat {
+  background-image: url("/images/withdrawal/wechat.svg");
+}
+.icon-cashu {
+  background-image: url("/images/withdrawal/cashu.svg");
+}
+.icon-webmoney {
+  background-image: url("/images/withdrawal/webmoney.svg");
+}
+.icon-webmoney-wme {
+  background-image: url("/images/withdrawal/webmoney-wme.svg");
+}
+.icon-webmoney-wmr {
+  background-image: url("/images/withdrawal/webmoney-wmr.svg");
+}
+.icon-webmoney-wmz {
+  background-image: url("/images/withdrawal/webmoney-wmz.svg");
+}
+.icon-yandex-money {
+  background-image: url("/images/withdrawal/yandex-money.svg");
+}
+.icon-bank-transfer {
+  background-image: url("/images/withdrawal/bank-transfer.svg");
+  background-size: 58%;
+}
+.icon-paypal {
+  background-image: url("/images/withdrawal/paypal.svg");
+}
+.icon-advcash{
+  background-image: url("/images/withdrawal/advcash.svg");
+}
+.icon-advcash-brl{
+  background-image: url("/images/withdrawal/advcash-brl.svg");
+  background-size: 75%;
+}
+.icon-advcash-eur{
+  background-image: url("/images/withdrawal/advcash-eur.svg");
+  background-size: 75%;
+}
+.icon-advcash-usd{
+  background-image: url("/images/withdrawal/advcash-usd.svg");
+  background-size: 75%;
+}
+html[lang="ru"] .icon-bank-transfer {
+  background-image: url("/images/withdrawal/bank-transfer-ru.svg");
+}
+html[lang="ru"] .icon-yandex-money {
+  background-image: url("/images/withdrawal/yandex-money-ru.svg");
+}
+.btn .circular-loader-center {
+  height: 16px;
+  width: 16px;
+  margin-left: 10px;
+}
+.btn .circular-loader-center svg {
+  top: -2px;
+}
+.btn .circular-loader-center svg circle {
+  stroke: #fff;
+}
+.withdrawal-methods-panel {
+  margin-top: 0 !important;
+}
+.withdrawal-faq {
+  padding-left: 70px;
+  padding-right: 70px;
+}
+.withdrawal-faq .circular-loader {
+  background-color: #f1f4f6;
+}
+.modal-bonus-terms .circular-loader {
+  position: relative;
+  height: 250px;
+  border: 0;
+}
+.modal-bonus-terms .modal-body {
+  position: relative;
+  min-height: 250px;
+}
+.modal-bonus-terms .modal-body > ol {
+  list-style: none;
+  padding-left: 0;
+}
+.modal-bonus-cancel .circular-loader-center > svg > circle {
+  stroke: #fff;
+}
+.modal-bonus-cancel .modal-content {
+  max-width: 550px;
+  margin: 0 auto;
+  border-radius: 0;
+}
+.modal-bonus-cancel .modal-header {
+  background-color: #e6eaec;
+  border: none;
+}
+.modal-bonus-cancel .modal-header .close {
+  margin-top: -2px;
+  font-size: 2em;
+}
+.modal-bonus-cancel .modal-title {
+  font-size: 16px;
+  line-height: 1.3;
+  color: #000;
+  text-transform: none;
+}
+.modal-bonus-cancel .modal-body {
+  padding: 18px 30px;
+}
+.modal-bonus-cancel .bonus-cancel-descr {
+  margin: 0 0 8px;
+  line-height: 1.4;
+  color: #000;
+}
+.modal-bonus-cancel .bonus-cancel-policy {
+  line-height: 1.1;
+  color: #f70;
+}
+.modal-bonus-cancel .bonus-cancel-options {
+  margin: 40px 0 0;
+  text-align: center;
+}
+.modal-bonus-cancel .bonus-wager-box {
+  display: inline-block;
+  vertical-align: middle;
+  width: 180px;
+}
+.modal-bonus-cancel .fa-arrow-right {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 42px;
+  color: #b2b2b2;
+  font-size: 18px;
+}
+.modal-bonus-cancel .fa-spin {
+  margin-left: 6px;
+}
+.modal-bonus-cancel .bonus-wager-text {
+  margin-bottom: 7px;
+  line-height: 1.1;
+  color: #000;
+}
+.modal-bonus-cancel .bonus-wager-total-amount {
+  font-size: 24px;
+  color: #000;
+}
+.modal-bonus-cancel .bonus-wager-box:first-child .bonus-wager-total-amount {
+  color: #2ea547;
+}
+.modal-bonus-cancel .modal-footer {
+  width: 100%;
+  padding: 24px 30px 30px;
+  border: none;
+  font-size: 0;
+}
+.modal-bonus-cancel .modal-footer .btn {
+  min-width: 200px;
+  margin: 0;
+  font-size: 16px;
+}
+.modal-bonus-cancel .bonus-cancel-success,
+.modal-bonus-cancel .bonus-cancel-error {
+  padding: 40px 0 58px;
+  text-align: center;
+}
+.modal-bonus-cancel .bonus-cancel-status-title {
+  margin: 0 auto 10px;
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.2px;
+}
+.modal-bonus-cancel .bonus-cancel-status-title.success {
+  color: #32ab51;
+}
+.modal-bonus-cancel .bonus-cancel-status-title.error {
+  color: #d74a37;
+}
+.modal-bonus-cancel .bonus-cancel-status-descr {
+  width: 324px;
+  margin: 0 auto;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #000;
+}
+.modal-bonus-cancel .bonus-cancel-status-icon {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  line-height: 84px;
+  overflow: hidden;
+}
+.modal-bonus-cancel .bonus-cancel-status-icon img {
+  height: auto;
+  width: 100%;
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 2px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.btn:focus,
+.btn:active:focus {
+  outline: 0 none;
+}
+.btn:hover,
+.btn:focus {
+  color: #333;
+  text-decoration: none;
+}
+.btn:active,
+.btn.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+  box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+}
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.65;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn-lg {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 4px;
+}
+.btn-sm,
+.btn-xs {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+.btn-xs {
+  padding: 1px 5px;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+.btn-default {
+  color: #6a6d7c;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default {
+  color: #333;
+  background-color: #ebebeb;
+  border-color: #adadad;
+}
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default {
+  background-image: none;
+}
+.btn-default.disabled,
+.btn-default[disabled],
+fieldset[disabled] .btn-default,
+.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default:hover,
+.btn-default.disabled:focus,
+.btn-default[disabled]:focus,
+fieldset[disabled] .btn-default:focus,
+.btn-default.disabled:active,
+.btn-default[disabled]:active,
+fieldset[disabled] .btn-default:active,
+.btn-default.disabled.active,
+.btn-default[disabled].active,
+fieldset[disabled] .btn-default.active {
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #f70;
+  border-color: #e66b00;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #d66400;
+  border-color: #a84f00;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+  background-color: #f70;
+  border-color: #e66b00;
+}
+.btn-warning {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:active,
+.btn-warning.active,
+.open .dropdown-toggle.btn-warning {
+  color: #fff;
+  background-color: #ed9c28;
+  border-color: #d58512;
+}
+.btn-warning:active,
+.btn-warning.active,
+.open .dropdown-toggle.btn-warning {
+  background-image: none;
+}
+.btn-warning.disabled,
+.btn-warning[disabled],
+fieldset[disabled] .btn-warning,
+.btn-warning.disabled:hover,
+.btn-warning[disabled]:hover,
+fieldset[disabled] .btn-warning:hover,
+.btn-warning.disabled:focus,
+.btn-warning[disabled]:focus,
+fieldset[disabled] .btn-warning:focus,
+.btn-warning.disabled:active,
+.btn-warning[disabled]:active,
+fieldset[disabled] .btn-warning:active,
+.btn-warning.disabled.active,
+.btn-warning[disabled].active,
+fieldset[disabled] .btn-warning.active {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+.btn-danger {
+  color: #fff;
+  background-color: #d84a38;
+  border-color: #ce3b28;
+}
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-danger.active,
+.open .dropdown-toggle.btn-danger {
+  color: #fff;
+  background-color: #c13726;
+  border-color: #9b2c1e;
+}
+.btn-danger:active,
+.btn-danger.active,
+.open .dropdown-toggle.btn-danger {
+  background-image: none;
+}
+.btn-danger.disabled,
+.btn-danger[disabled],
+fieldset[disabled] .btn-danger,
+.btn-danger.disabled:hover,
+.btn-danger[disabled]:hover,
+fieldset[disabled] .btn-danger:hover,
+.btn-danger.disabled:focus,
+.btn-danger[disabled]:focus,
+fieldset[disabled] .btn-danger:focus,
+.btn-danger.disabled:active,
+.btn-danger[disabled]:active,
+fieldset[disabled] .btn-danger:active,
+.btn-danger.disabled.active,
+.btn-danger[disabled].active,
+fieldset[disabled] .btn-danger.active {
+  background-color: #d84a38;
+  border-color: #ce3b28;
+}
+.btn-success {
+  color: #fff;
+  background-color: #35aa47;
+  border-color: #2f973f;
+}
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success.active,
+.open .dropdown-toggle.btn-success {
+  color: #fff;
+  background-color: #2b8b3a;
+  border-color: #20682b;
+}
+.btn-success:active,
+.btn-success.active,
+.open .dropdown-toggle.btn-success {
+  background-image: none;
+}
+.btn-success.disabled,
+.btn-success[disabled],
+fieldset[disabled] .btn-success,
+.btn-success.disabled:hover,
+.btn-success[disabled]:hover,
+fieldset[disabled] .btn-success:hover,
+.btn-success.disabled:focus,
+.btn-success[disabled]:focus,
+fieldset[disabled] .btn-success:focus,
+.btn-success.disabled:active,
+.btn-success[disabled]:active,
+fieldset[disabled] .btn-success:active,
+.btn-success.disabled.active,
+.btn-success[disabled].active,
+fieldset[disabled] .btn-success.active {
+  background-color: #35aa47;
+  border-color: #2f973f;
+}
+.btn-info {
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-info.active,
+.open .dropdown-toggle.btn-info {
+  color: #fff;
+  background-color: #39b3d7;
+  border-color: #269abc;
+}
+.btn-info:active,
+.btn-info.active,
+.open .dropdown-toggle.btn-info {
+  background-image: none;
+}
+.btn-info.disabled,
+.btn-info[disabled],
+fieldset[disabled] .btn-info,
+.btn-info.disabled:hover,
+.btn-info[disabled]:hover,
+fieldset[disabled] .btn-info:hover,
+.btn-info.disabled:focus,
+.btn-info[disabled]:focus,
+fieldset[disabled] .btn-info:focus,
+.btn-info.disabled:active,
+.btn-info[disabled]:active,
+fieldset[disabled] .btn-info:active,
+.btn-info.disabled.active,
+.btn-info[disabled].active,
+fieldset[disabled] .btn-info.active {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+.btn-link {
+  color: #f70;
+  font-weight: normal;
+  cursor: pointer;
+  border-radius: 0;
+}
+.btn-link,
+.btn-link:active,
+.btn-link[disabled],
+fieldset[disabled] .btn-link {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn-link,
+.btn-link:hover,
+.btn-link:focus,
+.btn-link:active {
+  border-color: transparent;
+}
+.btn-link:hover,
+.btn-link:focus {
+  color: #b35300;
+  text-decoration: underline;
+  background-color: transparent;
+}
+.btn-link[disabled]:hover,
+fieldset[disabled] .btn-link:hover,
+.btn-link[disabled]:focus,
+fieldset[disabled] .btn-link:focus {
+  color: #999;
+  text-decoration: none;
+}
+.btn-orange {
+  background-color: #f70;
+  border-color: #f17203;
+  color: #fff;
+}
+.btn-orange:hover,
+.btn-orange:focus,
+.btn-orange:active,
+.btn-orange.active,
+.open .dropdown-toggle.btn-orange {
+  color: #fff;
+  background-color: #d66400;
+  border-color: #b55502;
+}
+.btn-orange:active,
+.btn-orange.active,
+.open .dropdown-toggle.btn-orange {
+  background-image: none;
+}
+.btn-orange.disabled,
+.btn-orange[disabled],
+fieldset[disabled] .btn-orange,
+.btn-orange.disabled:hover,
+.btn-orange[disabled]:hover,
+fieldset[disabled] .btn-orange:hover,
+.btn-orange.disabled:focus,
+.btn-orange[disabled]:focus,
+fieldset[disabled] .btn-orange:focus,
+.btn-orange.disabled:active,
+.btn-orange[disabled]:active,
+fieldset[disabled] .btn-orange:active,
+.btn-orange.disabled.active,
+.btn-orange[disabled].active,
+fieldset[disabled] .btn-orange.active {
+  background-color: #f70;
+  border-color: #f17203;
+}
+@media (min-width: 768px) {
+  .withdrawal-bonus .bonus-wager-turnover {
+    border-right: 1px solid #e1e2e6;
+    border-bottom: 0;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .withdrawal-bonus .bonus-wager-total {
+    white-space: nowrap;
+  }
+}
+/* Medium devices (desktops, 992px and up) */
+@media (max-width: 993px) {
+  .withdrawal-methods .withdrawal-inner {
+    display: flex;
+    align-items: center;
+    background-color: #f1f4f6;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+  }
+  .withdrawal-methods .withdrawal-inner.loading .withdrawal-methods-tabs {
+    min-height: 180px;
+    background: #fff;
+  }
+  .withdrawal-methods .withdrawal-inner .circular-loader {
+    top: 0;
+    right: 0;
+    left: 120px;
+    width: auto;
+  }
+  .withdrawal-methods-panel {
+    border-radius: 4px;
+    -webkit-box-shadow: 0 0 0 rgba(0,0,0,0);
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
+  .withdrawal-methods-tabs {
+    display: block;
+    width: 120px;
+    height: auto;
+  }
+  .withdrawal-methods-tab {
+    display: block;
+    width: 120px;
+    height: 70px;
+    border-left: 0;
+    border-top: 1px solid #f1f4f6;
+  }
+  .withdrawal-methods-tab:first-child {
+    border-top: 0;
+  }
+  .withdrawal-methods-tab:before {
+    display: none;
+  }
+  .row-item .item.left {
+    display: block;
+    max-width: 300px;
+    margin: auto;
+    text-align: left;
+    margin-bottom: 3px;
+  }
+  .row-item .item.middle {
+    display: block;
+    max-width: 300px;
+    width: 100% !important;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .row-item .item.right {
+    display: none;
+  }
+  .card-row .form-inner {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .card-row .form-inner .card-logo {
+    width: 100px;
+  }
+  .card-row .form-inner > div {
+    display: inline-block;
+    width: auto;
+    margin: 0 auto;
+  }
+  .card-amount-currency {
+    width: auto;
+  }
+  .card-amount-currency ~ .form-control {
+    margin-left: 10px;
+  }
+  .form-control ~ .card-amount-currency {
+    margin-left: 10px;
+  }
+  .requests-list th.comment,
+  .requests-list td.comment {
+    display: none;
+  }
+  .row-item .btn-withdrawal {
+    width: auto;
+  }
+}
+@media (max-width: 769px) {
+  .requests-list th.date,
+  .requests-list td.date {
+    display: none;
+  }
+  .withdrawal-requests .requests-list td.button {
+    min-width: 30px;
+    width: 30px;
+  }
+  .withdrawal-requests .requests-list td.button .btn {
+    font-size: 0;
+    width: 30px;
+    height: 30px;
+  }
+  .withdrawal-requests .requests-list td.button .btn i {
+    font-size: 16px;
+    font-style: normal;
+    line-height: 19px;
+    font-weight: 400;
+  }
+  .withdrawal-requests .requests-list td.method .num {
+    white-space: normal;
+  }
+}
+@media (min-width: 768px) {
+  .withdrawal-bonus .bonus-wager-turnover {
+    border-right: 1px solid #e1e2e6;
+    border-bottom: 0;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .withdrawal-bonus .bonus-wager-total {
+    white-space: nowrap;
+  }
+}
+
+.cardConfirmWarning {
+  padding: 50px 15px;
+  text-align: center;
+  background-color: #F1F4F6;
+}
+
+.cardConfirmWarning-icon {
+  width: 52px;
+  height: 45px;
+  margin: 0 auto;
+  display: block;
+}
+
+.cardConfirmWarning-title {
+  color: #696D7E;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.cardConfirmWarning-text {
+  width: 100%;
+  color: #696D7F;
+  font-size: 12px;
+  max-width: 540px;
+  line-height: 18px;
+  margin: 12px auto 0;
+}
+
+.cardConfirmWarning-btn {
+  color: #FFFFFF;
+  font-size: 18px;
+  min-width: 230px;
+  margin-top: 26px;
+}
+
+.cardConfirmWarning-later {
+  color: #C4C7CE;
+  font-size: 14px;
+  margin-top: 12px;
+  line-height: 18px;
+}
+.cardConfirmWarning-later a {
+  color: #C4C7CE !important;
+  text-decoration: underline;
+}
+
+.cardConfirmWarning-later a:hover {
+  color: #FF5722 !important;
+  text-decoration: none;
+}
+
+
+/* Volkov Ivan 16.05.2018 */
+
+@media (max-width: 993px) {
+    .confirm-block {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -webkit-flex-direction: column-reverse;
+        -ms-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+    }
+}
+
+@media (min-width: 994px) {
+    .confirm-block {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        justify-content: center;
+        -ms-align-items: stretch;
+        align-items: stretch;
+        -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+    }
+
+    .cardConfirmWarning {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        position: relative;
+        padding-bottom: 30px;
+    }
+
+    .cardConfirmWarning + .cardConfirmWarning {
+        max-width: 50%;
+    }
+
+    .cardConfirmWarning + .cardConfirmWarning:before {
+        display: block;
+        width: 1px;
+        height: 200px;
+        background: #e1e1e6;
+        position: absolute;
+        right: 0;
+        top: 60px;
+        content: '';
+    }
+}
+
+.cardConfirmWarning-icon {
+    margin-bottom: 15px;
+}
+
+.cardConfirmWarning-later {
+    text-align: center;
+    padding-bottom: 50px;
+}

@@ -1,0 +1,124 @@
+.badges-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 30px 0;
+    font-size: 0;
+    list-style: none;
+    background-color: #ebeef0;
+}
+
+.badges-list-item-sep {
+    display: inline-block;
+    width: 1px;
+    height: 30px;
+    vertical-align: middle;
+    background-color: #d2d7d9;
+}
+
+.badges-list-item {
+    position: relative;
+    white-space: nowrap;
+}
+
+.badges-list-item img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.badges-list-item span {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 90px;
+    margin-left: 12px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #4C4C4C;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.33;
+}
+
+.badges-list-item.badge-cysec span {
+    max-width: 96px;
+}
+
+.badges-list-item.badge-eu span {
+    max-width: 110px;
+}
+
+html[lang="ru"] .badges-list-item.badge-eu span {
+    max-width: 124px;
+}
+
+.badges-list-item.badge-regafi span {
+    max-width: 60px;
+}
+
+.badges-list-item.badge-crofr span {
+    max-width: 80px;
+}
+
+.badges-list-item a {
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.15s ease;
+}
+
+.badges-list-item a span {
+    color: #000;
+}
+
+.badges-list-item a:hover,
+.badges-list-item a:focus,
+.badges-list-item a:active {
+    opacity: 1;
+}
+
+@media (max-width: 900px) {
+    .badges-list {
+        display: block;
+        text-align: center;
+    }
+
+    .badges-list-item {
+        display: inline-block;
+        vertical-align: middle;
+        width: 30%;
+        margin: 10px 0;
+    }
+
+    .badges-list-item-sep {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .badges-list-item-sep:nth-child(3n) {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .badges-list-item {
+        width: 48%;
+    }
+    .badges-list-item-sep:nth-child(3n) {
+        display: inline-block;
+    }
+    .badges-list-item-sep:nth-child(4n) {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .badges-list-item {
+        width: 100%;
+        margin: 15px 0;
+    }
+    .badges-list-item-sep {
+        display: none !important;
+    }
+}

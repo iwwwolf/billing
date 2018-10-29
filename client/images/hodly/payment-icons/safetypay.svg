@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>safetypay</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="deposit" transform="translate(-102.000000, -1709.000000)">
+            <g id="safetypay" transform="translate(103.000000, 1710.000000)">
+                <rect id="Rectangle-6-Copy-26" stroke="#D0D5DF" fill="#FFFFFF" x="0" y="0" width="32" height="32" rx="2"></rect>
+                <g transform="translate(9.000000, 4.000000)" fill-rule="nonzero" id="Shape">
+                    <path d="M14.5348315,12.0269663 C14.5348315,5.74382022 9.65393258,0.620224719 3.47865169,0.215730337 C3.23595506,0.188764045 2.72359551,0.188764045 2.72359551,0.188764045 L2.72359551,3.99101124 C2.72359551,3.99101124 3.0741573,3.99101124 3.23595506,4.01797753 C7.41573034,4.28764045 10.7325843,7.76629213 10.7325843,12.0269663" fill="#285AA0"></path>
+                    <path d="M10.7325843,12.0269663 C10.7325843,16.2876404 7.41573034,19.7662921 3.23595506,20.0359551 C3.0741573,20.0359551 2.72359551,20.0629213 2.72359551,20.0629213 L2.72359551,23.8651685 C2.72359551,23.8651685 3.23595506,23.8651685 3.47865169,23.8382022 C9.65393258,23.4337079 14.5348315,18.3101124 14.5348315,12.0269663" fill="#069FCD"></path>
+                    <polygon fill="#285AA0" points="2.84217094e-14 7.44269663 2.84217094e-14 11.9730337 6.12134831 11.9730337"></polygon>
+                    <polyline fill="#069FCD" points="6.12134831 11.9730337 2.84217094e-14 16.5033708 2.84217094e-14 11.9730337"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

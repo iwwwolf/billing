@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>yandex_money</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.00424528302 0.0631541219 14.9661085 0.0631541219 14.9661085 20 0.00424528302 20"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="yandex_money" transform="translate(1.000000, 1.000000)">
+            <rect id="Rectangle-6" stroke="#D0D5DF" fill="#FFFFFF" x="0" y="0" width="32" height="32" rx="2"></rect>
+            <g id="yandex_dengi_product_icon_cmyk" transform="translate(9.000000, 5.000000)">
+                <g id="Group-3">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-2"></g>
+                    <path d="M0.000212264151,9.95268817 C0.000212264151,8.83318996 0.0928301887,8.1227957 2.38117925,6.3921147 C4.27570755,4.95935484 10.3481604,0.0631541219 10.3481604,0.0631541219 L10.3481604,8.23648746 L14.9661085,8.23648746 L14.9661085,20 L1.44261792,20 C0.649316038,20 0,19.3421505 0,18.5383513 L0.000212264151,9.95268817" id="Fill-1" fill="#FFCC01" mask="url(#mask-2)"></path>
+                </g>
+                <polyline id="Fill-4" fill="#D6AB05" points="10.3481604 8.23648746 10.3481604 12.9723297 1.86233491 18.829319 12.5911557 15.2926165 12.5911557 8.23648746 10.3481604 8.23648746"></polyline>
+                <path d="M6.47037736,7.99154122 C6.96658019,7.39247312 7.69132075,7.1809319 8.08924528,7.51928315 C8.48716981,7.85763441 8.40764151,8.61763441 7.91136792,9.21670251 C7.41544811,9.81569892 6.69049528,10.0269534 6.29257075,9.68860215 C5.89457547,9.35032258 5.97431604,8.59053763 6.47037736,7.99154122" id="Fill-5" fill="#030303"></path>
+            </g>
+        </g>
+    </g>
+</svg>

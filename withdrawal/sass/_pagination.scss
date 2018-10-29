@@ -1,0 +1,20 @@
+.pagination {
+    & > li {
+        & > a {
+            width: rem(34);
+            height: rem(34);
+            margin-left: rem(8);
+            border-radius: 2px !important;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            background: #fff;
+            box-shadow: 0 0 0 transparent;
+            transition: all 250ms;
+            color: $dark-gray;
+            &:hover {
+                box-shadow: 0 0 rem(16) rgba(0, 0, 0, 0.05);
+                border-color: transparent;
+                background: #fff;
+            }
+        }
+    }
+}

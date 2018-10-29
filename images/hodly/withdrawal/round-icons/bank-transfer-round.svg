@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>wire_transfer_r</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="m7-withdraw-balance-0-1366" transform="translate(-523.000000, -867.000000)">
+            <g id="wire_transfer_r" transform="translate(523.000000, 867.000000)">
+                <g id="Group-8-Copy-7" fill="#F0F2F5">
+                    <rect id="Mask" x="0" y="0" width="80" height="80" rx="40"></rect>
+                </g>
+                <g id="refresh-button" transform="translate(23.000000, 26.000000)" fill="#6B758E" fill-rule="nonzero">
+                    <path d="M32.5,6.42857143 L23.8333333,0 L23.8333333,4.28571429 L10.8268333,4.28571429 C4.84683333,4.28571429 0,9.09428571 0,15 C0,16.7957143 0.446333333,18.4885714 1.23716667,19.9735714 L4.77966667,17.3464286 C4.4915,16.62 4.33333333,15.8292857 4.33333333,15 C4.33333333,11.4578571 7.241,8.57142857 10.8268333,8.57142857 L23.8333333,8.57142857 L23.8333333,12.8571429 L32.5,6.42857143 Z" id="Shape"></path>
+                    <path d="M29.887,12.6514286 C30.1751667,13.38 30.3333333,14.1707143 30.3333333,15 C30.3333333,18.5421429 27.4256667,21.4285714 23.8398333,21.4285714 L10.8333333,21.4285714 L10.8333333,17.1428571 L2.16666667,23.5714286 L10.8333333,30 L10.8333333,25.7142857 L23.8398333,25.7142857 C29.8198333,25.7142857 34.6666667,20.9057143 34.6666667,15 C34.6666667,13.2042857 34.2203333,11.5114286 33.4295,10.0264286 L29.887,12.6514286 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

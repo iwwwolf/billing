@@ -1,0 +1,34 @@
+<div class="crypto-status-container montserrat-font">
+    <section class="payment-status" ng-if="!detail.response.payment_finished">
+        <img src="/images/crypto/loader.svg" class="crypto-loader">
+        <h1 class="waiting-header" translate>crypto_purchase.payment_in_progress</h1>
+    </section>
+    <section class="payment-status" ng-if="detail.response.payment_status === 'success'">
+        <img src="/images/crypto/success.svg">
+        <h1 class="success-header" translate>crypto_purchase.payment_successfully_completed</h1>
+    </section>
+    <section class="payment-status" ng-if="detail.response.payment_status === 'failed'">
+        <img src="/images/crypto/failed.svg">
+        <h1 class="error-header" translate>crypto_purchase.unfortunately_your_payment_failed</h1>
+        <p translate>crypto_purchase.something_went_wrong_make_a_payment_again</p>
+        <a href="" ng-click="detail.tryAgain()" class="link-to" translate>crypto_purchase.try_again</a>
+    </section>
+    <div ng-if="detail.response.payment_status === 'success' && detail.response.payment_finished">
+        <section class="crypto-order-status" ng-if="!detail.response.order_finished">
+            <img src="/images/crypto/loader.svg" class="crypto-loader">
+            <h1 class="waiting-header" translate>crypto_purchase.purchasing_in_progress</h1>
+            <p>{{ ('crypto_purchase.we_need_a_little_more_time_to_confirm_the_purchase' | translate).replace('{crypto_currency}', detail.response.order_ticker)}}</p>
+        </section>
+        <section class="crypto-order-status" ng-if="detail.response.order_status === 'failed' && detail.response.order_finished">
+            <img src="/images/crypto/failed.svg">
+            <h1 class="error-header" translate>crypto_purchase.purchasing_failed</h1>
+            <p>{{ ('crypto_purchase.something_went_wrong_try_to_buy_Bitcoin_with_our_platform.' | translate).replace('{crypto_currency}', detail.response.order_ticker)}}</p>
+            <a href="" ng-click="detail.goToIqoption()" class="link-to" translate>crypto_purchase.go_to_IQ_Option</a>
+        </section>
+        <section class="crypto-order-status" ng-if="detail.response.order_status === 'success' && detail.response.order_finished">
+            <img src="/images/crypto/success.svg">
+            <h1 class="success-header" translate>crypto_purchase.successfully_purchased</h1>
+            <a href="" ng-click="detail.successEvent()" class="link-to" translate>crypto_purchase.go_to_my_Wallet</a>
+        </section>
+    </div>
+</div>

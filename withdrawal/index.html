@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html ng-app="billingApp" ng-class="{'app-loaded': !pageLoader}">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <!-- <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/fonts-roboto.css">
+    <link rel="stylesheet" href="css/libs/select.min.css">
+    <link rel="stylesheet" href="css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="css/libs/ui-bootstrap-custom-2.4.0-csp.css"> -->
+    <link rel="stylesheet" href="css/libs/angular.css">
+    <!-- <link rel="stylesheet" href="css/withdrawal.css"> -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body resize>
+<div class="loader web-loader"></div>
+
+<div class="container">
+    <div class="">
+        <!-- methods -->
+        <section class="withdrawal__section" ng-controller="withdrawalMethods">
+            <div class="withdrawal__header">
+                <h1 class="header">{{ 'front.withdrawal simple output title' | translate }}</h1>
+
+                <p ng-if="profile.kyc.isRegulatedUser">{{ 'front.withdrawal simple output sub title 1 reg' | translate }}</p>
+                <p ng-if="!profile.kyc.isRegulatedUser">{{ 'front.withdrawal simple output sub title 1' | translate }}</p>
+                <p>{{ 'front.withdrawal simple output sub title 2' | translate }}</p>
+
+                <span class="withdrawal__back" ng-click="tabclicked=false" ng-class="{ 'visible': tabclicked }">
+                    <svg width="16px" height="12px" viewBox="0 0 16 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g class="path-with-fill" transform="translate(-16.000000, -206.000000)" fill="#6B758E">
+                                <path d="M18.237618,213.03124 C17.920794,213.365914 17.920794,213.910849 18.237618,214.245524 L23.4276634,219.747128 C23.7433139,220.084291 24.2572728,220.084291 24.5729233,219.747128 L29.7629688,214.245524 C29.9213807,214.078809 30,213.858595 30,213.638382 C30,213.418168 29.9213807,213.199199 29.7629688,213.03124 C29.4449714,212.694077 28.932186,212.694077 28.615362,213.03124 L24.8099545,217.064754 L24.8099545,204.858459 C24.8099545,204.385685 24.4485406,204 24.0002934,204 C23.5520462,204 23.1882853,204.385685 23.1882853,204.858459 L23.1882853,217.064754 L19.3840512,213.03124 C19.0684007,212.694077 18.5544419,212.694077 18.237618,213.03124" id="Fill-3-Copy-8" transform="translate(24.000000, 212.000000) rotate(90.000000) translate(-24.000000, -212.000000) "></path>
+                            </g>
+                        </g>
+                    </svg>
+                    <span translate>back</span>
+                </span>
+            </div>
+
+            <!-- methods inner -->
+            <div class="withdrawal__inner"
+                 ng-class="{ 'loading': loading }"
+                 mobile-tabs>
+
+                <div id="error-message"
+                     class="error-block show"
+                     ng-if="!methods.length && !loading">
+                    <div class="error-block__inner">
+                        <img src="/images/cashbox/icon-restricted.svg" alt="restricted" width="72" height="72">
+                        <h1 class="error-block__header" translate>front.no withdrawal methods</h1>
+                    </div>
+                </div>
+
+                <!-- loader -->
+                <div class="submit-loader submit-loader--page-loader" ng-if="loading">
+                    <div class="submit-loader__circular">
+                        <svg viewBox="25 25 50 50">
+                            <circle class="submit-loader__path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"></circle>
+                        </svg>
+                    </div>
+                    <span>{{ 'front.withdrawal loading' | translate }}</span>
+                </div>
+                <!-- /.loader -->
+                <div class="columns">
+                    <div class="columns__left">
+                        <!-- methods tabs -->
+                        <ul class="tabs" ng-class="{'small-tabs-icons': methods.length < 6}">
+                            <li ng-class="{ 'disabled' : !method.isAvalible(), 'active' : method.active }"
+                                class="tabs__item tabs__item--{{ ::method.css_name }}"
+                                ng-repeat="method in methods track by $index"
+                                ng-click="selectMethod(method);"
+                                ng-if="!method.hidden">
+                            </li>
+                        </ul>
+                        <!-- /.methods tabs -->
+                    </div>
+                    <div ng-class="{'opened-tab': tabclicked}" class="columns__right">
+                        <!-- methods panel -->
+                        <div class="withdrawal__container">
+
+                            <!-- Скрыл, потому что непонятно чё он тут делает. перенёс заголовок в блок с формами -->
+
+                            <!-- <div ng-if="activeMethod">
+                                <h5 ng-if="!cardsVerification.warning" class="method-form__name">
+                                    {{ activeMethod.name | translate }}
+                                </h5>
+                                <div ng-if="activeMethod.status !== 'success'">
+                                    <p class="text" ng-if="activeMethod.commission > 0 && warningMessage === ''">
+                                        {{ 'front.withdrawal commission' | translate }}
+                                        <i>{{ activeMethod.commission | money : { currency: 'usd' } }}</i>
+                                    </p>
+                                </div>
+                            </div> -->
+
+                            <!-- card confirm warning -->
+
+                            <div class="verification" ng-if="cardsVerification.warning && warningMessage === 'cardConfirmWarning'">
+
+                                <div class="verification__columns">
+                                    <div class="verification__left" ng-if="!documentsUploaded">
+                                        <div class="verification__inner">
+                                            <div class="verification__icon">
+                                                <!-- <img src="/images/hodly/withdrawal/confirm-data-icon.svg" class="" alt=""> -->
+
+                                                <svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <g transform="translate(-913.000000, -368.000000)" fill-rule="nonzero">
+                                                            <g transform="translate(389.000000, 365.000000)">
+                                                                <g transform="translate(132.000000, 0.000000)">
+                                                                    <g transform="translate(258.000000, 3.000000)">
+                                                                        <g transform="translate(134.000000, 0.000000)">
+                                                                            <path d="M7.21311475,10.492459 L13.7704918,10.492459 C14.132459,10.492459 14.4262295,10.1986885 14.4262295,9.83672131 C14.4262295,9.4747541 14.132459,9.18098361 13.7704918,9.18098361 L7.21311475,9.18098361 C6.85114754,9.18098361 6.55737705,9.4747541 6.55737705,9.83672131 C6.55737705,10.1986885 6.85114754,10.492459 7.21311475,10.492459 Z" fill="#25258E"></path>
+                                                                            <path d="M24.2622951,20.3285246 C24.2622951,19.9665574 23.9685246,19.6727869 23.6065574,19.6727869 L7.21311475,19.6727869 C6.85114754,19.6727869 6.55737705,19.9665574 6.55737705,20.3285246 C6.55737705,20.6904918 6.85114754,20.9842623 7.21311475,20.9842623 L23.6065574,20.9842623 C23.9685246,20.9842623 24.2622951,20.6904918 24.2622951,20.3285246 Z" fill="#25258E"></path>
+                                                                            <path d="M19.0163934,25.5744262 C19.0163934,25.212459 18.722623,24.9186885 18.3606557,24.9186885 L7.21311475,24.9186885 C6.85114754,24.9186885 6.55737705,25.212459 6.55737705,25.5744262 C6.55737705,25.9363934 6.85114754,26.2301639 7.21311475,26.2301639 L18.3606557,26.2301639 C18.722623,26.2301639 19.0163934,25.9363934 19.0163934,25.5744262 Z" fill="#25258E"></path>
+                                                                            <path d="M7.21311475,30.1645902 C6.85114754,30.1645902 6.55737705,30.4583607 6.55737705,30.8203279 C6.55737705,31.1822951 6.85114754,31.4760656 7.21311475,31.4760656 L16.3934426,31.4760656 C16.7554098,31.4760656 17.0491803,31.1822951 17.0491803,30.8203279 C17.0491803,30.4583607 16.7554098,30.1645902 16.3934426,30.1645902 L7.21311475,30.1645902 Z" fill="#25258E"></path>
+                                                                            <path d="M1.31147541,1.31213115 L1.31147541,38.0334426 L19.6721311,38.0334426 L19.6721311,39.344918 L0,39.344918 L0,0.000655737705 L21.255082,0.000655737705 L30.8196721,9.5652459 L30.8196721,21.64 L29.5081967,21.64 L29.5081967,10.492459 L20.3278689,10.492459 L20.3278689,1.31213115 L1.31147541,1.31213115 Z M21.6393443,2.23934426 L21.6393443,9.18098361 L28.5809836,9.18098361 L21.6393443,2.23934426 Z" id="Combined-Shape" fill="#25258E"></path>
+                                                                            <path d="M39.1429508,37.1383607 L31.3763934,23.8222951 C31.1101639,23.3665574 30.6367213,23.0944262 30.1081967,23.0944262 C29.5803279,23.0944262 29.1068852,23.3665574 28.8406557,23.8222951 L21.0734426,37.1383607 C20.8052459,37.5980328 20.8032787,38.147541 21.0681967,38.6085246 C21.3331148,39.0695082 21.8085246,39.344918 22.3403279,39.344918 L37.8754098,39.344918 C38.4072131,39.344918 38.882623,39.0695082 39.1468852,38.6085246 C39.412459,38.147541 39.4111475,37.597377 39.1429508,37.1383607 Z M38.0104918,37.9554098 C37.9908197,37.9914754 37.9501639,38.0334426 37.8760656,38.0334426 L22.3409836,38.0334426 C22.2662295,38.0334426 22.2262295,37.9908197 22.2059016,37.9554098 C22.1855738,37.9193443 22.1691803,37.8636066 22.2065574,37.7993443 L29.9737705,24.4832787 C30.0111475,24.4190164 30.067541,24.4059016 30.1081967,24.4059016 C30.1495082,24.4059016 30.2052459,24.4196721 30.2432787,24.4832787 L38.0104918,37.7986885 C38.0472131,37.8636066 38.0314754,37.9193443 38.0104918,37.9554098 Z" fill="#FF5722"></path>
+                                                                            <path d="M30.1639344,27.5416393 C29.8019672,27.5416393 29.5081967,27.8354098 29.5081967,28.197377 L29.5081967,33.4432787 C29.5081967,33.8052459 29.8019672,34.0990164 30.1639344,34.0990164 C30.5259016,34.0990164 30.8196721,33.8052459 30.8196721,33.4432787 L30.8196721,28.197377 C30.8196721,27.8347541 30.5259016,27.5416393 30.1639344,27.5416393 Z" fill="#FF5722"></path>
+                                                                            <path d="M29.6983607,35.6006557 C29.5803279,35.7252459 29.5081967,35.8957377 29.5081967,36.0662295 C29.5081967,36.2367213 29.5803279,36.4072131 29.6983607,36.5318033 C29.8229508,36.6498361 29.9934426,36.7219672 30.1639344,36.7219672 C30.3409836,36.7219672 30.504918,36.6498361 30.6295082,36.5318033 C30.747541,36.4072131 30.8196721,36.2367213 30.8196721,36.0662295 C30.8196721,35.8957377 30.747541,35.7252459 30.6295082,35.6006557 C30.3803279,35.3580328 29.947541,35.3580328 29.6983607,35.6006557 Z" fill="#FF5722"></path>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+
+                                            <h4 translate>front.billing.user verification title</h4>
+                                            <div class="verification__text" translate>
+                                                front.billing.user verification para
+                                            </div>
+                                            <a class="btn btn-success btn--small"
+                                                    href="{{appConfig.iqoptionUrl}}/verification?show_docs"
+                                                    target="_blank"
+                                                    type="submit"
+                                                    translate>
+                                                front.billing.user verification button
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                    <div class="verification__right" ng-if="warningMessage === 'cardConfirmWarning'">
+                                        <div class="verification__inner">
+                                            <div class="verification__icon">
+                                                <!-- <img src="/images/hodly/withdrawal/confirm-card-icon.svg" class="" alt=""> -->
+
+                                                <svg width="53px" height="45px" viewBox="0 0 53 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <g transform="translate(-521.000000, -365.000000)" fill-rule="nonzero">
+                                                            <g transform="translate(389.000000, 365.000000)">
+                                                                <g transform="translate(132.000000, 0.000000)">
+                                                                    <rect stroke="#25258E" stroke-width="1.31" x="0.655" y="0.655" width="45.69" height="32.69" rx="2"></rect>
+                                                                    <g transform="translate(0.000000, 4.000000)">
+                                                                        <g transform="translate(0.000000, 0.578483)">
+                                                                            <polygon fill="#25258E" points="0.000411893932 1.33164374 46.8967082 1.33164374 46.8967082 0.021643739 0.000411893932 0.021643739"></polygon>
+                                                                            <polygon fill="#25258E" points="0.000411893932 7.33164374 46.8967082 7.33164374 46.8967082 6.02164374 0.000411893932 6.02164374"></polygon>
+                                                                            <path d="M10.9084959,13.2729524 L3.63650856,13.2729524 C3.13379201,13.2729524 2.72745865,12.9795082 2.72745865,12.6179524 C2.72745865,12.2563965 3.13379201,11.9629524 3.63650856,11.9629524 L10.9085989,11.9629524 C11.4113154,11.9629524 11.8176488,12.2563965 11.8176488,12.6179524 C11.8175458,12.9795082 11.4112125,13.2729524 10.9084959,13.2729524" fill="#25258E"></path>
+                                                                            <path d="M21.81658,13.2729524 L14.5444896,13.2729524 C14.0417731,13.2729524 13.6354397,12.9795082 13.6354397,12.6179524 C13.6354397,12.2563965 14.0417731,11.9629524 14.5444896,11.9629524 L21.81658,11.9629524 C22.3192965,11.9629524 22.7256299,12.2563965 22.7256299,12.6179524 C22.7256299,12.9795082 22.3192965,13.2729524 21.81658,13.2729524" fill="#25258E"></path>
+                                                                            <path d="M15.4535395,16.9471852 L3.63650856,16.9471852 C3.13379201,16.9471852 2.72745865,16.653741 2.72745865,16.2921852 C2.72745865,15.9306293 3.13379201,15.6371852 3.63650856,15.6371852 L15.4536425,15.6371852 C15.956359,15.6371852 16.3626924,15.9306293 16.3626924,16.2921852 C16.3625894,16.653741 15.9562561,16.9471852 15.4535395,16.9471852" fill="#25258E"></path>
+                                                                            <path d="M21.81658,16.9471852 L19.0895332,16.9471852 C18.5868167,16.9471852 18.1804833,16.653741 18.1804833,16.2921852 C18.1804833,15.9306293 18.5868167,15.6371852 19.0895332,15.6371852 L21.81658,15.6371852 C22.3192965,15.6371852 22.7256299,15.9306293 22.7256299,16.2921852 C22.7256299,16.653741 22.3192965,16.9471852 21.81658,16.9471852" fill="#25258E"></path>
+                                                                            <path d="M32.7195153,22.9858589 L34.5375122,20.2301323 C34.5375122,20.2301323 35.8382732,22.0672487 39.0825558,22.0672487 C42.3268383,22.0672487 42.7185495,20.2301323 42.7185495,20.2301323 C42.7185495,20.2301323 42.720403,20.2375203 42.7240071,20.2503192 L42.7240071,16.5871164 L28.1799293,16.5871164 L28.1799293,24.8229753 L33.6794341,24.8229753 C33.3521844,23.6600406 32.7195153,22.9858589 32.7195153,22.9858589" stroke="#25258E" stroke-width="1.31"></path>
+                                                                        </g>
+                                                                        <path d="M45.5292493,18.5187478 C48.7734289,18.5187478 50.0742929,16.6816314 50.0742929,16.6816314 L51.8922897,19.437358 C51.8922897,19.437358 50.2923907,21.1321252 50.8651292,23.7950335 C50.9042592,23.9741146 51.3168739,25.2886596 51.7041572,26.7170423 C52.4277518,29.3909806 51.1206065,34.2584286 47.7917827,36.3041781 C47.7718058,36.3170811 47.7490487,36.3262381 47.7281451,36.3372681 L46.9572856,36.7258148 C46.9572856,36.7258148 41.8932556,38.8854021 41.8932556,40.5645608 C41.8932556,38.8854021 36.8292257,36.7258148 36.8292257,36.7258148 L36.0583662,36.3372681 C36.0374625,36.3262381 36.0147054,36.3170811 35.9947285,36.3041781 C32.6659048,34.2585326 31.3587594,29.3910847 32.082354,26.7170423 C32.4696373,25.2886596 32.882252,23.9742187 32.921382,23.7950335 C33.4940175,21.1321252 31.8942215,19.437358 31.8942215,19.437358 L33.7122183,16.6816314 C33.7122183,16.6816314 35.0129794,18.5187478 38.2572619,18.5187478 C41.5015445,18.5187478 41.8932556,17.6816314 41.8932556,17.6816314 C41.8932556,17.6816314 42.2850697,18.5187478 45.5292493,18.5187478 Z" stroke="#FF5722" stroke-width="1.31" fill="#FFFFFF"></path>
+                                                                        <path d="M41.8984043,23.6860225 L40.5161247,26.5172277 L37.7453013,26.5206916 L39.6954035,29.1469285 L39.1479813,32.0530156 L41.8984043,30.7063971 L44.6488272,32.0530156 L44.1014064,29.1469359 L46.0514356,26.5206916 L43.2806838,26.5172277 L41.8984043,23.6860225 Z" stroke="#FF5722" stroke-width="1.31" fill="#FFFFFF"></path>
+                                                                    </g>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+
+                                            <h4 translate>front.billing.card confirm title</h4>
+                                            <div class="verification__text" translate>
+                                                front.billing.card confirm waning
+                                            </div>
+                                            <button class="btn btn-success btn--small"
+                                                    ng-click="showCardVerification()"
+                                                    type="submit"
+                                                    translate>
+                                                front.billing.card status init
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="verification__later">
+                                    <span translate>front.or</span><br> <a ng-click="skipCardVerification()" translate>front.billing.card verify later</a>
+                                </div>
+                            </div>
+
+
+                            <!-- warning message -->
+                            <div ng-if="!cardsVerification.warning && warningMessage !== '' && warningMessage !== 'cardConfirmWarning'"
+                                 class="withdrawal__text centered-content">
+                                <img width="80" height="80" class="withdrawal__logo" src="/images/hodly/withdrawal/round-icons/{{activeMethod.css_name}}-round.svg" alt="">
+                                <h4>{{ activeMethod.name | translate }}</h4>
+                                <p bind-html-compile="warningMessage">
+                                </p>
+                            </div>
+                            <!-- warning message -->
+                            <!-- success message -->
+                            <div ng-if="activeMethod.paysystem !== billingPaysystems.BANK_CARD && activeMethod.status === 'success'" class="withdrawal__text withdrawal__text-status --flex">
+                                <img width="80" height="80" class="withdrawal__logo" src="/images/hodly/icon-success.svg" alt="">
+                                <p>{{ 'front.your inquiry for withdrawal was accepted' | translate }}</p>
+                                <button class="btn btn-success btn--small" ng-click="newRequest(activeMethod)">{{ 'front.withdrawal new request' | translate }}</button>
+                            </div>
+                            <!-- /.success message -->
+                            <!-- form -->
+
+                            <div ng-if="activeMethod && isWithdrawalPossible(activeMethod)" ng-switch="activeMethod.paysystem">
+                                <h5 class="method-form__name">
+                                    {{ activeMethod.name | translate }}
+                                </h5>
+                                <div ng-switch-when="bank_card" class="cards">
+                                    <div class="withdrawal__text">
+                                        {{ 'front.withdrawal momental output sub title' | translate }}
+                                    </div>
+
+                                    <div class="cards__row">
+                                        <div ng-repeat="card in cards | orderBy:'id'"
+                                            ng-if="card.refund_amount > 0"
+                                            class="cards__item">
+                                            <div class="cards__panel">
+                                                <form form-validator name="aform" ng-submit="withdrawCard(card, aform)" novalidate>
+                                                    <div class="form-inner" ng-init="initCardForm(card, form)">
+                                                        <div class="cards__item-header">
+                                                            <div class="cards__logo">
+                                                                <i class="{{ ::card.type }}"></i>
+                                                            </div>
+                                                            <div>
+                                                                <div class="cards__number" ng-bind-html="::card.number"></div>
+                                                                <div class="cards__refund">
+                                                                    <i>{{ 'front.withdrawal before' | translate }}</i>
+                                                                    <i class="card-refund-amount">
+                                                                        {{ card.refund_amount | money : { currency: profile.currency } }}
+                                                                    </i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group text-left">
+                                                            <label class="control-label" for="card-amount-{{ ::card.id }}">
+                                                                <span translate>Amount</span>&nbsp;<b ng-if="field.required">*</b>
+                                                            </label>
+
+                                                            <div class="form__input-wrapper">
+                                                                <i class="form-control__currency">{{ ::profile.currency }}</i>
+                                                                <input id="card-amount-{{ ::card.id }}"
+                                                                        class="form-control currency-input"
+                                                                        ng-model-options="{ allowInvalid: true }"
+                                                                        name="amount"
+                                                                        ng-disabled="card.status !== 'ready'"
+                                                                        min="withdrawMin"
+                                                                        ng-model="card.withdrawAmount"
+                                                                        max="card.refund_amount"
+                                                                        value-filter="amount"
+                                                                        autocomplete="off"
+                                                                        range-allow-less
+                                                                        tip-type="error"
+                                                                        tip-place="bottom"
+                                                                        tip-parent=".card-amount__field-parent"
+                                                                        name="card"
+                                                                        type="text"
+                                                                        required
+                                                                        range
+                                                                        tip>
+                                                            </div>
+
+                                                            <div ng-messages="aform.amount.$error"
+                                                                 ng-if="aform.$submitted"
+                                                                 role="alert">
+
+                                                                <div class="help-text --error" ng-message="required" translate>mainpage.index.validation-required</div>
+                                                                <div class="help-text --error" ng-message="pattern" translate>mainpage.index.validation-invalid</div>
+                                                                <div class="help-text --error" ng-message="rangeMin">
+                                                                    <span>{{ ('front.amount less than' | translate ).replace('{amount}', withdrawMin | money:{currency: profile.currency}) }}</span>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <!-- <div class="help-text error" translate>Error text</div> -->
+
+                                                            <!--<div class="help-text" translate>One-time withdraw limit — $ 1000</div>-->
+                                                        </div>
+
+                                                        <div class="cards__button" ng-switch="card.status">
+                                                            <div ng-switch-when="process" class="submit-loader">
+                                                                <span>{{ 'front.withdrawal is processing' | translate }}</span>
+                                                                <div class="submit-loader__circular">
+                                                                    <svg viewBox="25 25 50 50">
+                                                                        <circle class="submit-loader__path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"></circle>
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                            <div ng-switch-when="success" class="cards__status">
+                                                                <svg viewBox="0 0 33 24">
+                                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                        <g transform="translate(-464.000000, -419.000000)" fill="#32AB51">
+                                                                            <g transform="translate(440.000000, 391.000000)">
+                                                                                <path d="M56.516723,28.478623 C55.8723859,27.840459 54.8277309,27.840459 54.1832649,28.478623 L34.4152578,48.0554768 L26.8167593,40.5305281 C26.1724222,39.8923641 25.1277672,39.8924279 24.4833012,40.5305281 C23.8388996,41.1686284 23.8388996,42.2031716 24.4833012,42.8413356 L33.2485287,51.5215924 C33.8926725,52.1596926 34.9381009,52.1592458 35.5819868,51.5215924 L56.516723,30.7894944 C57.1611246,30.1513942 57.1610601,29.1167871 56.516723,28.478623 Z"></path>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </svg>
+                                                                {{ 'front.withdrawal is completed' | translate }}
+                                                            </div>
+                                                            <div ng-switch-when="failed" class="cards__status"
+                                                                 tip-show="{{ !!card.error.failed }}"
+                                                                 tip-title="{{ card.error.failed }}"
+                                                                 tip-type="error"
+                                                                 tip-place="top"
+                                                                 tip>
+
+                                                                 <svg viewBox="0 0 32 32">
+                                                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                         <g transform="translate(-667.000000, -319.000000)" fill="#DA4931" fill-rule="nonzero">
+                                                                             <g transform="translate(643.000000, 295.000000)">
+                                                                                 <path d="M54.9329488,52.6704567 C55.5577157,53.2952247 55.5577157,54.3082269 54.9329488,54.9329949 C54.6291022,55.2368421 54.2229331,55.4015169 53.8015727,55.4015169 C53.3803094,55.4015169 52.9743656,55.2369049 52.6701966,54.9329949 L40.101524,42.3642996 L27.5327608,54.9330854 C27.2286823,55.2369049 26.8227385,55.4015169 26.4014752,55.4015169 C25.9801148,55.4015169 25.5739458,55.2368421 25.2700991,54.9329949 C24.6453322,54.3082269 24.6453322,53.2952247 25.2700991,52.6704567 L37.8388808,40.1016523 L25.2700538,27.5328026 C24.6453473,26.9078284 24.6453473,25.8951126 25.2700991,25.2700931 C25.8948738,24.6453173 26.9081266,24.6453173 27.5326347,25.2700931 L40.101524,37.8390051 L52.670368,25.2701384 C53.2949213,24.6453173 54.3081741,24.6453173 54.9329941,25.2701384 C55.5577006,25.8951126 55.5577006,26.9078284 54.9329488,27.5328479 L42.3641671,40.1016523 L54.9329488,52.6704567 Z"></path>
+                                                                             </g>
+                                                                         </g>
+                                                                     </g>
+                                                                 </svg>
+                                                                {{ 'front.withdrawal failed' | translate }}
+                                                            </div>
+                                                            <button tip-show="{{ !!card.error.submit }}"
+                                                                    tip-title="{{ card.error.submit }}"
+                                                                    class="btn btn-success"
+                                                                    ng-switch-default
+                                                                    tip-type="error"
+                                                                    tip-place="bottom"
+                                                                    type="submit"
+                                                                    tip>
+                                                                {{ 'front.withdrawal output' | translate }}
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form ng-if="activeMethod.status !== 'success'"
+                                      ng-submit="withdraw(activeMethod, mform)"
+                                      class="withdrawal__form withdrawal__text"
+                                      ng-switch-default
+                                      form-validator
+                                      name="mform"
+                                      novalidate>
+                                    <div class="form__inner" ng-init="initWithdrawForm(activeMethod, mform)">
+                                        <div class="form-group" ng-repeat="field in activeMethod.fields" ng-if="!field.depends || field.depends(activeMethod.withdraw)">
+                                            <!-- <div class="item left"> -->
+                                            <label class="control-label" for="{{ ::field.id }}">
+                                                <span translate>{{ field.front_key | translate }}</span>&nbsp;<b ng-if="field.required">*</b>
+                                            </label>
+                                            <!-- </div> -->
+                                            <div ng-switch="field.name" class="form__input-wrapper">
+                                                <i ng-switch-when="amount" class="form-control__currency">{{ ::profile.currency }}</i>
+                                                <input ng-disabled="activeMethod.status !== 'ready'"
+                                                       tip-show="{{ !!activeMethod.error.amount }}"
+                                                       tip-title="{{ activeMethod.error.amount }}"
+                                                       ng-model-options="{ allowInvalid: true }"
+                                                       ng-model="activeMethod.withdraw.amount"
+                                                       class="form-control currency-input"
+                                                       ng-pattern="field.regexp"
+                                                       ng-switch-when="amount"
+                                                       value-filter="amount"
+                                                       id="{{ ::field.id }}"
+                                                       min="activeMethod.currentLimit.min"
+                                                       autocomplete="off"
+                                                       tip-place="bottom"
+                                                       tip-type="error"
+                                                       range-allow-less
+                                                       range-allow-more
+                                                       name="{{ ::field.name }}"
+                                                       max="activeMethod.withdrawMax"
+                                                       type="text"
+                                                       required
+                                                       range
+                                                       tip>
+                                                <input ng-disabled="activeMethod.status !== 'ready' || field.select"
+                                                       ng-model="activeMethod.withdraw[field.name]"
+                                                       ng-class="{ 'field-select': field.select }"
+                                                       ng-model-options="{ allowInvalid: true }"
+                                                       placeholder="{{ ::field.placeholder }}"
+                                                       ng-minlength="{{ ::field.minLength }}"
+                                                       ng-maxlength="{{ ::field.maxLength }}"
+                                                       ng-required="field.required"
+                                                       value-filter="{{ ::field.filter }}"
+                                                       tip-show="{{ !!field.error }}"
+                                                       ng-pattern="field.regexp"
+                                                       name="{{ ::field.name }}"
+                                                       id="{{ ::field.id }}"
+                                                       class="form-control"
+                                                       autocomplete="off"
+                                                       ng-switch-default
+                                                       tip-place="bottom"
+                                                       tip-type="error"
+                                                       type="text"
+                                                       tip>
+                                                <ui-select on-select="field.select.onSelect(activeMethod, field)"
+                                                           ng-disabled="activeMethod.status !== 'ready'"
+                                                           ng-model="field.select.model"
+                                                           ng-if="::field.select">
+                                                    <ui-select-match placeholder="{{ ::field.placeholder }}">{{ $select.selected[field.select.label] }}</ui-select-match>
+                                                    <ui-select-choices repeat="item in (field.select.items | select: {search: $select.search, searchBy: field.select.label }) track by $index">
+                                                        <div ng-bind-html="item[field.select.label] | highlight: $select.search"></div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+
+                                                <!-- <div class="help-text error" translate>Error text</div> -->
+                                                <!--<div ng-switch-when="amount" class="help-text" translate>One-time withdraw limit — $ 1000</div>-->
+                                            </div>
+                                            <div ng-messages="mform[field.name].$error"
+                                                 ng-if="mform.$submitted"
+                                                 role="alert">
+
+                                                <div class="help-text --error" ng-message="required">
+                                                    <span ng-switch="field.name">
+                                                        <span ng-switch-when="amount" translate>front.you didnt specified the amount</span>
+                                                        <span ng-switch-when="card" translate>front.you didnt specified the amount</span>
+                                                        <span ng-switch-when="swiftCode" translate>front.you didnt specified the swift code</span>
+                                                        <span ng-switch-when="bankSwiftCode" translate>front.you didnt specified the swift code</span>
+                                                        <span ng-switch-when="cardOwner" translate>front.you didnt specified the card owner</span>
+                                                        <span ng-switch-when="clientName" translate>front.you didnt specified the client name</span>
+                                                        <span ng-switch-when="addInfo" translate>front.you didnt specified the add info</span>
+                                                        <span ng-switch-when="IBAN" translate>front.you didnt specified the iban</span>
+                                                        <span ng-switch-when="bankAccountNumber" translate>front.you didnt specified the iban</span>
+                                                        <span ng-switch-when="INN" translate>front.you didnt specified the inn</span>
+                                                        <span ng-switch-when="bankINN" translate>front.you didnt specified the inn</span>
+                                                        <span ng-switch-when="address" translate>front.you didnt specified the address</span>
+                                                        <span ng-switch-when="clientAddress" translate>front.you didnt specified the address</span>
+                                                        <span ng-switch-when="bankName" translate>front.you didnt specified the bank name</span>
+                                                        <span ng-switch-when="bankAddress" translate>front.you didnt specified the bank address</span>
+                                                        <span ng-switch-when="cardNumber" translate>front.you didnt specified the card number</span>
+                                                        <span ng-switch-when="bankCorrespondentAccount" translate>front.you didnt specified the correspondent account</span>
+                                                        <span ng-switch-when="bank_account_number" translate>front.you didnt specified the bank account number</span>
+                                                        <span ng-switch-when="bank_province_code" translate>front.you didnt select the bank province</span>
+                                                        <span ng-switch-when="bank_province" translate>front.you didnt select the bank province</span>
+                                                        <span ng-switch-when="bank_city_code" translate>front.you didnt select the bank city</span>
+                                                        <span ng-switch-when="bank_city" translate>front.you didnt select the bank city</span>
+                                                        <span ng-switch-when="bank_code" translate>front.you didnt select the bank</span>
+                                                        <span ng-switch-when="bank_branch_address" translate>front.you didnt specified the bank branch address</span>
+                                                        <span ng-switch-when="bank_branch" translate>front.you didnt specified the bank branch address</span>
+                                                        <span ng-switch-when="customer_name" translate>front.you didnt specified the customer name</span>
+                                                        <span ng-switch-default translate>mainpage.index.validation-required</span>
+                                                    </span>
+                                                </div>
+                                                <div class="help-text --error" ng-message="pattern">
+                                                    <span ng-switch="field.name">
+                                                        <span ng-switch-when="amount" translate>front.incorrect amount</span>
+                                                        <span ng-switch-when="card" translate>front.incorrect amount</span>
+                                                        <span ng-switch-when="swiftCode" translate>front.incorrect swift code</span>
+                                                        <span ng-switch-when="bankSwiftCode" translate>front.incorrect swift code</span>
+                                                        <span ng-switch-when="cardOwner" translate>front.incorrect card owner</span>
+                                                        <span ng-switch-when="clientName" translate>front.incorrect client name</span>
+                                                        <span ng-switch-when="addInfo" translate>front.incorrect add info</span>
+                                                        <span ng-switch-when="IBAN" translate>front.incorrect iban</span>
+                                                        <span ng-switch-when="bankAccountNumber" translate>front.incorrect iban</span>
+                                                        <span ng-switch-when="INN" translate>front.incorrect inn</span>
+                                                        <span ng-switch-when="bankINN" translate>front.incorrect inn</span>
+                                                        <span ng-switch-when="address" translate>front.incorrect address</span>
+                                                        <span ng-switch-when="clientAddress" translate>front.incorrect address</span>
+                                                        <span ng-switch-when="bankName" translate>front.incorrect bank name</span>
+                                                        <span ng-switch-when="bankAddress" translate>front.incorrect bank address</span>
+                                                        <span ng-switch-when="cardNumber" translate>front.incorrect card number</span>
+                                                        <span ng-switch-when="bankCorrespondentAccount" translate>front.incorrect correspondent account</span>
+                                                        <span ng-switch-when="bank_account_number" translate>front.incorrect bank account number</span>
+                                                        <span ng-switch-default translate>mainpage.index.validation-invalid</span>
+                                                    </span>
+                                                </div>
+                                                <div class="help-text --error" ng-message="rangeMin">
+                                                    <span ng-switch="field.name">
+                                                        <span ng-switch-when="amount" translate>{{ ('front.amount less than' | translate ).replace('{amount}', activeMethod.currentLimit.min | money:{currency: profile.currency}) }}</span>
+                                                        <span ng-switch-when="card" translate>front.amount less than</span>
+                                                    </span>
+                                                </div>
+                                                <div class="help-text --error" ng-message="rangeMax">
+                                                    <span ng-switch="field.name">
+                                                        <span ng-switch-when="amount"><span translate>front.withdrawal you have free money only</span> <i class="nowrap">{{(activeMethod.withdrawMax | money:{currency: profile.currency}) }}</i></span>
+                                                        <span ng-switch-when="card"><span translate>front.withdrawal you have free money only</span> <i class="nowrap">{{(activeMethod.withdrawMax | money:{currency: profile.currency}) }}</i></span>
+                                                    </span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="row-item">
+                                            <div class="item left">&nbsp;</div>
+                                            <div class="item middle">
+                                                <button ng-disabled="activeMethod.status !== 'ready'"
+                                                        tip-show="{{ !!activeMethod.error.submit }}"
+                                                        tip-title="{{ activeMethod.error.submit }}"
+                                                        class="btn btn-success btn-withdrawal"
+                                                        ng-switch="activeMethod.status"
+                                                        tip-place="bottom"
+                                                        tip-type="error"
+                                                        type="submit"
+                                                        tip>
+                                                    <i ng-switch-when="process">
+                                                        <span>{{ 'front.sending' | translate }}</span>
+                                                        <div class="circular-loader-center">
+                                                            <svg viewBox="25 25 50 50">
+                                                                <circle cx="50" cy="50" r="20" fill="none" stroke-width="4"
+                                                                        stroke-miterlimit="10"></circle>
+                                                            </svg>
+                                                        </div>
+                                                    </i>
+                                                    <i ng-switch-default>{{ 'front.withdrawal output button' | translate }}</i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- /. form -->
+                        </div>
+                        <!-- /.methods panel -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.methods inner -->
+        </section>
+
+        <!-- withdrawal requests -->
+        <section class="requests panel" ng-controller="withdrawalRequests">
+            <h1 class="requests__header">{{ 'front.withdrawal requests title' | translate }}</h1>
+            <p class="requests__text" ng-if="requests && requests.length !== 0">{{ 'front.withdrawal requests sub title' | translate }}</p>
+            <!-- requests inner -->
+            <div class="withdrawal-inner loading" ng-class="{ 'loading' : loading }">
+                <!-- loader -->
+                <div class="submit-loader submit-loader--page-loader" ng-if="loading">
+                    <div class="submit-loader__circular">
+                        <svg viewBox="25 25 50 50">
+                            <circle class="submit-loader__path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"></circle>
+                        </svg>
+                    </div>
+                    <span>{{ 'front.withdrawal loading' | translate }}</span>
+                </div>
+                <!-- /.loader -->
+
+                <div class="no-data" ng-if="requests && requests.length === 0">
+
+                    <svg width="48px" height="38px" viewBox="0 0 48 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g transform="translate(-617.000000, -903.000000)">
+                                <g transform="translate(100.000000, 805.000000)">
+                                    <g transform="translate(517.000000, 98.000000)">
+                                        <g stroke-width="1" fill-rule="evenodd" transform="translate(0.000000, 7.000000)" stroke="#25258E">
+                                            <path d="M8.11363236,0.655 L0.655,19.0732509 L0.655,20.2449543 L13.573212,28.345 L33.3803513,28.345 L46.345,20.2442798 L46.345,19.0732509 L38.8863676,0.655 L8.11363236,0.655 Z" stroke-width="1.31" fill-rule="nonzero"></path>
+                                            <path d="M0.655,19.655 L0.655,30.345 L46.345,30.345 L46.345,19.655 L33.2184816,19.655 L29.0145934,23.5286249 L16.4765126,23.5286249 L13.9763116,19.655 L0.655,19.655 Z" stroke-width="1.31" fill="#F0F0FF" fill-rule="nonzero"></path>
+                                        </g>
+                                        <circle fill="#FF5722" fill-rule="nonzero" cx="40" cy="8" r="8"></circle>
+                                        <text font-family="Montserrat-Medium, Montserrat" font-size="12" font-weight="400" line-spacing="10" letter-spacing="-0.225" fill="#FFFFFF">
+                                            <tspan x="36" y="12">0</tspan>
+                                        </text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                    <div class="requests__text">{{ 'front.withdrawal no requests' | translate }}</div>
+                </div>
+                <table class="requests__table" ng-if="!loading && requests.length > 0">
+                    <thead>
+                        <tr>
+                            <th class="requests__table-date">{{ 'front.date' | translate }}</th>
+                            <th class="requests__table-method">{{ 'front.payment method' | translate }}</th>
+                            <th class="requests__table-amount">{{ 'front.amount' | translate }}</th>
+                            <th class="requests__table-status">{{ 'front.status' | translate }}</th>
+                            <th class="requests__table-comment">{{ 'front.comment' | translate }}</th>
+                            <th class="requests__table-button" ng-if="request.state_id == 'request' && request.can_cancel"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="request in requests">
+                            <td class="requests__table-date">{{ request.date }}</td>
+                            <td class="requests__table-method" ng-if="!request.card.id">{{ request.payment_method_id }}</td>
+                            <td class="requests__table-method" ng-if="request.card.id">
+                                <div class="number">
+                                    <span class="num" ng-bind-html="cards[request.card.id].number"></span>
+                                    <span class="exp" ng-bind-html="cards[request.card.id].expiry"></span>
+                                </div>
+                            </td>
+                            <td class="requests__table-amount"
+                                ng-bind-html="request.user_balance | money: { currency: request.currency, thousandsSeparator: ',', decimalPlaces:6, removeZeros: true }"></td>
+                            <td class="requests__table-status">
+                                <!-- <div style="position: relative;"> -->
+                                    <div ng-if="request.state_id == 'complete'" ng-class="request.state_id" tip tip-trigger="hover"
+                                         tip-title="{{ 'front.withdrawal complete descr' | translate }}" tip-place="auto top"
+                                         tip-type="tt-state-complete">
+                                        <i class="fa fa-info-circle status-info-icon"></i>
+                                        {{ 'front.withdrawal complete' | translate }}
+                                    </div>
+                                    <div ng-if="request.state_id == 'canceled'" ng-class="request.state_id" tip tip-trigger="hover"
+                                         tip-title="{{ 'front.withdrawal canceled descr' | translate }}" tip-place="auto top"
+                                         tip-type="tt-state-canceled">
+                                        <i class="fa fa-info-circle status-info-icon"></i>
+                                        {{ 'front.withdrawal canceled' | translate }}
+                                    </div>
+                                    <div ng-if="request.state_id == 'failed'" ng-class="request.state_id" tip tip-trigger="hover"
+                                         tip-title="{{ 'front.withdrawal failed descr' | translate }}" tip-place="auto top"
+                                         tip-type="tt-state-failed">
+                                        <i class="fa fa-info-circle status-info-icon"></i>
+                                        {{ 'front.withdrawal failed' | translate }}
+                                    </div>
+                                    <div ng-if="request.state_id == 'request'" ng-class="request.state_id" tip tip-trigger="hover"
+                                         tip-title="{{ 'front.withdrawal request descr' | translate }}" tip-place="auto top"
+                                         tip-type="tt-state-request">
+                                        <i class="fa fa-info-circle status-info-icon"></i>
+                                        {{ 'front.withdrawal request' | translate }}
+                                    </div>
+                                    <div ng-if="request.state_id == 'in_process'" ng-class="request.state_id" tip
+                                         tip-trigger="hover" tip-title="{{ 'front.withdrawal process descr' | translate }}"
+                                         tip-place="auto top" tip-type="tt-state-process">
+                                        <i class="fa fa-info-circle status-info-icon"></i>
+                                        {{ 'front.withdrawal process' | translate }}
+                                    </div>
+                                    <div ng-if="request.state_id == 'hold'" ng-class="request.state_id" tip tip-trigger="hover"
+                                         tip-title="{{ 'front.withdrawal hold descr' | translate}}" tip-place="auto top"
+                                         tip-type="tt-state-hold">
+                                        <i class="fa fa-info-circle status-info-icon"></i>
+                                        {{ 'front.withdrawal hold' | translate }}
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="requests__table-comment">
+                                <span ng-if="request.messageShort && !request.messageToggle">{{ request.messageShort | translate }}</span>
+                                <span ng-if="!request.messageShort || request.messageToggle">{{ request.message | translate }}</span>
+                                <span class="show-link" ng-if="request.messageShort">
+                                    <a ng-if="!request.messageToggle" ng-click="request.messageToggle = true">{{ 'front.withdrawal show' | translate }}</a>
+                                    <a ng-if="request.messageToggle" ng-click="request.messageToggle = false">{{ 'front.withdrawal hide' | translate }}</a>
+                                </span>
+                            </td>
+                            <td class="requests__table-button" ng-if="request.state_id == 'request' && request.can_cancel">
+                                <button class="btn btn-default btn--micro"
+                                        ng-if="!request.cancelPreloader && !request.canceled &&
+                                                   (request.state_id == 'request' && request.can_cancel)"
+                                        ng-click="cancelRequest(request)"
+                                        tip-show="{{ !!request.error }}"
+                                        tip-title="{{ request.error }}"
+                                        tip-type="error"
+                                        tip-place="top"
+                                        tip>
+                                    {{ 'front.withdrawal cancel' | translate }}
+                                    <i>×</i>
+                                </button>
+                                <div ng-if="request.cancelPreloader" class="submit-loader">
+                                    <div class="submit-loader__circular">
+                                        <svg viewBox="25 25 50 50">
+                                            <circle class="submit-loader__path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"></circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="requests__pagination" ng-show="!loading && totalRequests > itemsPerPage">
+                    <ul uib-pagination direction-links="false" force-ellipses="true" max-size="itemsPerPage" items-per-page="itemsPerPage"
+                        total-items="totalRequests" ng-model="page" ng-change="getRequestPage()" ng-disabled="pageLoading"
+                        rotate="false"></ul>
+                </div>
+            </div>
+            <!-- /.requests inner -->
+        </section>
+        <!-- /.requests -->
+
+    </div>
+
+
+
+
+    <script type="text/ng-template" id="modalWithdraw.html">
+        <div class="modal-withdrawal__header">
+            {{ 'front.withdrawal popup title' | translate }}
+            <button class="modal-withdrawal__close" type="button" ng-disabled="method.status === 'process'" ng-click="close()">
+                <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.599999964">
+                        <g class="path-with-fill" transform="translate(-836.000000, -134.000000)" fill="#9B9B9B">
+                            <g transform="translate(437.000000, 118.000000)">
+                                <path d="M407,22.1998449 L412.908262,16.2915833 C413.298999,15.9008459 413.93137,15.9055458 414.324304,16.2984792 L414.701521,16.6756964 C415.099427,17.0736023 415.097542,17.7026135 414.708417,18.0917384 L408.800155,24 L414.708417,29.9082616 C415.097542,30.2973865 415.099427,30.9263977 414.701521,31.3243036 L414.324304,31.7015208 C413.93137,32.0944542 413.298999,32.0991541 412.908262,31.7084167 L407,25.8001551 L401.091738,31.7084167 C400.701001,32.0991541 400.06863,32.0944542 399.675696,31.7015208 L399.298479,31.3243036 C398.900573,30.9263977 398.902458,30.2973865 399.291583,29.9082616 L405.199845,24 L399.291583,18.0917384 C398.902458,17.7026135 398.900573,17.0736023 399.298479,16.6756964 L399.675696,16.2984792 C400.06863,15.9055458 400.701001,15.9008459 401.091738,16.2915833 L407,22.1998449 Z" id="Combined-Shape-Copy-5"></path>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </button>
+        </div>
+        <div class="modal-withdrawal__body">
+            <div class="modal-withdrawal__amount">
+                <span class="modal-withdrawal__amount-num">{{ cardsAmount | money: {currency: currency} }}</span>
+                <div>{{ 'front.withdrawal popup you get momental' | translate }}</div>
+            </div>
+            <ul class="ways">
+                <li class="ways__item" ng-repeat="card in cards | orderBy:'id'">
+                    <div class="ways__logo">
+                        <!-- <i class="icon--{{ ::card.type }}"></i> -->
+                        <img src="/images/withdrawal/{{ ::card.type }}.svg" alt="">
+                    </div>
+                    <div class="cards__number" ng-bind-html="card.number"></div>
+                    <div class="ways__amount">
+                        <span>{{ card.withdrawAmount | money: {currency: currency} }}</span>
+
+
+                        <div class="ways__status" ng-class="{'--processed' : card.status === 'process' || card.status === 'success' || card.status === 'failed'}">
+                            <div ng-if="card.status === 'process'" class="submit-loader ways__status-icon">
+                                <div class="submit-loader__circular">
+                                    <svg viewBox="25 25 50 50">
+                                        <circle class="submit-loader__path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"></circle>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div ng-if="card.status === 'success'" class="ways__status-icon">
+                                <svg viewBox="0 0 33 24">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g transform="translate(-464.000000, -419.000000)" fill="#32AB51">
+                                            <g transform="translate(440.000000, 391.000000)">
+                                                <path d="M56.516723,28.478623 C55.8723859,27.840459 54.8277309,27.840459 54.1832649,28.478623 L34.4152578,48.0554768 L26.8167593,40.5305281 C26.1724222,39.8923641 25.1277672,39.8924279 24.4833012,40.5305281 C23.8388996,41.1686284 23.8388996,42.2031716 24.4833012,42.8413356 L33.2485287,51.5215924 C33.8926725,52.1596926 34.9381009,52.1592458 35.5819868,51.5215924 L56.516723,30.7894944 C57.1611246,30.1513942 57.1610601,29.1167871 56.516723,28.478623 Z"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div ng-if="card.status === 'failed'" class="ways__status-icon">
+                                <svg viewBox="0 0 32 32">
+                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                         <g transform="translate(-667.000000, -319.000000)" fill="#DA4931" fill-rule="nonzero">
+                                             <g transform="translate(643.000000, 295.000000)">
+                                                 <path d="M54.9329488,52.6704567 C55.5577157,53.2952247 55.5577157,54.3082269 54.9329488,54.9329949 C54.6291022,55.2368421 54.2229331,55.4015169 53.8015727,55.4015169 C53.3803094,55.4015169 52.9743656,55.2369049 52.6701966,54.9329949 L40.101524,42.3642996 L27.5327608,54.9330854 C27.2286823,55.2369049 26.8227385,55.4015169 26.4014752,55.4015169 C25.9801148,55.4015169 25.5739458,55.2368421 25.2700991,54.9329949 C24.6453322,54.3082269 24.6453322,53.2952247 25.2700991,52.6704567 L37.8388808,40.1016523 L25.2700538,27.5328026 C24.6453473,26.9078284 24.6453473,25.8951126 25.2700991,25.2700931 C25.8948738,24.6453173 26.9081266,24.6453173 27.5326347,25.2700931 L40.101524,37.8390051 L52.670368,25.2701384 C53.2949213,24.6453173 54.3081741,24.6453173 54.9329941,25.2701384 C55.5577006,25.8951126 55.5577006,26.9078284 54.9329488,27.5328479 L42.3641671,40.1016523 L54.9329488,52.6704567 Z"></path>
+                                             </g>
+                                         </g>
+                                     </g>
+                                 </svg>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="ways__text" ng-if="methodAmount > 0">
+                {{ 'front.withdrawal popup remain output' | translate }}&nbsp;
+                {{ methodAmount | money: {currency: currency} }}&nbsp;
+                {{ 'front.withdrawal popup output by default' | translate }}
+            </div>
+
+            <ul class="ways" ng-if="methodAmount > 0">
+                <li class="ways__item">
+                    <div class="ways__logo">
+                        <!-- <i class="icon--{{ ::method.css_name }}"></i> -->
+                        <img src="/images/hodly/withdrawal/tabs/{{ ::method.css_name }}.svg" alt="">
+                    </div>
+                    <!-- <div class="item-name">{{ method.name }}</div> -->
+                    <div class="ways__amount">
+                        <span>{{ methodAmount | money: {currency: currency} }}</span>
+
+                        <div class="ways__status" ng-class="{'--processed' : method.status === 'process' || method.status === 'success' || method.status === 'failed'}">
+                            <div ng-if="method.status === 'process'" class="submit-loader ways__status-icon">
+                                <div class="submit-loader__circular">
+                                    <svg viewBox="25 25 50 50">
+                                        <circle class="submit-loader__path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"></circle>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div ng-if="method.status === 'success'" class="ways__status-icon">
+                                <svg viewBox="0 0 33 24">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g transform="translate(-464.000000, -419.000000)" fill="#32AB51">
+                                            <g transform="translate(440.000000, 391.000000)">
+                                                <path d="M56.516723,28.478623 C55.8723859,27.840459 54.8277309,27.840459 54.1832649,28.478623 L34.4152578,48.0554768 L26.8167593,40.5305281 C26.1724222,39.8923641 25.1277672,39.8924279 24.4833012,40.5305281 C23.8388996,41.1686284 23.8388996,42.2031716 24.4833012,42.8413356 L33.2485287,51.5215924 C33.8926725,52.1596926 34.9381009,52.1592458 35.5819868,51.5215924 L56.516723,30.7894944 C57.1611246,30.1513942 57.1610601,29.1167871 56.516723,28.478623 Z"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div ng-if="method.status === 'failed'" class="ways__status-icon">
+                                <svg viewBox="0 0 32 32">
+                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                         <g transform="translate(-667.000000, -319.000000)" fill="#DA4931" fill-rule="nonzero">
+                                             <g transform="translate(643.000000, 295.000000)">
+                                                 <path d="M54.9329488,52.6704567 C55.5577157,53.2952247 55.5577157,54.3082269 54.9329488,54.9329949 C54.6291022,55.2368421 54.2229331,55.4015169 53.8015727,55.4015169 C53.3803094,55.4015169 52.9743656,55.2369049 52.6701966,54.9329949 L40.101524,42.3642996 L27.5327608,54.9330854 C27.2286823,55.2369049 26.8227385,55.4015169 26.4014752,55.4015169 C25.9801148,55.4015169 25.5739458,55.2368421 25.2700991,54.9329949 C24.6453322,54.3082269 24.6453322,53.2952247 25.2700991,52.6704567 L37.8388808,40.1016523 L25.2700538,27.5328026 C24.6453473,26.9078284 24.6453473,25.8951126 25.2700991,25.2700931 C25.8948738,24.6453173 26.9081266,24.6453173 27.5326347,25.2700931 L40.101524,37.8390051 L52.670368,25.2701384 C53.2949213,24.6453173 54.3081741,24.6453173 54.9329941,25.2701384 C55.5577006,25.8951126 55.5577006,26.9078284 54.9329488,27.5328479 L42.3641671,40.1016523 L54.9329488,52.6704567 Z"></path>
+                                             </g>
+                                         </g>
+                                     </g>
+                                 </svg>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="modal-withdrawal__withdraw">
+                <span>
+                    {{ 'front.withdrawal popup total output' | translate }}
+                </span>
+                <span class="modal-withdrawal__withdraw-amount">
+                    {{ withdrawAmount | money: {currency: currency} }}
+                </span>
+            </div>
+
+            <div class="modal-withdrawal__buttons">
+
+                <button class="btn btn-success" ng-click="modalWithdraw()"
+                        ng-disabled="method.status === 'process'"
+                        ng-if="method.status === 'ready' || method.status === 'process'"
+                        type="button">
+                {{ 'front.withdrawal popup button title' | translate }}
+                </button>
+
+                <button class="btn btn-default" ng-click="close()"
+                        ng-disabled="method.status === 'process'"
+                        ng-if="method.status === 'ready' || method.status === 'process'"
+                        type="button">
+                    {{ 'front.cancel' | translate }}
+                </button>
+
+                <button class="btn btn-default --center"
+                        ng-if="method.status === 'success' || method.status === 'failed'"
+                        ng-click="close()">
+                    {{ 'front.close' | translate }}
+                </button>
+
+            </div>
+        </div>
+    </script>
+
+
+
+
+
+
+
+
+    <script type="text/ng-template" id="modalCardRequestComplete.html">
+        <div class="modal-header">
+            <div class="modal-logo"></div>
+            <h5 class="modal-title">{{ 'front.withdrawal popup title' | translate }}</h5>
+            <button class="modal-close" type="button" ng-click="close()">×</button>
+        </div>
+        <div class="modal-body">
+            <p>{{ 'front.withdraw fast refund popup text' | translate }}</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-lg btn-default" ng-click="close()">{{ 'front.continue' | translate }}</button>
+        </div>
+    </script>
+</div>
+
+<!-- withdrawal faq -->
+<section class="faq panel" ng-controller="withdrawalFaq">
+    <div class="container">
+        <h1 class="faq__header">{{ 'front.frequently asked questions' | translate }}</h1>
+        <div class="withdrawal-inner" ng-class="{ 'loading': loading }">
+            <!-- loader -->
+            <div class="circular-loader" ng-if="loading">
+                <div class="circular-loader-center">
+                    <svg viewBox="25 25 50 50">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"></circle>
+                    </svg>
+                    <p>{{ 'front.withdrawal loading' | translate }}</p>
+                </div>
+            </div>
+            <!-- /.loader -->
+            <ul class="faq__list">
+                <li class="faq__item" ng-repeat="item in faqQuestions track by $index">
+                    <div class="faq__question collapsed" collapse>{{ item.question }}</div>
+                    <div class="faq__answer" ng-bind-html="item.answer"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- /.faq -->
+
+<script src="js/vendor/libs/jquery.min.js"></script>
+<script src="js/vendor/libs/bootstrap.min.js"></script>
+<script src="js/vendor/libs/md5.js"></script>
+<script src="js/vendor/libs/moment.js"></script>
+<script src="js/vendor/libs/sockjs.min.js"></script>
+<script src="js/vendor/libs/jquery.cookie.js"></script>
+<script src="js/vendor/libs/lodash.js"></script>
+
+<script src="js/vendor/angular.min.js"></script>
+<script src="js/vendor/angular-animate.min.js"></script>
+<script src="js/vendor/angular-sanitize.min.js"></script>
+<script src="js/vendor/angular-messages.js"></script>
+<script src="js/vendor/angular-translate.min.js"></script>
+<script src="js/vendor/angular-ui-select.min.js"></script>
+<script src="js/vendor/angular-bind-html-compile.min.js"></script>
+<script src="js/vendor/angular-ui-bootstrap-custom-tpls-2.4.0.js"></script>
+
+<script src="js/app.js"></script>
+
+<script src="js/common/constants/defaultValidationMessages.js"></script>
+<script src="js/common/constants/languageCodes.js"></script>
+
+<script src="js/common/filters/money.js"></script>
+<script src="js/common/filters/select.js"></script>
+<script src="js/common/filters/number.js"></script>
+
+<script src="js/common/services/time.js"></script>
+<script src="js/common/services/sign.js"></script>
+<script src="js/common/services/socket-other.js"></script>
+<script src="js/common/services/httpSign.js"></script>
+<script src="js/common/services/httpMetrics.js"></script>
+<script src="js/common/services/httpService.js"></script>
+<script src="js/common/services/userService.js"></script>
+<script src="js/common/services/frameMessage.js"></script>
+<script src="js/common/services/translationLoader.js"></script>
+<script src="js/common/services/translationCache.js"></script>
+<script src="js/common/services/locationService.js"></script>
+<script src="js/common/services/eventsService.js"></script>
+<script src="js/common/services/utilService.js"></script>
+
+<!--<script src="js/common/directives/form.js"></script>-->
+<script src="js/common/directives/range.js"></script>
+<script src="js/common/directives/resize.js"></script>
+<script src="js/common/directives/tooltip.js"></script>
+<script src="js/common/directives/valueFilter.js"></script>
+
+
+<script src="js/app/constants/billingMethodsIds.js"></script>
+<script src="js/app/constants/validationMessages.js"></script>
+<script src="js/app/constants/withdrawalMessages.js"></script>
+<script src="js/app/constants/sharedWithdrawalData.js"></script>
+<script src="js/app/constants/documentStatuses.js"></script>
+
+<script src="js/app/directives/collapse.js"></script>
+<script src="js/app/directives/progressBar.js"></script>
+<script src="js/app/directives/modalPosition.js"></script>
+
+<script src="js/app/services/faqService.js"></script>
+<script src="js/app/services/methodsService.js"></script>
+<script src="js/app/services/requestsService.js"></script>
+<script src="js/app/services/ecommpayService.js"></script>
+<script src="js/app/services/aloGatewayService.js"></script>
+<script src="js/app/services/userCards.js"></script>
+<script src="js/app/services/featuresService.js"></script>
+<script src="js/app/services/configurationService.js"></script>
+<script src="js/app/services/documentStatusService.js"></script>
+<script src="js/app/services/getBalanceService.js"></script>
+
+<script src="js/app/controllers/faqCtrl.js"></script>
+<script src="js/app/controllers/methodsCtrl.js"></script>
+<script src="js/app/controllers/requestsCtr.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="90px" height="90px" viewBox="0 0 90 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="90" height="90" fill="white">
+            <circle id="path-1" stroke-width="6" cx="45" cy="45" r="45"></circle>
+        </mask>
+    </defs>
+    <g stroke-width="1" fill="none" fill-rule="evenodd" stroke="#32AB51">
+        <use mask="url(#mask-2)" xlink:href="#path-1"></use>
+        <polyline stroke-width="3" points="23 47.0013037 40.7403783 62.0003534 66.5499992 29"></polyline>
+    </g>
+</svg>

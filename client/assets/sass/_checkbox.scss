@@ -1,0 +1,94 @@
+.checkbox__label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    cursor: pointer;
+    margin: 0;
+    font-weight: 400;
+    font-size: 100%;
+}
+
+.checkbox {
+    display: block;
+    min-width: rem(16);
+    max-width: rem(16);
+    height: rem(16);
+    margin: rem(2) rem(8) 0 0;
+
+    .--fz12 & {
+        margin-top: 0;
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        &:checked,
+        &.ng-not-empty {
+            & + .checkbox__icon {
+                border-color: $link-color;
+                background-color: $link-color;
+                &:before {
+                    opacity: 1;
+                }
+            }
+        }
+
+        &:disabled,
+        &.disabled {
+            & + .checkbox__icon {
+                border-color: $light-gray !important;
+                background: $light-gray;
+                &:before {
+                    //background-color: $light-gray;
+                }
+            }
+        }
+    }
+    &:hover,
+    .checkbox__label:hover & {
+        .checkbox__icon {
+            border-color: $link-color-hover;
+            //background: $link-color-hover;
+            &:before {
+                //background-color: $link-color-hover;
+            }
+        }
+        input {
+            &:disabled,
+            &.disabled {
+                & + .checkbox__icon {
+                    border-color: $light-gray !important;
+                    background: $light-gray;
+                    &:before {
+                        background-color: $light-gray;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.checkbox__icon {
+    display: block;
+    width: inherit;
+    height: inherit;
+    border: 1px solid $gray;
+    border-radius: rem(4);
+    transition: all 200ms;
+
+    &:before {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background:
+            url("data:image/svg+xml;charset=UTF-8, %3csvg width='9px' height='7px' viewBox='0 0 9 7' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-linecap='round'%3e%3cg transform='translate(-200.000000, -509.000000)' stroke='%23FFFFFF' stroke-width='2'%3e%3cg transform='translate(201.000000, 510.000000)'%3e%3cpath d='M0.0797341666,2.55679488 L2.21267281,4.79638046'%3e%3c/path%3e%3cpath d='M6.94905123,0 L2.5,4.6445778'%3e%3c/path%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e")
+            center center
+            no-repeat;
+        background-size: 65% auto;
+        opacity: 0;
+        transition: all 200ms;
+        content: '';
+        will-change: opacity;
+    }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Public_bank</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Public_bank" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#C32C2C" fill-rule="nonzero" x="0" y="0" width="52" height="52" rx="4"></rect>
+        <path d="M31.7773757,9 L39.3853624,16.486213 L39.3853624,24.586395 L38.281111,25.5682352 L39.3853624,26.5500754 L39.3853624,34.6502574 L31.8991494,42.0134216 L20.6092618,42.0134216 L13,34.526571 L13,26.6724867 L14.2273003,25.5682352 L13,24.4639837 L13,16.6092618 L20.7316731,9 L31.7773757,9 Z M26.2542056,39.6812323 L35.4592766,30.6004852 L34.3550251,29.4955961 L31.8991494,31.9501967 L20.6092618,31.9501967 L18.1540237,29.618645 L17.1721834,30.6004852 L26.2542056,39.6812323 Z M22.2044334,25.5682352 L26.2548432,29.618645 L30.4276642,25.5682352 L26.2548432,21.5178254 L22.2044334,25.5682352 Z M34.3550251,21.518463 L35.4592766,20.5359852 L26.2542056,11.4546006 L17.1721834,20.5359852 L18.1540237,21.6408743 L20.7316731,19.0638624 L31.7773757,19.0638624 L34.3550251,21.518463 Z" id="Combined-Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
+</svg>

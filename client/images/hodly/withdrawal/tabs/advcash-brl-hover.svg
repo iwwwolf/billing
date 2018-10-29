@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="20px" viewBox="0 0 80 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>advcash-brl</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8.2,12.8 C7.5,13.2 6.2,13.5 4.8,13.5 C2.1,13.5 0.7,12.4 0.7,10.6 C0.7,8.1 3.3,7.6 6,7.5 L6,7 C6,6 5.4,5.7 4.3,5.7 C3.4,5.7 2.4,6 1.8,6.2 L1.2,4.6 C2,4.3 3.3,4 4.6,4 C6.9,4 8.2,4.9 8.2,7.2 L8.2,12.8 Z M6,11.7 L6,8.9 C4.3,9 2.8,9.1 2.8,10.5 C2.8,11.4 3.5,11.8 4.7,11.8 C5.2,11.9 5.8,11.8 6,11.7 Z M16.9,12.8 C16.2,13.2 15,13.5 13.6,13.5 C10.7,13.5 9.1,11.8 9.1,8.8 C9.1,6 10.6,4.1 13.4,4.1 C13.9,4.1 14.4,4.2 14.7,4.3 L14.7,0 L17,0 L17,12.8 L16.9,12.8 Z M14.6,11.5 L14.6,6 C14.4,5.9 13.9,5.8 13.5,5.8 C12.1,5.8 11.3,7 11.3,8.7 C11.3,10.5 12.1,11.6 13.5,11.6 C13.9,11.7 14.4,11.6 14.6,11.5 Z M26.5,4.2 L23.2,13.3 L20.5,13.3 L17.2,4.2 L19.8,4.2 L21.5,9.9 C21.7,10.6 21.8,11.4 21.8,11.4 C21.8,11.4 21.9,10.6 22.1,9.9 L23.8,4.2 L26.5,4.2 Z" id="path-1"></path>
+        <path d="M6.7,8.9 C6.1,9.3 5.4,9.5 4.3,9.5 C2.2,9.5 0.2,8 0.2,4.7 C0.2,1.5 2.1,0 4.3,0 C5.4,0 6.1,0.2 6.7,0.6 L6,2.3 C5.7,2 5.2,1.9 4.7,1.9 C3.6,1.9 2.7,2.8 2.7,4.7 C2.7,6.6 3.6,7.5 4.7,7.5 C5.2,7.5 5.7,7.3 6,7.1 L6.7,8.9 Z" id="path-3"></path>
+        <path d="M8.2,8.8 C7.5,9.2 6.2,9.5 4.8,9.5 C2.1,9.5 0.7,8.4 0.7,6.6 C0.7,4.1 3.3,3.6 6,3.5 L6,3 C6,2.1 5.3,1.7 4.3,1.7 C3.4,1.7 2.4,2 1.8,2.2 L1.2,0.6 C2,0.3 3.3,0 4.6,0 C6.9,0 8.2,0.9 8.2,3.2 L8.2,8.8 Z M6.1,7.7 L6.1,4.9 C4.4,5 2.9,5.1 2.9,6.5 C2.9,7.4 3.6,7.8 4.8,7.8 C5.2,7.9 5.8,7.8 6.1,7.7 Z" id="path-5"></path>
+        <path d="M5,10.3 C4.6,10.4 4.1,10.4 3.6,10.4 C2.5,10.4 1.3,10.1 0.7,9.7 L1.4,7.9 C1.9,8.2 2.9,8.5 3.5,8.5 C4.3,8.5 4.9,8.1 4.9,7.5 C4.9,6.8 4.3,6.5 3.5,6.3 C2.4,5.9 0.9,5.3 0.9,3.6 C0.9,2 2.1,0.9 4.2,0.9 C5.4,0.9 6.3,1.2 7,1.6 L6.3,3.2 C6,3 5.2,2.7 4.6,2.7 C3.8,2.7 3.3,3.1 3.3,3.6 C3.3,4.3 3.9,4.6 4.7,4.8 C5.4,5 6.1,5.3 6.6,5.8 C5.6,7.1 5,8.7 5,10.3 Z" id="path-7"></path>
+        <path d="M4.6,6 C4.4,5.9 4.1,5.8 3.7,5.8 C3.2,5.8 2.7,5.9 2.4,6.1 L2.4,6.2 C1.6,6.4 0.8,6.8 0.1,7.3 L0.1,0 L2.4,0 L2.4,4.4 C2.9,4.2 3.6,4 4.3,4 C6,4 7.1,4.7 7.5,6 L4.6,6 Z" id="path-9"></path>
+        <polygon id="path-11" points="0.6 7 3.8 0 5.5 5 4.2 5 3.8 5.2 3 7"></polygon>
+        <polygon id="path-13" points="17 0.1 15.6 2.2 1.8 2.2 0.4 0.1"></polygon>
+        <polygon id="path-15" points="4.9 7 2.5 7 1.8 5.2 1.4 4.2 0.9 2.4 1.8 4.4408921e-16"></polygon>
+        <path d="M0,5.5 C0,2.5 2.5,0 5.5,0 L26.5,0 C29.5,0 32,2.5 32,5.5 C32,8.5 29.5,11 26.5,11 L5.5,11 C2.5,11 0,8.5 0,5.5 Z" id="path-17"></path>
+        <path d="M3.5,6.3 L0.6,6.3 L0.6,0.7 L3.4,0.7 C4.6,0.7 5.2,1.2 5.2,2.1 C5.2,2.7 4.7,3.2 4.1,3.3 C4.9,3.3 5.5,3.9 5.5,4.6 C5.4,5.6 4.7,6.3 3.5,6.3 Z M2.2,1.8 L2.2,2.9 L2.8,2.9 C3.2,2.9 3.5,2.7 3.5,2.3 C3.5,2 3.2,1.7 2.8,1.7 L2.2,1.7 L2.2,1.8 Z M2.2,5.2 L3,5.2 C3.5,5.2 3.8,5 3.8,4.5 C3.8,4.1 3.5,3.9 3,3.9 L2.3,3.9 L2.3,5.2 L2.2,5.2 Z M7.6,1.9 L7.6,3.3 L8.3,3.3 C8.8,3.3 9.1,3 9.1,2.6 C9.1,2.2 8.8,1.9 8.4,1.9 L7.6,1.9 Z M7.6,4.4 L7.6,6.3 L6,6.3 L6,0.7 L8.5,0.7 C10,0.7 10.8,1.4 10.8,2.6 C10.8,3.3 10.5,3.9 9.9,4.2 L11,6.3 L9.1,6.3 L8.2,4.4 L7.6,4.4 Z M15.3,5 L15.3,6.3 L11.4,6.3 L11.4,0.7 L13.1,0.7 L13.1,5 L15.3,5 Z" id="path-19"></path>
+        <circle id="path-21" cx="5.6" cy="5.5" r="5.5"></circle>
+        <polygon id="path-23" points="0.1 0 80.1 0 80.1 24 0.1 24"></polygon>
+        <polygon id="path-25" points="0.1 0 11.1 0 11.1 11 0.1 11"></polygon>
+        <polygon id="path-27" points="0.1 0 11.1 0 11.1 11 0.1 11"></polygon>
+        <polygon id="path-29" points="0.1 0 11.1 0 11.1 11 0.1 11"></polygon>
+        <polygon id="path-31" points="0 3.5 4.6 6.5 9.2 3.5 4.6 0.5"></polygon>
+        <polygon id="path-33" points="0.1 0 11.1 0 11.1 11 0.1 11"></polygon>
+        <polygon id="path-35" points="0.1 0 11.1 0 11.1 11 0.1 11"></polygon>
+        <ellipse id="path-37" cx="2.6" cy="2.5" rx="1.9" ry="2"></ellipse>
+        <polygon id="path-39" points="0.1 0 11.1 0 11.1 11 0.1 11"></polygon>
+        <polygon id="path-41" points="0.1 0 11.1 0 11.1 11 0.1 11"></polygon>
+        <ellipse id="path-43" cx="2.6" cy="2.5" rx="1.9" ry="2"></ellipse>
+        <polygon id="path-45" points="0.1 0 11.1 0 11.1 11 0.1 11"></polygon>
+        <polygon id="path-47" points="0.1 0 5.1 0 5.1 4 0.1 4"></polygon>
+        <path d="M0.8,5.4 C0.8,2.8 2.9,0.6 5.5,0.6 C8.1,0.6 10.2,2.7 10.2,5.4 L9.9,5.4 C9.9,2.9 7.9,0.9 5.5,0.9 C3.1,0.9 1.1,2.9 1.1,5.4 L0.8,5.4 Z" id="path-49"></path>
+        <polygon id="path-51" points="0.1 0 5.1 0 5.1 5 0.1 5"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="withdraw_table-copy-2" transform="translate(-159.000000, -275.000000)">
+            <g id="advcash-brl" transform="translate(159.000000, 275.000000)">
+                <g id="Group" transform="translate(0.000000, 1.000000)">
+                    <g id="Clipped">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="b" fill="#FFFFFF" xlink:href="#path-1"></use>
+                        <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)" points="-4.3 -5 31.5 -5 31.5 18.4 -4.3 18.4"></polygon>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(27.000000, 5.000000)">
+                    <g id="Clipped">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <g id="e"></g>
+                        <polygon id="Shape" fill="#009B59" fill-rule="nonzero" mask="url(#mask-4)" points="-4.8 -5 11.7 -5 11.7 14.5 -4.8 14.5"></polygon>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(33.000000, 5.000000)">
+                    <g id="Clipped">
+                        <mask id="mask-6" fill="white">
+                            <use xlink:href="#path-5"></use>
+                        </mask>
+                        <g id="h"></g>
+                        <polygon id="Shape" fill="#009B59" fill-rule="nonzero" mask="url(#mask-6)" points="-4.3 -5 13.2 -5 13.2 14.5 -4.3 14.5"></polygon>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(41.000000, 4.000000)">
+                    <g id="Clipped">
+                        <mask id="mask-8" fill="white">
+                            <use xlink:href="#path-7"></use>
+                        </mask>
+                        <g id="k"></g>
+                        <polygon id="Shape" fill="#009B59" fill-rule="nonzero" mask="url(#mask-8)" points="-4.3 -4 12.1 -4 12.1 15.5 -4.3 15.5"></polygon>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(49.000000, 1.000000)">
+                    <g id="Clipped">
+                        <mask id="mask-10" fill="white">
+                            <use xlink:href="#path-9"></use>
+                        </mask>
+                        <g id="n"></g>
+                        <polygon id="Shape" fill="#009B59" fill-rule="nonzero" mask="url(#mask-10)" points="-4.9 -5 12.5 -5 12.5 12.4 -4.9 12.4"></polygon>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(64.000000, 0.000000)">
+                    <g id="Clipped">
+                        <mask id="mask-12" fill="white">
+                            <use xlink:href="#path-11"></use>
+                        </mask>
+                        <g id="q"></g>
+                        <polygon id="Shape" fill="#009B59" fill-rule="nonzero" mask="url(#mask-12)" points="-4.4 -5 10.5 -5 10.5 12 -4.4 12"></polygon>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(59.000000, 5.000000)">
+                    <g id="Clipped">
+                        <mask id="mask-14" fill="white">
+                            <use xlink:href="#path-13"></use>
+                        </mask>
+                        <g id="t"></g>
+                        <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-14)" points="-4.6 -4.9 22 -4.9 22 7.2 -4.6 7.2"></polygon>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(66.000000, 0.000000)">
+                    <g id="Clipped">
+                        <mask id="mask-16" fill="white">
+                            <use xlink:href="#path-15"></use>
+                        </mask>
+                        <g id="w"></g>
+                        <polygon id="Shape" fill="#009B59" fill-rule="nonzero" mask="url(#mask-16)" points="-4.1 -5 9.9 -5 9.9 12 -4.1 12"></polygon>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(48.000000, 9.000000)">
+                    <g id="Clipped">
+                        <mask id="mask-18" fill="white">
+                            <use xlink:href="#path-17"></use>
+                        </mask>
+                        <g id="z"></g>
+                        <polygon id="Shape" fill="#009A38" fill-rule="nonzero" mask="url(#mask-18)" points="-5 -5 37 -5 37 16 -5 16"></polygon>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(60.000000, 11.000000)">
+                    <g id="Clipped">
+                        <mask id="mask-20" fill="white">
+                            <use xlink:href="#path-19"></use>
+                        </mask>
+                        <g id="C"></g>
+                        <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-20)" points="-4.4 -4.3 20.3 -4.3 20.3 11.3 -4.4 11.3"></polygon>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(48.000000, 9.000000)">
+                    <g id="Clipped">
+                        <mask id="mask-22" fill="white">
+                            <use xlink:href="#path-21"></use>
+                        </mask>
+                        <g id="E"></g>
+                        <g id="Group" mask="url(#mask-22)">
+                            <g transform="translate(-48.000000, -12.000000)" id="Clipped">
+                                <g>
+                                    <mask id="mask-24" fill="white">
+                                        <use xlink:href="#path-23"></use>
+                                    </mask>
+                                    <g id="G"></g>
+                                    <g id="Group" mask="url(#mask-24)">
+                                        <g transform="translate(48.000000, 12.000000)">
+                                            <g>
+                                                <g id="Clipped">
+                                                    <mask id="mask-26" fill="white">
+                                                        <use xlink:href="#path-25"></use>
+                                                    </mask>
+                                                    <g id="I"></g>
+                                                    <g mask="url(#mask-26)">
+                                                        <mask id="mask-28" fill="white">
+                                                            <use xlink:href="#path-27"></use>
+                                                        </mask>
+                                                        <g id="K"></g>
+                                                        <polygon id="Shape" fill="#009B3A" fill-rule="nonzero" mask="url(#mask-28)" points="-4.9 -5 16.1 -5 16.1 16 -4.9 16"></polygon>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                            <g>
+                                                <g id="Clipped">
+                                                    <mask id="mask-30" fill="white">
+                                                        <use xlink:href="#path-29"></use>
+                                                    </mask>
+                                                    <g id="M"></g>
+                                                    <g id="Group" mask="url(#mask-30)">
+                                                        <g transform="translate(1.000000, 2.000000)" id="Clipped">
+                                                            <g>
+                                                                <mask id="mask-32" fill="white">
+                                                                    <use xlink:href="#path-31"></use>
+                                                                </mask>
+                                                                <g id="O"></g>
+                                                                <g id="Group" mask="url(#mask-32)">
+                                                                    <g transform="translate(-1.000000, -2.000000)" id="Clipped">
+                                                                        <g>
+                                                                            <mask id="mask-34" fill="white">
+                                                                                <use xlink:href="#path-33"></use>
+                                                                            </mask>
+                                                                            <g id="Q"></g>
+                                                                            <polygon id="Shape" fill="#FEDF00" fill-rule="nonzero" mask="url(#mask-34)" points="-4 -2.5 15.1 -2.5 15.1 13.4 -4 13.4"></polygon>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                            <g>
+                                                <g id="Clipped">
+                                                    <mask id="mask-36" fill="white">
+                                                        <use xlink:href="#path-35"></use>
+                                                    </mask>
+                                                    <g id="S"></g>
+                                                    <g id="Group" mask="url(#mask-36)">
+                                                        <g transform="translate(3.000000, 3.000000)" id="Clipped">
+                                                            <g>
+                                                                <mask id="mask-38" fill="white">
+                                                                    <use xlink:href="#path-37"></use>
+                                                                </mask>
+                                                                <g id="U"></g>
+                                                                <g id="Group" mask="url(#mask-38)">
+                                                                    <g transform="translate(-3.000000, -3.000000)" id="Clipped">
+                                                                        <g>
+                                                                            <mask id="mask-40" fill="white">
+                                                                                <use xlink:href="#path-39"></use>
+                                                                            </mask>
+                                                                            <g id="W"></g>
+                                                                            <polygon id="Shape" fill="#002776" fill-rule="nonzero" mask="url(#mask-40)" points="-1.3 -1.5 12.6 -1.5 12.6 12.4 -1.3 12.4"></polygon>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                            <g>
+                                                <g id="Clipped">
+                                                    <mask id="mask-42" fill="white">
+                                                        <use xlink:href="#path-41"></use>
+                                                    </mask>
+                                                    <g id="Y"></g>
+                                                    <g id="Group" mask="url(#mask-42)">
+                                                        <g transform="translate(3.000000, 3.000000)" id="Clipped">
+                                                            <g>
+                                                                <mask id="mask-44" fill="white">
+                                                                    <use xlink:href="#path-43"></use>
+                                                                </mask>
+                                                                <g id="aa"></g>
+                                                                <g id="Group" mask="url(#mask-44)">
+                                                                    <g transform="translate(-3.000000, -3.000000)" id="Clipped">
+                                                                        <g>
+                                                                            <mask id="mask-46" fill="white">
+                                                                                <use xlink:href="#path-45"></use>
+                                                                            </mask>
+                                                                            <g id="ac"></g>
+                                                                            <g id="Group" mask="url(#mask-46)">
+                                                                                <g transform="translate(3.000000, 4.000000)" id="Clipped">
+                                                                                    <g>
+                                                                                        <mask id="mask-48" fill="white">
+                                                                                            <use xlink:href="#path-47"></use>
+                                                                                        </mask>
+                                                                                        <g id="ae"></g>
+                                                                                        <g id="Group" mask="url(#mask-48)">
+                                                                                            <g transform="translate(-4.000000, 0.000000)" id="Clipped">
+                                                                                                <g>
+                                                                                                    <mask id="mask-50" fill="white">
+                                                                                                        <use xlink:href="#path-49"></use>
+                                                                                                    </mask>
+                                                                                                    <g id="ag"></g>
+                                                                                                    <g id="Group" mask="url(#mask-50)">
+                                                                                                        <g transform="translate(4.000000, -1.000000)" id="Clipped">
+                                                                                                            <g>
+                                                                                                                <mask id="mask-52" fill="white">
+                                                                                                                    <use xlink:href="#path-51"></use>
+                                                                                                                </mask>
+                                                                                                                <g id="ai"></g>
+                                                                                                                <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-52)" points="-8.2 -3.4 11.2 -3.4 11.2 11.4 -8.2 11.4"></polygon>
+                                                                                                            </g>
+                                                                                                        </g>
+                                                                                                    </g>
+                                                                                                </g>
+                                                                                            </g>
+                                                                                        </g>
+                                                                                    </g>
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

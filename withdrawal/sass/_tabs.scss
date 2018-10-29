@@ -1,0 +1,559 @@
+.tabs {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: #F2F2F7;
+    border: none;
+}
+
+.tabs__item {
+    display: block;
+    position: relative;
+    font-size: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 70px;
+    background-color: transparent;
+    border-top: 1px solid #E8E9EB;
+    box-shadow: 0 0 0 transparent;
+    transition: all 250ms;
+
+    &:first-child {
+        border-top: none;
+    }
+
+    &:before,
+    &:after {
+        display: block;
+        width: 100%;
+        height: 100%;
+        visibility: visible;
+        opacity: 1;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: auto;
+        overflow: hidden;
+        border-radius: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 250ms;
+        content: '';
+    }
+
+    &:after {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &:not(.active) {
+        &:hover {
+            background: #fff !important;
+            border-radius: 4px 0 0 4px;
+        }
+    }
+
+    &.active {
+        background-color: #f1f4f6;
+
+
+        background: #fff;
+        box-shadow: 0 4px 16px rgba(33, 102, 212, 0.15);
+        border-radius: 4px 0 0 4px;
+
+        &.disabled {
+            opacity: 1;
+        }
+    }
+
+    &.disabled {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        filter: #808080;
+        backface-visibility: hidden;
+
+        -webkit-filter: none;
+        filter: none;
+        opacity: 0.5;
+    }
+
+
+}
+
+/* Логотипы в табах */
+
+$methods:
+        visa-mastercard,
+        boleto,
+        euteller,
+        fasapay,
+        giropay,
+        ideal,
+        lobanet,
+        multibanco,
+        neosurf,
+        neteller,
+        qiwi,
+        skrill,
+        sofort,
+        advcash,
+        advcash-usd,
+        advcash-brl,
+        astropay,
+        unionpay,
+        webmoney-wme,
+        webmoney-wmr,
+        webmoney-wmz,
+        yandex-money,
+        yandex-money-ru,
+        bank-transfer,
+        teleingreso,
+        mistercash,
+        acb,
+        ambank,
+        bangkok,
+        bank_islam,
+        bca,
+        bidv,
+        bni,
+        bsn,
+        cimb_bank,
+        cimb_niaga,
+        cimb_thai,
+        donga,
+        eximbank,
+        gsb,
+        hong_leong_bank,
+        internet_banking_bri,
+        kasikornbank,
+        kiatnakin_bank,
+        krungsri,
+        ktb_netbank,
+        mandiri,
+        maybank,
+        public_bank,
+        rhb,
+        sacombank,
+        scb,
+        techcombank,
+        tmb,
+        vietcombank,
+        vietinbank,
+        bri,
+        permata,
+        krungthai;
+
+.tabs__item {
+    @each $method in $methods {
+        &--#{$method} {
+            &:before {
+                background-image: url('/images/hodly/withdrawal/tabs/#{$method}.svg');
+            }
+        }
+    }
+
+    &--visa-mastercard.active {
+        background-color: #000;
+        box-shadow: none;
+    }
+
+    &--giropay {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/giropay-hover.svg");
+        }
+
+        &.active {
+            background-color: #000268;
+        }
+    }
+
+    &--multibanco {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/multibanco-hover.svg");
+        }
+
+        &.active {
+            background-color: #2e2e2e;
+        }
+    }
+
+    &--neosurf {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/neosurf-hover.svg");
+        }
+
+        &.active {
+            background-color: #ed008c;
+        }
+    }
+
+    &--neteller {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/neteller-hover.svg");
+        }
+
+        &.active {
+            background-color: #7bb928;
+        }
+    }
+
+    &--qiwi {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/qiwi-hover.svg");
+        }
+
+        &.active {
+            background-color: #ff8b00;
+        }
+    }
+
+    &--skrill {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/skrill-hover.svg");
+        }
+
+        &.active {
+            background-color: #972772;
+        }
+    }
+
+    &--sofort {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/sofort-hover.svg");
+        }
+
+        &.active {
+            background-color: #ee7f00;
+        }
+    }
+
+    &--advcash {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/advcash-hover.svg");
+        }
+
+        &.active {
+            background-color: #0E2D39;
+        }
+    }
+
+    &--astropay {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/astropay-hover.svg");
+        }
+
+        &.active {
+            background-color: #191919;
+        }
+    }
+
+    &--webmoney-wme {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/webmoney-wme-hover.svg");
+        }
+
+        &.active {
+            background-color: #0072b7;
+        }
+    }
+
+    &--webmoney-wmr {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/webmoney-wmr-hover.svg");
+        }
+
+        &.active {
+            background-color: #0072b7;
+        }
+    }
+
+    &--webmoney-wmz {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/webmoney-wmz-hover.svg");
+        }
+
+        &.active {
+            background-color: #0072b7;
+        }
+    }
+
+    &--bank-transfer {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/bank-transfer-hover.svg");
+        }
+
+        &.active {
+            background-color: #6b758e;
+        }
+    }
+
+    &--acb {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/acb-hover.svg");
+        }
+
+        &.active {
+            background-color: #0071BC;
+        }
+    }
+
+    &--bangkok {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/bangkok-hover.svg");
+        }
+
+        &.active {
+            background-color: #1F4396;
+        }
+    }
+
+    &--bank_islam {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/bank_islam-hover.svg");
+        }
+
+        &.active {
+            background-color: #5F6062;
+        }
+    }
+
+    &--bca {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/bca-hover.svg");
+        }
+
+        &.active {
+            background-color: #1A4F8C;
+        }
+    }
+
+    &--bidv {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/bidv-hover.svg");
+        }
+
+        &.active {
+            background-color: #243B80;
+        }
+    }
+
+    &--bni {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/bni-hover.svg");
+        }
+
+        &.active {
+            background-color: #F15A23;
+        }
+    }
+
+    &--bsn {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/bsn-hover.svg");
+        }
+
+        &.active {
+            background-color: #00A2B1;
+        }
+    }
+
+    &--cimb_bank {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/cimb_bank-hover.svg");
+        }
+
+        &.active {
+            background-color: #790008;
+        }
+    }
+
+    &--cimb_niaga {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/cimb_niaga-hover.svg");
+        }
+
+        &.active {
+            background-color: #790008;
+        }
+    }
+
+    &--cimb_thai {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/cimb_thai-hover.svg");
+        }
+
+        &.active {
+            background-color: #790008;
+        }
+    }
+
+    &--eximbank {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/eximbank-hover.svg");
+        }
+
+        &.active {
+            background-color: #008ED0;
+        }
+    }
+
+    &--kiatnakin_bank {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/eximbank-hover.svg");
+        }
+
+        &.active {
+            background-color: #004990;
+        }
+    }
+
+    &--krungsri {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/krungsri-hover.svg");
+        }
+
+        &.active {
+            background-color: #776764;
+        }
+    }
+
+    &--ktb_netbank {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/ktb_netbank-hover.svg");
+        }
+
+        &.active {
+            background-color: #2BA3E0;
+        }
+    }
+
+    &--mandiri {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/mandiri-hover.svg");
+        }
+
+        &.active {
+            background-color: #003D79;
+        }
+    }
+
+    &--public_bank {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/public_bank-hover.svg");
+        }
+
+        &.active {
+            background-color: #C32C2C;
+        }
+    }
+
+    &--rhb {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/rhb-hover.svg");
+        }
+
+        &.active {
+            background-color: #025FAC;
+        }
+    }
+
+    &--sacombank {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/sacombank-hover.svg");
+        }
+
+        &.active {
+            background-color: #0072BC;
+        }
+    }
+
+    &--vietcombank {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/vietcombank-hover.svg");
+        }
+
+        &.active {
+            background-color: #123C25;
+        }
+    }
+
+
+    &--bri {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/bri-hover.svg");
+        }
+
+        &.active {
+            background-color: #00529C;
+        }
+    }
+
+    &--krungthai {
+        &:after {
+            background-image: url("/images/hodly/withdrawal/tabs/krungthai-hover.svg");
+        }
+
+        &.active {
+            background-color: #00A2E7;
+        }
+    }
+
+    &--giropay,
+    &--multibanco,
+    &--neosurf,
+    &--neteller,
+    &--qiwi,
+    &--skrill,
+    &--sofort,
+    &--advcash,
+    &--astropay,
+    &--webmoney-wme,
+    &--webmoney-wmr,
+    &--webmoney-wmz,
+    &--bank-transfer,
+    &--acb,
+    &--bangkok,
+    &--bank_islam,
+    &--bca,
+    &--bidv,
+    &--bni,
+    &--bsn,
+    &--cimb_bank,
+    &--cimb_niaga,
+    &--cimb_thai,
+    &--eximbank,
+    &--kiatnakin_bank,
+    &--krungsri,
+    &--ktb_netbank,
+    &--mandiri,
+    &--public_bank,
+    &--rhb,
+    &--sacombank,
+    &--vietcombank,
+    &--bri,
+    &--krungthai {
+        &.active {
+            box-shadow: none;
+
+            &:before {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            &:after {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}
+
+/* ======== */
+
+@media (min-width: 600px) {
+    .tabs {
+        min-width: rem(142);
+        max-width: rem(142);
+    }
+}

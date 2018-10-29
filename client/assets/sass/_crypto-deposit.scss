@@ -1,0 +1,32 @@
+.crypto-deposit__wallets {
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .form-group {
+        margin: 0;
+    }
+}
+
+.crypto-deposit__arrow {
+    height: rem(50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+        display: block;
+    }
+    .path-with-fill {
+        fill: $light-gray;
+    }
+}
+
+@media (min-width: 768px) {
+    .crypto-deposit__wallets {
+        display: flex;
+
+        .form-group {
+            width: 100%;
+            max-width: 45%;
+        }
+    }
+}

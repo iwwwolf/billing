@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>advcash_r</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="m7-withdraw-balance-0-1366" transform="translate(-1073.000000, -977.000000)">
+            <g id="advcash_r" transform="translate(1073.000000, 977.000000)">
+                <g id="Group-8-Copy-21" fill="#F0F2F5">
+                    <rect id="Mask" x="0" y="0" width="80" height="80" rx="40"></rect>
+                </g>
+                <g id="Group" transform="translate(20.000000, 22.000000)" fill-rule="nonzero">
+                    <polygon id="Shape" fill="#0E2D39" points="36.2401605 17.4827987 27.2881618 17.4827987 24.9729897 12.7289786 39.2961877 12.7289786"></polygon>
+                    <polygon id="Shape" fill="#0E2D39" points="31.1467819 25.1764811 30.1281062 25.1764811 28.5229202 20.4539362 34.2028091 20.4539362"></polygon>
+                    <polygon id="Shape" fill="#009A5F" points="19.7870042 12.6977035 28.7390029 34.2775445 35.1597469 34.2775445 19.7870042 0.281476186 4.56860627 34.3400947 10.9276123 34.3088196"></polygon>
+                    <polygon id="Shape" fill="#0E2D39" points="21.7626177 17.4827987 3.51906158 17.4827987 0.0617379225 12.7289786 19.7870042 12.7289786"></polygon>
+                    <polygon id="Shape" fill="#0E2D39" points="24.9729897 25.1764811 8.70504708 25.1764811 5.27859238 20.4539362 22.9665072 20.4539362"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

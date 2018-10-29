@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Permata_bank</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.10818845 19.0740623 0.0672522796 18.275807 15.398579 0.290208207 15.9490243 0.201025836 16.0184696 0.235382979 16.2874787 0.733927052 9.74938754 22.617965 8.63972492 23.3665122 0.10818845 19.0740623"></polygon>
+        <polygon id="path-3" points="6.88751064 30.6297584 0.331144377 1.0336383 0.56287234 0.478075988 0.672522796 0.428367781 1.41522188 0.623545593 17.6836945 25.2663891 17.6654195 26.5522234 7.75228723 31.1100274 6.88751064 30.6297584"></polygon>
+        <polygon id="path-5" points="0.461262918 21.3372477 0.0657902736 20.5770046 7.07757143 0.36550152 7.49424316 0.0847963526 7.50667021 0.0840653495 7.89190881 0.308483283 13.9723921 20.6237888 13.1522067 21.4746763 0.461262918 21.3372477"></polygon>
+    </defs>
+    <g id="Permata_bank" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#80B13A" fill-rule="nonzero" x="0" y="0" width="52" height="52" rx="4"></rect>
+        <g id="Group-9" transform="translate(7.700000, 5.000000)">
+            <g id="g4348" transform="translate(8.659574, 22.312462) scale(1, -1) translate(-8.659574, -22.312462) translate(0.000000, 10.503951)" fill="#0097B9" fill-rule="nonzero">
+                <polygon id="path4350" points="0.356999326 19.2358849 0.316063156 18.4368986 15.6473899 0.452030792 16.1978352 0.362117418 16.2672805 0.396474561 16.5362896 0.895018634 9.99819841 22.7797876 8.8885358 23.5276037"></polygon>
+            </g>
+            <g id="Group-8">
+                <g id="Group-7">
+                    <g id="g4376" transform="translate(26.462633, 25.568658) scale(-1, 1) rotate(-180.000000) translate(-26.462633, -25.568658) translate(16.622208, 9.430361)" fill="#80B13A" fill-rule="nonzero">
+                        <g id="g4378-Clipped">
+                            <g id="g4378" transform="translate(0.438602, 0.438602)">
+                                <g id="g4384" transform="translate(0.442257, 0.407607)">
+                                    <polygon id="path4386" points="7.456231 30.7021277 17.3693632 26.1443237 17.3876383 24.8584894 1.11916565 0.215645897 0.376466565 0.0197370821 0.266816109 0.0701762918 0.0350881459 0.625738602 6.59218541 30.2218587"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="g4412" transform="translate(17.476919, 12.354373) scale(-1, 1) rotate(-180.000000) translate(-17.476919, -12.354373) translate(9.604578, 0.545862)" fill="#D81936" fill-rule="nonzero">
+                        <g id="g4414-Clipped" transform="translate(0.000000, 0.000000)">
+                            <g id="g4414" transform="translate(0.146201, 0.292401)">
+                                <g id="g4420" transform="translate(0.065790, 0.109285)">
+                                    <polygon id="path4422" points="0 20.6142857 0.394741641 21.3745289 13.0864164 21.5119574 13.9066018 20.6603389 7.82611854 0.345033435 7.44087994 0.121346505 7.42845289 0.122077508 7.01178116 0.402782675"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Group-5" transform="translate(0.000000, 1.169605)">
+                        <g id="g4352" transform="translate(8.513697, 20.980209) scale(-1, 1) rotate(-180.000000) translate(-8.513697, -20.980209) translate(0.247740, 9.171698)">
+                            <g id="g4354-Clipped">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <g id="path4358-8"></g>
+                                <g id="g4354" mask="url(#mask-2)">
+                                    <g transform="translate(-0.584802, -0.731003)">
+                                        <g id="g4360" transform="translate(0.109870, 0.588531)">
+                                            <polygon id="path4362" fill="#005874" points="5.11702128 17.5440729 16.4548784 0.295325228 15.8518009 0.394010638 0.500737082 18.4256626"></polygon>
+                                        </g>
+                                        <g id="g4364" transform="translate(4.854445, 18.268497)">
+                                            <polygon id="path4366" fill="#2FB8E7" fill-rule="nonzero" points="4.38601824 5.84802432 5.49202584 5.09728419 2.05704255 0.529977204 0.461993921 1.2273541"></polygon>
+                                        </g>
+                                        <g id="g4368" transform="translate(0.198760, 18.034430)">
+                                            <polygon id="path4370" fill="#007592" fill-rule="nonzero" points="5.11702128 1.46200608 5.02783891 0.0979544073 0.412285714 0.979544073 0.460531915 1.77268237"></polygon>
+                                        </g>
+                                        <g id="g4372" transform="translate(6.911268, 0.522813)">
+                                            <polygon id="path4374" fill="#007592" fill-rule="nonzero" points="0 18.275076 3.44229331 22.849693 10.0629878 0.946648936 9.72599544 0.380121581"></polygon>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="g4388" transform="translate(26.260202, 24.354069) scale(-1, 1) rotate(-180.000000) translate(-26.260202, -24.354069) translate(17.207010, 8.609388)">
+                            <g id="g4390-Clipped">
+                                <mask id="mask-4" fill="white">
+                                    <use xlink:href="#path-3"></use>
+                                </mask>
+                                <g id="path4394-7"></g>
+                                <g id="g4390" mask="url(#mask-4)">
+                                    <g transform="translate(-0.146201, -0.146201)">
+                                        <g id="g4396" transform="translate(0.319960, 0.415137)">
+                                            <polygon id="path4398" fill="#6E9123" fill-rule="nonzero" points="17.5440729 25.000304 1.28875836 0.304097264 0.457607903 0.0621352584 10.9058343 24.4352386"></polygon>
+                                        </g>
+                                        <g id="g4400" transform="translate(0.435532, 0.294740)">
+                                            <polygon id="path4402" fill="#3F7937" fill-rule="nonzero" points="8.91823708 25.5851064 0.248541033 0.258775076 0.00438601824 0.88012766 6.58706839 30.5062188"></polygon>
+                                        </g>
+                                        <g id="g4404" transform="translate(10.527760, 24.505561)">
+                                            <polygon id="path4406" fill="#A5C550" fill-rule="nonzero" points="7.3100304 2.19300912 7.3363465 0.910098784 0.698107903 0.344302432 0.323834347 2.10236474"></polygon>
+                                        </g>
+                                        <g id="g4408" transform="translate(6.465795, 25.877069)">
+                                            <polygon id="path4410" fill="#5D8B27" fill-rule="nonzero" points="4.38601824 0.73100304 2.88746201 0.00438601824 0.55556231 4.92622948 1.41229787 5.40942249"></polygon>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="g4424" transform="translate(16.835885, 11.533400) scale(-1, 1) rotate(-180.000000) translate(-16.835885, -11.533400) translate(9.750779, 0.512123)">
+                            <g id="g4426-Clipped">
+                                <mask id="mask-6" fill="white">
+                                    <use xlink:href="#path-5"></use>
+                                </mask>
+                                <g id="path4430-4"></g>
+                                <g id="g4426" mask="url(#mask-6)">
+                                    <g transform="translate(-0.146201, -0.731003)">
+                                        <g id="g4432" transform="translate(0.049270, 18.479976)">
+                                            <polygon id="path4434" fill="#AF2C35" fill-rule="nonzero" points="5.99422492 1.46200608 5.07974012 0.381583587 0.119884498 2.85164286 0.520474164 3.60311398"></polygon>
+                                        </g>
+                                        <g id="g4436" transform="translate(0.168423, 0.717333)">
+                                            <polygon id="path4438" fill="#762624" fill-rule="nonzero" points="0 20.6142857 4.96058663 18.1442264 7.47523708 0.0570182371 7.03517325 0.356729483"></polygon>
+                                        </g>
+                                        <g id="g4440" transform="translate(7.515150, 0.583852)">
+                                            <polygon id="path4442" fill="#B22B37" fill-rule="nonzero" points="0 18.275076 6.62581155 20.7794924 0.554100304 0.427636778 0.137428571 0.190791793"></polygon>
+                                        </g>
+                                        <g id="g4444" transform="translate(6.044152, 18.479976)">
+                                            <polygon id="path4446" fill="#DC505E" fill-rule="nonzero" points="0 1.46200608 1.47077812 0.378659574 8.09732067 2.88307599 7.26763222 3.73030851"></polygon>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

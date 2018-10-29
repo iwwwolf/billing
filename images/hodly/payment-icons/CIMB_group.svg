@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>CIMB_group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="CIMB_group" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" fill-rule="nonzero">
+            <g id="Group-4">
+                <rect id="Rectangle" fill="#790008" x="0" y="0" width="52" height="52" rx="4"></rect>
+                <g id="g546" transform="translate(5.103793, 25.323757)" fill="#FFFFFF">
+                    <polygon id="path548" points="29.1696283 16.8965517 0.259581981 16.8965517 13.0540185 0.651724138 41.9640648 0.651724138"></polygon>
+                </g>
+                <g id="g550" transform="translate(5.326293, 9.079894)" fill="#ED1D24">
+                    <polygon id="path552" points="41.7403067 16.8965517 12.8327746 16.8965517 0.0383380398 0.66137931 28.9458702 0.66137931"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

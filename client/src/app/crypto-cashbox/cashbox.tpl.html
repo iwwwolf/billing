@@ -1,0 +1,151 @@
+<div class="billing-block__content billing-block__content--crypto">
+
+    <div id="error-message" class="error-block show"
+         ng-if="!cashbox.methods.length">
+        <div class="error-block__inner">
+            <img src="/images/cashbox/icon-restricted.svg" alt="restricted" width="72" height="72">
+            <h1 class="error-block__header" translate>no payment methods</h1>
+            <p class="error-block__text" translate>cashbox error text</p>
+        </div>
+    </div>
+
+    <div class="sidebar ">
+
+        <div ng-if="cashbox.methods.length"
+             ng-style="cashbox.style"
+             class="crypto-deposit"
+             style="opacity:0">
+            <div class="crypto-deposit__wallets">
+                <div class="form-group">
+                    <label class="control-label" translate>crypto_deposit.cryptocurrency</label>
+
+                    <div uib-dropdown
+                         on-toggle="toggled(open)"
+                         auto-close="outsideClick"
+                         is-open="cashbox.methodsOpened">
+
+                        <!--ng-class="{'disabled' : cashbox.methods.length === 1}"-->
+                        <button uib-dropdown-toggle
+                                aria-expanded="false"
+                                class="form-control dropdown-toggle"
+                                data-toggle="dropdown"
+                                type="button"
+                                >
+                            <i class="paymethod-icon">
+                                <img class="paymethod-img {{cashbox.currentMethod.cashbox_css_class}}"
+                                     ng-src="{{cashbox.currentMethod.icon_url_xs}}">
+                            </i>
+                            <span>{{cashbox.currentMethod.name}}</span>
+                        </button>
+
+                        <ul uib-dropdown-menu
+                            aria-labelledby="simple-dropdown"
+                            class="dropdown-menu">
+
+                            <li ng-class="{'active': cashbox.currentMethod.id === method.id}"
+                                ng-repeat="method in cashbox.methods">
+
+                                <a ng-click="cashbox.setPaymentMethod(method, $index)">
+                                    <i class="paymethod-icon">
+                                        <img class="paymethod-img {{method.cashbox_css_class}}"
+                                             ng-src="{{method.icon_url_xs}}">
+                                    </i>
+                                    <span>{{method.name}}</span>
+                                </a>
+
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="crypto-deposit__arrow hidden-xs">
+                    <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-748.000000, -388.000000)">
+                            <g transform="translate(208.000000, 291.000000)" fill="#000000">
+                                <g transform="translate(114.000000, 40.000000)">
+                                    <g class="path-with-fill" fill="#000000" transform="translate(435.000000, 66.000000) scale(-1, 1) translate(-435.000000, -66.000000) translate(426.000000, 56.000000)">
+                                        <rect x="3.375" y="8.02083333" width="14.625" height="3.4375" rx="1.02272727"></rect>
+                                        <g transform="translate(0.000000, 0.045826)">
+                                            <rect transform="translate(6.187500, 12.844513) rotate(-315.000000) translate(-6.187500, -12.844513) " x="-9.219292e-13" y="11.1257635" width="12.375" height="3.4375" rx="1.02272727"></rect>
+                                            <rect transform="translate(6.187500, 6.370545) scale(1, -1) rotate(-315.000000) translate(-6.187500, -6.370545) " x="-9.21041021e-13" y="4.65179467" width="12.375" height="3.4375" rx="1.02272727"></rect>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="form-group hidden-xs">
+                    <label class="control-label" translate>iq4.deposit.crypto_depositto</label>
+                    <span aria-expanded="false"
+                            class="form-control dropdown-toggle --without-arrow"
+                            type="button"
+                            style="pointer-events: none;">
+                        <i class="paymethod-icon">
+                            <img class="paymethod-img"
+                                 src="/images/cashbox-crypto/billing-iq-acc.svg">
+                        </i>
+                        <span> {{ ('iq4.deposit.crypto_depositto-account' | translate).replace('%ticker',cashbox.currentMethod.currency) }}</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="crypto-address">
+            <div class="crypto-address__qrcode">
+                <qrcode data="{{cashbox.currentMethod.address}}" size="174"></qrcode>
+            </div>
+            <div class="crypto-address__details">
+                <div>
+                    <div class="crypto-address__title">
+                        <img class="crypto-address__title-icon" src="/images/cashbox-crypto/billing_warning.svg">
+                        <span>{{('crypto_deposit.billing warning title ' + cashbox.currentMethod.currency) | translate}}</span>
+                    </div>
+                    <div class="crypto-address__text">
+                        {{('crypto_deposit.billing warning para ' + cashbox.currentMethod.currency) | translate}}
+                    </div>
+                </div>
+                <div class="crypto-address__address" style="margin-top: 4px;">
+                    <input id="address"
+                            class="form-control --with-icon-right"
+                            ng-model="cashbox.currentMethod.address"
+                            ngclipboard
+                            data-clipboard-text="{{cashbox.currentMethod.address}}"
+                            ngclipboard-success="cashbox.onCopySuccess(e);"
+                            name="address"
+                            select-on-click
+                            readonly>
+                    <i ngclipboard
+                       data-clipboard-text="{{cashbox.currentMethod.address}}"
+                       ngclipboard-success="cashbox.onCopySuccess(e);"
+                       class="form-control-icon crypto-address__copy">
+                       <svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                               <g transform="translate(-1051.000000, -608.000000)" fill-rule="nonzero" fill="#000000">
+                                   <g transform="translate(208.000000, 291.000000)">
+                                       <g transform="translate(114.000000, 40.000000)">
+                                           <g transform="translate(310.000000, 264.000000)">
+                                               <g class="path-with-fill" transform="translate(419.000000, 13.000000)" fill="#000">
+                                                   <path d="M13,4 L13,2 C13,0.8954305 12.1045695,-2.02906125e-16 11,0 L2,0 C0.8954305,2.02906125e-16 -1.3527075e-16,0.8954305 0,2 L0,12 C1.3527075e-16,13.1045695 0.8954305,14 2,14 L4,14 L4,12 L2,12 L2,2 L11,2 L11,4 L13,4 Z"></path>
+                                                   <path d="M6,6 L6,16 L15,16 L15,6 L6,6 Z M6,4 L15,4 C16.1045695,4 17,4.8954305 17,6 L17,16 C17,17.1045695 16.1045695,18 15,18 L6,18 C4.8954305,18 4,17.1045695 4,16 L4,6 C4,4.8954305 4.8954305,4 6,4 Z"></path>
+                                               </g>
+                                           </g>
+                                       </g>
+                                   </g>
+                               </g>
+                           </g>
+                       </svg>
+                       <span uib-tooltip-template="'src/common/tooltip/address.copied.tpl.html'"
+                             tooltip-trigger="none"
+                             tooltip-is-open="cashbox.addressCopied"
+                             tooltip-class="tooltip--vip"
+                             tooltip-placement="top"
+                             ></span>
+                    </i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

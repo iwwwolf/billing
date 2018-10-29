@@ -1,0 +1,208 @@
+.requests {
+    .no-data {
+        text-align: center;
+        padding-top: rem(10);
+        .requests__text {
+            line-height: 1.428;
+            font-size: rem(14);
+            font-weight: normal;
+            color: #9B9B9B;
+            padding: rem(15 0 10);
+        }
+    }
+    .withdrawal-inner {
+        margin-top: rem(20);
+        min-height: auto;
+        &.loading {
+            min-height: rem(140);
+        }
+    }
+
+    .circular-loader {
+        background-color: #f1f4f6;
+    }
+}
+
+.requests__header {
+    text-align: center;
+}
+
+.requests__table {
+    background-color: #fff;
+    width: 100%;
+
+    thead {
+        border-top: 1px solid #F4F4F9;
+    }
+
+    tbody {
+        tr {
+            &:nth-child(odd) {
+                background: #F4F4F9;
+            }
+            &:first-child {
+                box-shadow: inset 0 5px 8px -5px rgba(0, 0, 0, 0.05);
+            }
+        }
+    }
+    th {
+        font-weight: 400;
+        padding: rem(8 15);
+        font-size: rem(12);
+        color: #9B9B9B;
+        border-bottom: none;
+        vertical-align: middle;
+        &:first-child {
+            padding-left: rem(20);
+        }
+        &.requests__table-amount {
+            white-space: nowrap;
+        }
+    }
+    td {
+        padding: rem(9 15);
+        font-size: rem(14);
+        line-height: 1.571;
+        font-weight: 300;
+        vertical-align: top;
+        &:first-child {
+            padding-left: rem(20);
+        }
+        &.requests__table-amount {
+            font-weight: 400;
+            white-space: nowrap;
+        }
+        &.requests__table-method {
+            .number {
+                white-space: nowrap;
+            }
+            .exp {
+                margin-left: rem(10);
+                color: #bb5757;
+            }
+        }
+        &.requests__table-status {
+            font-weight: 400;
+            white-space: nowrap;
+            color: #333;
+            cursor: default;
+            .complete {
+                color: #26ac3f;
+            }
+            .canceled {
+                color: #ff7763;
+            }
+            .failed {
+                color: #ff7763;
+                font-weight: 700;
+            }
+            .request {
+                color: #009ff3;
+            }
+            .in_process, .hold {
+                color: #26ac3f;
+            }
+            .status-info-icon {
+                color: #839097;
+                font-size: rem(14);
+                margin: 0 5px 0 0;
+            }
+        }
+        &.requests__table-comment {
+            max-width: rem(250);
+            word-wrap: break-word;
+        }
+        &.requests__table-button {
+            height: rem(50);
+            min-width: rem(110);
+            max-width: rem(110);
+            padding: 0;
+            text-align: right;
+            vertical-align: middle;
+            .btn {
+                &.ng-leave-active {
+                    display: none;
+                }
+                i {
+                    font-size: 0;
+                }
+            }
+        }
+    }
+}
+
+.requests__header {
+    margin-bottom: 30px;
+}
+
+.requests__text {
+    margin: 0;
+    text-align: center;
+}
+
+.requests__pagination {
+    text-align: center;
+    margin-top: rem(20);
+    .pagination {
+        margin: 0;
+        .active a {
+            background-color: #f70;
+            border-color: #f70;
+            color: #fff !important;
+        }
+        a {
+            cursor: pointer;
+        }
+    }
+}
+
+.requests__pagination {}
+
+
+
+/* Medium devices (desktops, 992px and up) */
+@media (max-width: 993px) {
+    .requests__table {
+        th, td {
+            &.requests__table-comment {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 769px) {
+    .requests__table {
+        th, td {
+            &.requests__table-date {
+                display: none;
+            }
+        }
+
+        td {
+            &.requests__table-button {
+                min-width: 30px;
+                width: 30px;
+            }
+
+            &.requests__table-button .btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0;
+                width: 30px;
+                height: 30px;
+                i {
+                    font-size: 18px;
+                    font-style: normal;
+                    line-height: 1;
+                    font-weight: 400;
+                }
+            }
+
+            &.requests__table-method .num {
+                white-space: normal;
+            }
+        }
+    }
+}

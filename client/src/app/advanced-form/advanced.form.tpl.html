@@ -1,0 +1,105 @@
+<div class="advanced advanced--form-page">
+    <div class="sidebar">
+        <div class="advanced__inner">
+            <div class="advanced__header">
+                <a class="advanced__back-link" ng-click="detail.backToCashboxEvent()" ui-sref="root.cashbox" ng-if="!detail.payIsProcessing">
+                    <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g class="path-with-fill" transform="translate(-453.000000, -313.000000)" fill="#000000">
+                                <g transform="translate(452.000000, 312.000000)">
+                                    <rect x="3.91304348" y="9.33333333" width="16.9565217" height="4" rx="1.25"></rect>
+                                    <g transform="translate(0.000000, 0.053324)">
+                                        <rect transform="translate(7.173913, 14.946343) rotate(-315.000000) translate(-7.173913, -14.946343) " x="-4.39069071e-13" y="12.946343" width="14.3478261" height="4" rx="1.25"></rect>
+                                        <rect transform="translate(7.173913, 7.412997) scale(1, -1) rotate(-315.000000) translate(-7.173913, -7.412997) " x="-4.37910577e-13" y="5.41299744" width="14.3478261" height="4" rx="1.25"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+
+                <img ng-if="detail.method.icon_url" src="{{ detail.method.icon_url }}" class="advanced__logo">
+
+                <h3 ng-if="!detail.method.icon_url">{{detail.method.name}}</h3>
+
+                <div class="advanced__descr" ng-switch="detail.method.extra_params.title">
+                    <span ng-switch-when="AstropayCashboxForm" translate>astropay advanced form descr</span>
+                    <span ng-switch-when="BankTransferCashboxForm" translate>bank transfer.advanced form descr</span>
+                    <span ng-switch-default translate>advanced form descr</span>
+                </div>
+            </div>
+
+            <form autocomplete="off" ng-submit="detail.pay()" class="advanced__form" name="aform" novalidate="true">
+
+                <div class="form-group" ng-repeat="field in detail.formFields">
+                    <label class="control-label" for="{{ field.name + '-' + $index }}">
+                        <span translate>{{field.title | lowercase}}</span>&nbsp;<b ng-if="field.required">*</b>
+                    </label>
+                    <div class="form__input-wrapper">
+                        <input ng-if="field.pattern && field.like==='input'"
+                               class="form-control"
+                               ng-required="field.required"
+                               ng-model="fields[field.name]"
+                               ng-pattern="field.pattern"
+                               ng-model-options="{allowInvalid:true}"
+                               name="{{field.name}}"
+                               ng-class="{'valid': aform[field.name].$valid && (aform[field.name].$dirty || aform[field.name].$modelValue),
+                                          'invalid': aform[field.name].$invalid && aform.$submitted && detail.showErrors[field.name]}"
+                               ng-change="detail.removeError(field.name)"
+                               ng-focus="detail.fieldOnFocus(field, fields[field.name])"
+                               ng-blur="detail.fieldOnBlur(field, fields[field.name])"
+                               maxlength="{{field.maxLength}}"
+                               custom-trim="field.pattern"
+                               id="{{ field.name + '-' + $index }}"
+                               type="input">
+                        <input ng-if="!field.pattern && field.like==='input'"
+                               class="form-control"
+                               ng-required="field.required"
+                               ng-model="fields[field.name]"
+                               name="{{field.name}}"
+                               maxlength="{{field.maxLength}}"
+                               ng-focus="detail.fieldOnFocus(field, fields[field.name])"
+                               ng-blur="detail.fieldOnBlur(field, fields[field.name])"
+                               ng-change="detail.removeError(field.name)"
+                               ng-class="{'valid': aform[field.name].$valid && (aform[field.name].$dirty || aform[field.name].$modelValue),
+                                          'invalid': aform[field.name].$invalid && aform.$submitted && detail.showErrors[field.name]}"
+                               id="{{ field.name + '-' + $index }}"
+                               type="input">
+                        <select ng-if="field.like==='select'"
+                                class="form-control"
+                                ng-required="field.required"
+                                ng-options="value as key for (key, value) in field.values"
+                                name="{{field.name}}"
+                                id="{{ field.name + '-' + $index }}"
+                                ng-model="fields[field.name]">
+                        </select>
+
+                        <div class="help-text --error"
+                            ng-messages="aform[field.name].$error"
+                            role="alert"
+                            ng-if="aform.$submitted && detail.showErrors[field.name]">
+
+                            <span ng-message="required" translate>required field</span>
+
+                            <span ng-message="pattern" translate>invalid value</span>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submit-box form-group">
+                    <button class="btn btn-success" type="submit" ng-disabled="detail.payIsProcessing">
+                        <span translate>pay</span> <span>{{detail.payParams.amount| money2:detail.currency}}</span>
+                        <i class="submit-loader" ng-if="cashbox.payIsProcessing">
+                            <svg class="submit-loader__circular" viewbox="25 25 50 50">
+                                <circle class="submit-loader__path" cx="50" cy="50" fill="none" r="20" stroke-miterlimit="10"
+                                        stroke-width="4">
+                                </circle>
+                            </svg>
+                        </i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,427 @@
+a, a:hover {
+    color: #FF5722 !important;
+}
+
+.page-wrapper {
+    z-index: 0;
+    opacity: 0;
+    position: relative;
+}
+
+.app-loaded .page-wrapper {
+    opacity: 1;
+    z-index: 10;
+    transition: opacity 0.2s 0.3s ease-out
+}
+
+.cardConfirm {
+    padding-top: 50px;
+}
+
+.cardConfirm-loader {
+    min-height: 200px;
+}
+
+.cardConfirm-title {
+    color: #696D7E;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: -0.33px;
+}
+
+.cardConfirm-icon {
+    width: 64px;
+    height: 55px;
+    margin: 20px auto 0;
+    display: block;
+}
+
+.cardConfirm-text {
+    width: 100%;
+    color: #696D7E;
+    font-size: 14px;
+    max-width: 580px;
+    line-height: 20px;
+    text-align: center;
+    margin: 15px auto 0;
+    letter-spacing: -0.26px;
+}
+
+.cardConfirm-list {
+    position: relative;
+    margin-top: 32px;
+}
+
+.cardConfirm-card {
+    margin-top: 10px;
+    padding: 18px 40px;
+    background-color: #F1F4F6;
+}
+
+.cardConfirm-card-status-bottom .cardConfirm-card-status-init {
+    display: none;
+}
+
+.cardConfirm-card-status-bottom {
+    padding-left: 30px;
+    text-align: right;
+}
+
+.cardConfirm-card:first-child {
+    margin-top: 0;
+}
+
+.cardConfirm-card-info {
+    display: flex;
+    align-items: center;
+}
+
+.cardConfirm-card-logo {
+    width: 56px;
+    height: 44px;
+    min-width: 56px;
+    min-height: 44px;
+    margin-right: 28px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.cardConfirm-card-logo.visa {
+    background-image: url("/images/withdrawal/visa.svg");
+}
+.cardConfirm-card-logo.mastercard {
+    background-image: url("/images/withdrawal/mastercard.svg");
+}
+.cardConfirm-card-logo.maestro {
+    background-image: url("/images/withdrawal/maestro.svg");
+}
+
+.cardConfirm-card-number {
+    color: #4A4A4A;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    margin-right: 14px;
+}
+
+.cardConfirm-card-number span {
+    color: #7B7F8D;
+}
+
+.cardConfirm-card-expiry {
+    color: #bb5757;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.cardConfirm-card-status {
+    /* width: 200px; */
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+}
+
+.cardConfirm-card-status-icon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    margin-right: 10px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.cardConfirm-card-status-title {
+    font-size: 13px;
+    letter-spacing: -0.1px;
+}
+
+.cardConfirm-card-status-repeat {
+    font-size: 11px;
+    margin-left: 6px;
+    letter-spacing: -0.35px;
+}
+
+.cardConfirm-card-status-init {
+    font-size: 13px;
+    line-height: 28px;
+    letter-spacing: -0.42px;
+}
+
+.cardConfirm-card-status-message {
+    color: #7B7F8D;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: -0.2px;
+}
+
+.cardConfirm-card-status.verified {
+    color: #32AB51;
+}
+
+.cardConfirm-card-status.verified .cardConfirm-card-status-icon {
+    background-image: url("/images/withdrawal/confirm-card-status-verified.svg");
+}
+
+.cardConfirm-card-status.process {
+    color: #7B7F8D;
+}
+
+.cardConfirm-card-status.process .cardConfirm-card-status-icon {
+    background-image: url("/images/withdrawal/confirm-card-status-process.svg");
+}
+
+.cardConfirm-card-status.rejected {
+    color: #E34929;
+}
+
+.cardConfirm-card-status.initial .cardConfirm-card-status-icon,
+.cardConfirm-card-status.rejected .cardConfirm-card-status-icon {
+    background-image: url("/images/withdrawal/confirm-card-status-rejected.svg");
+}
+
+.cardConfirm-safely {
+    text-align: center;
+    margin: 36px auto 0;
+}
+
+.cardConfirm-safely-text {
+    color: #BCBEC5;
+    font-size: 10px;
+    margin-top: 12px;
+    line-height: 14px;
+    letter-spacing: -0.2px;
+}
+
+@media (max-width: 960px) {
+    .cardConfirm-card {
+        padding: 18px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cardConfirm-card-logo {
+        width: 42px;
+        height: 32px;
+        min-width: 42px;
+        min-height: 32px;
+        margin-right: 14px;
+    }
+    .cardConfirm-card-number {
+        overflow: hidden;
+        max-width: 112px;
+        text-overflow: clip;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 514px) {
+    .cardConfirm-card-status-top {
+        width: auto;
+        padding-left: 14px;
+    }
+    .cardConfirm-card-status-bottom {
+        width: 100%;
+        display: block;
+        margin-top: 10px;
+        padding-left: 56px;
+    }
+
+    .cardConfirm-card-status-top .cardConfirm-card-status-init,
+    .cardConfirm-card-status-top .cardConfirm-card-status-title,
+    .cardConfirm-card-status-top .cardConfirm-card-status-repeat {
+        display: none;
+    }
+    .cardConfirm-card-status-top .cardConfirm-card-status-icon {
+        margin-right: 0;
+    }
+    .cardConfirm-card-status-bottom .cardConfirm-card-status-init,
+    .cardConfirm-card-status-bottom .cardConfirm-card-status-repeat {
+        margin-left: 0;
+        margin-top: 6px;
+        font-size: 11px;
+        line-height: initial;
+        display: inline-block;
+        text-decoration: underline;
+    }
+    .cardConfirm-card-status-bottom .cardConfirm-card-status-title {
+        /* display: block; */
+    }
+}
+
+@media (max-width: 480px) {
+    .cardConfirm-title {
+        font-size: 24px;
+    }
+    .cardConfirm-text {
+        font-size: 12px;
+    }
+    .cardConfirm-card {
+        padding: 18px 14px;
+    }
+}
+
+.modal-open .modal {
+    transform: translate3d(0,0,0);
+}
+
+.modal-backdrop {
+    background-color: #fff;
+}
+
+.modal-dialog,
+.modal-content,
+.cardConfirmModal {
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    max-height: 340px;
+    background-color: transparent !important;
+}
+
+.modal-dialog {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 20px;
+}
+
+.cardConfirmModal {
+    position: relative;
+}
+
+.cardConfirmModal-controls {
+    text-align: right;
+    background-color: white;
+}
+
+.cardConfirmModal-close {
+    margin-left: 16px;
+}
+
+.cardConfirmModal-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: #fff;
+}
+
+.cardConfirm-help-header {
+    background-color: #F1F4F6;
+    margin-top: 22px;
+}
+
+.cardConfirm-help-header-toggle {
+    position: absolute;
+    right: 15px;
+    top: 30px;
+}
+
+.cardConfirm-help-header-toggle:after {
+    position: absolute;
+    top: 8px;
+    right: 0px;
+    background: url(../../../images/withdrawal/toggle.svg) no-repeat;
+    display: block;
+    content: '';
+    width: 11px;
+    height: 10px;
+    -webkit-transition: transform .2s ease-out;
+    -moz-transition: transform .2s ease-out;
+    -o-transition: transform .2s ease-out;
+    transition: transform .2s ease-out;
+}
+
+.cardConfirm-help-header-toggle .toggle-text-opened {
+    display: none;
+}
+
+.cardConfirm-help-header-toggle.opened .toggle-text-closed {
+    display: none;
+}
+
+.cardConfirm-help-header-toggle.opened .toggle-text-opened {
+    display: inline;
+}
+
+.cardConfirm-help-header-toggle.opened:after {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    top: 4px;
+}
+
+.cardConfirm-help-header-wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 30px 15px;
+    position: relative;
+    border-bottom: 1px solid #EEEEF4;
+}
+
+.cardConfirm-help-header-title {
+    text-align: center;
+}
+
+.cardConfirm-help-info {
+    background-color: #FAFBFC;
+    padding-bottom: 48px;
+    padding-top: 32px;
+}
+
+.cardConfirm-help-info-images {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cardConfirm-help-info-images img{
+    max-width: 280px;
+}
+
+.cardConfirm-help-info-text {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.cardConfirm-help-header-toggle-text {
+    color: #E34929;
+    padding-right: 18px;
+    cursor: pointer;
+}
+
+@media (max-width: 840px) {
+    .cardConfirm-help-header-toggle-text {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .cardConfirm-help-header-wrapper {
+        padding: 20px 15px;
+    }
+    .cardConfirm-help-header-toggle:after {
+        top: -2px;
+    }
+    .cardConfirm-help-header-toggle.opened:after {
+        top: -6px;
+    }
+    .cardConfirm-help-info {
+        padding-top: 25px;
+        padding-bottom: 32px;
+    }
+}
+
+@media (max-width: 320px) {
+    .cardConfirm-help-info {
+        padding-top: 16px;
+    }
+}

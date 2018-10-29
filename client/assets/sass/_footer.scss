@@ -1,0 +1,103 @@
+.footer__list{
+    max-width: rem(716);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: baseline;
+    margin: 0 auto;
+    padding: rem(24) rem(8);
+    list-style: none;
+    border-radius: rem(0 0 4 4);
+}
+
+.footer__list-item {
+    width: 16%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    white-space: nowrap;
+    padding: 0 rem(8);
+}
+
+.footer__list-item.badge-eu,
+.footer__list-item.badge-ssl,
+.footer__list-item.badge-cysec {
+    width: 26%;
+}
+
+.footer__list-item img {
+    display: block;
+    max-width: 100%;
+    opacity: 0.7;
+}
+
+.footer__list-item span {
+    display: inline-block;
+    vertical-align: middle;
+    /* max-width: none !important; */
+    margin-left: rem(8);
+    font-size: rem(10);
+    font-weight: normal;
+    color: $font-color;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.33;
+}
+
+.footer__list-item.badge-cysec span {
+    max-width: rem(96);
+}
+
+.footer__list-item.badge-eu span {
+    max-width: rem(120);
+}
+
+html[lang="ru"] .footer__list-item.badge-eu span {
+    max-width: rem(124);
+}
+
+.footer__list-item.badge-regafi span {
+    max-width: rem(60);
+}
+
+.footer__list-item.badge-crofr span {
+    max-width: rem(80);
+}
+
+.footer__list-item.badge-ssl span {
+    max-width: rem(110);
+}
+
+.footer__list-item {
+    width: 33.3333%;
+}
+
+.footer__list-item.badge-eu,
+.footer__list-item.badge-ssl,
+.footer__list-item.badge-cysec {
+    min-width: 48%;
+    max-width: 48%;
+    margin-bottom: rem(24);
+}
+
+@media (min-width: 480px) {
+    .footer__list-item {
+        width: 33.3333%;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .footer__list-item {
+        width: auto;
+    }
+
+    .footer__list-item.badge-eu,
+    .footer__list-item.badge-ssl,
+    .footer__list-item.badge-cysec {
+        min-width: auto;
+        max-width: auto;
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,65 @@
+.btn {
+    width: 100%;
+    display: block;
+    border: none;
+    box-shadow: none;
+    background: $btn-color;
+    color: #fff;
+    font-size: rem(14);
+    line-height: 1.571;
+    font-weight: 500;
+    padding: rem(15) rem(24) rem(14);
+    text-align: center;
+    border-radius: rem(4);
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 0 transparent;
+    transition: all 300ms;
+
+    &--big {
+        font-size: rem(16);
+    }
+
+    &--with-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-default {
+        border: 1px solid $btn-color;
+        color: $btn-color;
+        background: transparent;
+        &:hover {
+            border-color: $btn-color-hover;
+            background: $btn-color-hover;
+            color: #fff;
+        }
+        &:disabled,
+        .disabled {
+            border-color: $light-gray;
+            color: $light-gray;
+            pointer-events: none;
+        }
+    }
+
+    &-success {
+        &:hover {
+            background: $btn-color-hover;
+            color: #fff;
+        }
+        &:disabled,
+        .disabled {
+            background: $btn-color;
+            color: #fff;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+    }
+}
+
+.btn__icon-lock {
+    width: rem(16);
+    height: auto;
+    margin-right: rem(14);
+}

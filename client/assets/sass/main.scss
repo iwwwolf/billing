@@ -1,0 +1,355 @@
+@import 'variables';
+@import 'util';
+
+@import 'bootstrap';
+
+* {
+    box-sizing: border-box;
+    &:focus {
+        outline: none;
+    }
+}
+
+html {
+	font: normal ($main-fz - 2) + px/1.571 $main-font;
+}
+body,
+html {
+	height: auto;
+	background: #fff;
+    margin: 0;
+}
+
+body {
+    padding-top: rem(10);
+	min-height: 100%;
+	font: inherit;
+	font-size: 100%;
+	color: $font-color;
+    min-width: 320px;
+}
+
+
+
+#wrap {
+    min-height: 100%;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 250ms;
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+        color: $link-color-hover;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $font-color;
+    margin: 0 0 rem(22);
+    font-weight: bold;
+    &.--fw-normal {
+        font-weight: 400;
+    }
+    &.--fw-medium {
+        font-weight: 500;
+    }
+    &.--uppercase {
+        text-transform: uppercase;
+    }
+}
+
+h1 {
+    font-size: rem(40);
+    line-height: 1.25;
+    margin: 0 0 rem(22);
+}
+
+h2 {
+    font-size: rem(30);
+    margin: 0 0 rem(26);
+    line-height: 1.3333;
+}
+
+h3 {
+    font-size: rem(24);
+    line-height: 1.3333;
+}
+
+h4 {
+    font-size: rem(20);
+    line-height: 1.4;
+}
+
+h5 {
+    font-size: rem(18);
+    line-height: 1.4444;
+}
+
+h6 {
+    font-size: rem(16);
+    line-height: 1.5;
+}
+
+p {
+    margin: 0 0 rem(16);
+}
+
+.container {
+    padding: 0;
+}
+
+.billing-block {
+    display: block;
+    align-items: stretch;
+    justify-content: flex-start;
+    background: $purple-light;
+    //box-shadow: $shadow-default;
+    border-radius: rem(4);
+    position: relative;
+    border: 2px solid $purple-light;
+
+    &__content {
+        padding: rem(20);
+        position: relative;
+    }
+}
+
+.flex-basis-100 {
+    flex-basis: 100%;
+}
+
+.cashbox--crypto {
+    position: relative;
+}
+
+.flex-cols {
+    display: flex;
+    align-items: stretch;
+    margin: 0;
+    &__left {
+        display: none;
+        width: 100%;
+        max-width: rem(240);
+        flex-grow: 1;
+        //padding: rem(32) rem(20);
+        //background: #F9F9FB;
+    }
+    &__right {
+        flex-basis: 100%;
+        //padding: rem(32) rem(20);
+    }
+}
+
+.sidebar {
+    max-width: rem(540);
+    margin: 0 auto;
+    height: 100%;
+    background: #fff;
+    padding: rem(20);
+    box-shadow: $shadow-default;
+    border-radius: rem(4);
+
+    .advanced & {
+        max-width: none;
+        padding: 0;
+    }
+
+    &--crypto {
+        max-width: none !important;
+    }
+}
+
+.submit-loader {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: rem(20);
+    height: rem(20);
+    margin-left: rem(10);
+}
+
+.submit-loader__circular {
+    animation: rotate 2s linear infinite;
+    height: 100%;
+    transform-origin: center center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.submit-loader__path {
+    stroke: #fff;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    animation: dash 1.5s ease-in-out infinite;
+    stroke-linecap: round;
+}
+
+.fake-autofill-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    border: 0 transparent;
+    outline: 0 none;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+}
+
+.policy-link {
+    color: $gray;
+    text-decoration: underline;
+    &:hover,
+    &:focus {
+        color: $dark-gray;
+    }
+}
+
+
+
+// components
+
+@import 'columns';
+
+@import 'buttons';
+
+@import 'tooltip';
+
+@import 'alert';
+
+@import 'footer';
+
+@import 'form';
+
+@import 'dropdown';
+
+@import 'checkbox';
+
+@import 'tabs';
+
+@import 'secure-check';
+
+@import 'deposits';
+
+@import 'errors';
+
+@import 'advanced';
+
+@import 'pay-card';
+
+@import 'crypto-deposit';
+
+@import 'crypto-address';
+
+
+
+
+@media (min-width: 480px) {
+    .container {
+        padding: 0 rem(15);
+    }
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: $main-fz + px;
+    }
+    .container {
+        width: 100%;
+        max-width: rem(860);
+    }
+
+    .flex-cols {
+        &__left {
+            display: block;
+            padding-right: rem(10);
+        }
+        &__right {
+            min-width: rem(420);
+            padding-left: rem(10);
+        }
+    }
+
+    .sidebar {
+        max-width: none;
+        margin: 0;
+    }
+
+    .billing-block {
+        display: flex;
+    }
+}
+
+@media (min-width: 868px) {
+
+    .flex-cols {
+        &__left {
+            min-width: rem(374);
+            max-width: rem(470);
+            flex-basis: 200%;
+        }
+        &__right {
+            max-width: none;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 860px;
+    }
+}
+
+
+
+.--flex {
+    display: flex;
+}
+
+.--oh {
+    overflow: hidden;
+}
+
+.--fz12 {
+    font-size: rem(12);
+}
+
+.--mb0 {
+    margin-bottom: 0;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: rem(-35);
+    }
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: rem(-124);
+    }
+}

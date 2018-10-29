@@ -1,0 +1,329 @@
+<div class="billing-block__content" tooltip-placement>
+
+    <div id="error-message" class="error-block show"
+         ng-if="!cashbox.methods.length || cashbox.userProfile.user_circle === 'BillingPageOFF'">
+        <div class="error-block__inner">
+            <img src="/images/cashbox/icon-restricted.svg" alt="restricted" width="72" height="72">
+            <h1 class="error-block__header" translate>no payment methods</h1>
+            <p class="error-block__text" translate>cashbox error text</p>
+        </div>
+    </div>
+
+    <div id="error-message" class="error-block full show"
+         ng-if="cashbox.sessionData.kyc.is_restricted || cashbox.userNeedsToVerify">
+        <div class="error-block__inner">
+            <p class="error-block__text" translate>User needs to be verified</p>
+            <a target="_top" href="//{{iqOptionUrl}}/verification" class="verification_button" translate>kyc.verification</a>
+        </div>
+    </div>
+
+    <div id="error-message" class="error-block full show"
+         ng-if="cashbox.avalaibleDepLessThanMin">
+        <div class="error-block__inner">
+            <p class="verification_text" translate>User reach deposit limit</p>
+            <a target="_top" href="//{{iqOptionUrl}}/verification" class="verification_button" translate>kyc.verification</a>
+        </div>
+    </div>
+
+    <div class="error-message" ng-if="cashbox.pageHasErrors">
+        <div ng-repeat="error in cashbox.errorsOnPay" class="error-message__item" translate>
+            {{error}}
+        </div>
+    </div>
+
+    <div class="flex-cols" ng-if="cashbox.methods.length" ng-style="cashbox.style" style="opacity:0">
+        <div class="flex-cols__left">
+
+            <ul class="deposits sidebar" id="deposits-list">
+                <li class="deposits__item-col"
+                    ng-repeat="dep in cashbox.actualDeposits">
+                    <div class="deposits__item"
+                         ng-if="!dep.disabled"
+                         ng-click="cashbox.setAmount(dep)"
+                         ng-class="{'selected': dep.amount == cashbox.paymentController.amount, 'deposits__item--vip': dep.badge === 'vip'}">
+
+                        <a href="//iqoption.com/vip" ng-click="cashbox.clickOnVipEvent()" target="_blank"
+                           class="deposits__icon-vip"
+                           ng-click="$event.stopPropagation()"
+                           ng-if="dep.badge === 'vip'">
+                            <i tooltip-placement="bottom"
+                               tooltip-trigger="'mouseenter'"
+                               tooltip-class="tooltip--vip"
+                               ng-mouseenter="cashbox.mouseOverVipEvent()"
+                               uib-tooltip-template="'src/common/tooltip/vip.info.tpl.html'"
+                            >
+                                <svg width="35" height="27" viewBox="0 0 35 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g stroke="none" fill="#ff7700" fill-rule="evenodd">
+                                        <path id="b" d="M32.136 5.553c-1.216 0-2.203.996-2.203 2.22 0 .5.152.96.418 1.304l-2.886 2.106c-2.088 1.532-5.05.766-6.19-1.57l-2.658-5.4c.72-.383 1.215-1.11 1.215-1.992C19.83.997 18.845 0 17.63 0c-1.215 0-2.202.996-2.202 2.22 0 .882.493 1.61 1.215 1.993l-2.658 5.4c-1.14 2.336-4.1 3.064-6.19 1.57L4.83 9.038c.228-.344.38-.804.38-1.264 0-1.225-.988-2.22-2.203-2.22-1.215 0-2.24.995-2.24 2.22 0 1.226.987 2.222 2.202 2.222.303 0 .57-.077.835-.153l5.05 13.136h17.508l5.05-13.1c.23.077.457.116.723.116 1.215 0 2.202-.996 2.202-2.222 0-1.225-.987-2.22-2.202-2.22zM8.856 25.966C8.856 26.54 9.31 27 9.88 27H25.3c.57 0 1.025-.46 1.025-1.034V24.51H8.855v1.456z"/>
+                                    </g>
+                                </svg>
+                            </i>
+                        </a>
+
+                        <span class="deposits__value">
+                            {{dep.amount | money2:cashbox.currentCurrency}}
+                        </span>
+                    </div>
+
+                    <div class="deposits__item --not-available"
+                         tooltip-placement="bottom"
+                         tooltip-trigger="'outsideClick'"
+                         uib-tooltip-template="'src/common/tooltip/deposit.need.to.verify.tpl.html'"
+                         ng-if="dep.disabled"
+                         ng-class="{'selected': dep.amount == cashbox.paymentController.amount, 'badge-vip': dep.badge === 'vip'}">
+
+                        <span class="deposits__value" style="color: #777;">
+                            {{dep.amount | money2:cashbox.currentCurrency}}
+                        </span>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+        <div class="flex-cols__right">
+            <form autocomplete="off" class="sidebar" name="paymentForm" novalidate>
+                <div class="form-group">
+                    <div class="--flex">
+                        <label class="control-label" translate>payment method</label>
+
+                        <a class="--fz12"
+                           ng-if="cashbox.currentMethod.is_custom"
+                           ng-click="cashbox.unlinkCard()" translate>
+                            unlink
+                        </a>
+
+                        <label class="checkbox__label" for="link-card" ng-if="cashbox.currentMethod.extra_params.title === 'VisaMasterCardCashboxForm'">
+                            <span class="checkbox">
+                                <input type="checkbox"
+                                       id="link-card"
+                                       ng-change="cashbox.setLinkCardEvent(cashbox.paymentController.link_card_agree)" checked
+                                       ng-model="cashbox.paymentController.link_card_agree">
+                                <span class="checkbox__icon"></span>
+                            </span>
+                            <span class="checkbox__text" translate>link card</span>
+                        </label>
+                    </div>
+
+                    <div on-toggle="toggled(open)" uib-dropdown auto-close="outsideClick"
+                         is-open="cashbox.methodsOpened">
+                        <button aria-expanded="false" class="form-control dropdown-toggle" data-toggle="dropdown"
+                                type="button" uib-dropdown-toggle>
+                            <i class="paymethod-icon">
+                                <img class="paymethod-img {{cashbox.currentMethod.cashbox_css_class}}"
+                                     ng-src="{{cashbox.currentMethod.icon_url_xs}}">
+                            </i>
+                            <span>
+                                {{cashbox.currentMethod.name}}
+                            </span>
+                        </button>
+                        <ul aria-labelledby="simple-dropdown" class="dropdown-menu" uib-dropdown-menu>
+                            <li ng-class="{'active': cashbox.currentMethod.id === method.id, 'disabled': method.disabled}"
+                                ng-repeat="method in cashbox.methods">
+
+                                <a ng-if="!method.disabled"
+                                   ng-click="cashbox.setPaymentMethod(method, $index)">
+
+                                    <i class="paymethod-icon">
+                                        <img ng-src="{{method.icon_url_xs}}">
+                                    </i>
+                                    <span>
+                                        {{method.name}}
+                                    </span>
+                                </a>
+
+                                <a ng-if="method.disabled"
+                                   tooltip-placement="{{cashbox.methodTooltipPosition()}}"
+                                   tooltip-trigger="'outsideClick'"
+                                   tooltip-class="tooltip--vip"
+                                   uib-tooltip-template="'src/common/tooltip/pm.need.to.verify.tpl.html'">
+                                    <i class="paymethod-icon">
+                                        <img ng-src="{{method.icon_url_xs}}">
+                                    </i>
+                                    <span>
+                                        {{method.name}}
+                                    </span>
+                                </a>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="secure-check form-group" ng-if="cashbox.currentMethod.payment_method_3ds_id && (cashbox.enabled3dsReccurent === 'enabled_show_3ds')">
+                    <label class="checkbox__label secure-check__label">
+                        <!--<span class="checkbox-input vertical-align-top">-->
+                        <!--<input type="checkbox" ng-model="cashbox.refillWith3ds">-->
+                        <!--<i></i>-->
+                        <!--</span>-->
+                        <span class="checkbox">
+                            <input type="checkbox" ng-model="cashbox.refillWith3ds">
+                            <span class="checkbox__icon"></span>
+                        </span>
+                        <div class="js-accept-bonus-text">
+                            <div class="secure-check__title" translate>
+                                enable 3ds protection
+                            </div>
+                            <div class="secure-check__text" translate>
+                                in order to withdraw cryptocurrency
+                            </div>
+                        </div>
+                        <span class="secure-check__help"
+                              tooltip-placement="bottom"
+                              tooltip-trigger="'mouseenter'"
+                              uib-tooltip-template="'src/common/tooltip/payment.3ds.info.tpl.html'">
+                            <svg height="15px" width="15px" id="icon_general_support_temp" viewBox="0 0 15 15"
+                                 fill="#8d8d8d">
+                                <path fill-rule="evenodd" d="M7.5 0C3.36 0 0 3.36 0 7.5 0 11.64 3.36 15 7.5 15c4.14 0 7.5-3.36 7.5-7.5C15 3.36 11.64 0 7.5 0zm2.496 7.29c.497-.47.785-1.116.785-1.802 0-1.728-1.47-3.122-3.28-3.122-1.81 0-3.28 1.394-3.28 3.122v.28h2.06v-.28c0-.622.547-1.14 1.22-1.14.673 0 1.22.518 1.22 1.14 0 .305-.128.587-.353.795l-.935.9a3.065 3.065 0 0 0-.963 2.212v.635h2.06v-.28c0-.857.184-1.223.792-1.807l.676-.655-.002.003zM8.25 13.03h.28v-2.06H6.47v2.06h1.78z"></path>
+                            </svg>
+                        </span>
+                    </label>
+                </div>
+
+                <div class="alert alert-warning"
+                     ng-if="cashbox.showCryptoWithdrawalWarning ==='enabled' &&
+                    ((!cashbox.currentMethod.is_secure && !cashbox.currentMethod.is_custom)
+                    || (cashbox.currentMethod.is_custom && !(cashbox.currentMethod.payment_method_3ds_id && cashbox.enabled3dsReccurent === 'enabled_show_3ds')))
+                ">
+                    <span translate>you may have problems with crypto withdrawals</span>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label class="control-label" translate>counting amount</label>
+                        <div class="form-group__amount" id="amount-input-group"
+                             ng-class="{'focus':cashbox.amountFocus}">
+
+                            <i class="">
+                                {{cashbox.currentCurrency.symbol}}
+                            </i>
+
+                            <input ng-if="!cashbox.currentLimits.minByKyc"
+                                   class="form-control"
+                                   max="cashbox.currentLimits.max"
+                                   min="cashbox.currentLimits.min"
+                                   name="amount"
+                                   ng-focus="cashbox.focusAmountField()"
+                                   ng-blur="cashbox.blurAmountField()"
+                                   numbers-only
+                                   ng-model-options="{allowInvalid:true}"
+                                   ng-model="cashbox.paymentController.amount"
+                                   range range-allow-less="true" range-allow-more="true"
+                                   maxlength="13"
+                                   type="text">
+
+                            <input ng-if="cashbox.currentLimits.minByKyc"
+                                   class="form-control"
+                                   max="cashbox.currentLimits.minByKyc"
+                                   min="cashbox.currentLimits.min"
+                                   name="amount"
+                                   ng-focus="cashbox.focusAmountField()"
+                                   ng-blur="cashbox.blurAmountField()"
+                                   numbers-only
+                                   ng-model-options="{allowInvalid:true}"
+                                   ng-model="cashbox.paymentController.amount"
+                                   range range-allow-less="true" range-allow-more="true"
+                                   maxlength="13"
+                                   type="text">
+
+                            <div ng-messages="paymentForm.amount.$error" role="alert">
+                                <div ng-message="rangeMin">
+                                    <div class="--error tooltip bottom fade in" ng-class="{ in: isOpen }">
+                                        <div class="tooltip-arrow"></div>
+                                        <div class="tooltip-inner">
+                                            {{ ('amount is less than min' | translate).replace('{min}',
+                                            cashbox.currentLimits.min | money2:cashbox.currentCurrency) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-message="rangeMax" ng-if="!cashbox.amountWithKycLimit">
+                                    <div class="--error tooltip bottom fade in" ng-class="{ in: isOpen }">
+                                        <div class="tooltip-arrow"></div>
+                                        <div class="tooltip-inner">
+                                            {{ ('amount is more than max' | translate).replace('{max}',
+                                            cashbox.currentLimits.max | money2:cashbox.currentCurrency) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-message="rangeMax" ng-if="cashbox.amountWithKycLimit">
+                                    <div class="--error tooltip bottom fade in" ng-class="{ in: isOpen }">
+                                        <div class="tooltip-arrow"></div>
+                                        <div class="tooltip-inner">
+                                            {{ ('amount is more than kyc limit max' | translate).replace('{max}',
+                                            cashbox.currentLimits.max | money2:cashbox.currentCurrency) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" ng-if="cashbox.currencies.length != 1">
+                        <label for="" class="control-label" translate>currency</label>
+
+                        <div on-toggle="toggled(open)" uib-dropdown class="dropdown--short">
+
+                            <button aria-expanded="false" class="form-control dropdown-toggle"
+                                    ng-class="{'disabled' : cashbox.currencies.length === 1}"
+                                    data-toggle="dropdown" type="button" uib-dropdown-toggle>
+                                {{cashbox.currentCurrency.name}}
+                            </button>
+
+                            <ul aria-labelledby="simple-dropdown" class="dropdown-menu" uib-dropdown-menu>
+                                <li ng-class="{'active': cur.name === cashbox.currentCurrency.name}"
+                                    ng-repeat="cur in cashbox.currencies">
+                                    <a ng-click="cashbox.paymentController.currency = cur.name; cashbox.changeCurrency(); cashbox.setCurrencyEvent();">
+                                        {{cur.name}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submit-box">
+                    <button class="btn btn-success btn--big"
+                            ng-class="{'disabled' : !paymentForm.$valid || (cashbox.needToAgreeWithTerms  && !cashbox.termsAccepted)}"
+                            ng-click="cashbox.goToPayment()"
+                            ng-disabled="cashbox.payIsProcessing ||
+                            !paymentForm.$valid ||
+                            (cashbox.needToAgreeWithTerms && !cashbox.termsAccepted)">
+                        <span translate>go to payment</span>
+
+                        <i class="submit-loader" ng-if="cashbox.payIsProcessing">
+                            <svg class="submit-loader__circular" viewbox="25 25 50 50">
+                                <circle class="submit-loader__path" cx="50" cy="50" fill="none" r="20" stroke-miterlimit="10"
+                                        stroke-width="4">
+                                </circle>
+                            </svg>
+                        </i>
+                    </button>
+                </div>
+
+                <div class="form-group--margin-top" ng-if="cashbox.needToAgreeWithTerms">
+                    <label class="checkbox__label --fz12" for="accept-bonus-checkbox">
+                        <span class="checkbox">
+                            <input type="checkbox"
+                                   id="accept-bonus-checkbox"
+                                   ng-model="cashbox.termsAccepted">
+                            <span class="checkbox__icon"></span>
+                        </span>
+                        <span class="checkbox__text js-accept-bonus-text" translate>i_hereby_accept</span>
+                    </label>
+                </div>
+
+                <div class="form-group--margin-top text-center --fz12"
+                     ng-if="cashbox.currentMethod.extra_params.title === 'VisaMasterCardCashboxForm'">
+                    <a href="//iqoption.com/terms-and-conditions/payment-policy"
+                       class="policy-link"
+                       target="_blank"
+                       id="payment-policy-link"
+                       ng-click="cashbox.paymentPolicyEvent()"
+                       translate>
+                        payment policy
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
